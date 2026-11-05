@@ -2,7 +2,7 @@
  
 [![C++17](https://img.shields.io/badge/C%2B%2B-17-00599C?logo=cplusplus&logoColor=white)](https://en.cppreference.com/w/cpp/17)
 [![Qt](https://img.shields.io/badge/Qt-6-41CD52?logo=qt&logoColor=white)](https://www.qt.io/download-open-source)
-![Qt](https://img.shields.io/badge/CMake-064F8C?logo=cmake&logoColor=fff)
+![Qt](https://img.shields.io/badge/CMake-3.19+-064F8C?style=flat&logo=cmake&logoColor=white)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/)
  
 A client-server chat application over TCP, written in C++.
@@ -51,7 +51,7 @@ Example:
 - `private` (to, text): send a private message to one user
 - `reply` (text, quote): reply to a quoted message
 - `forward` (to, text): forward a message; empty `to` means the public room
-- `sticker` (to, id): send a sticker; id is `nobita` or `doremon`
+- `sticker` (to, id): send a sticker
 - `image` (to, data): send an image; data is a Base64-encoded JPEG
 ### Server to Client
  
