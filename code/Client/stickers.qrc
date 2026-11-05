@@ -8,5 +8,6 @@
         <file alias="dislike.jpg">sticker/dislike.jpg</file>
         <file alias="sprise.jpg">sticker/sprise.jpg</file>
         <file alias="crazy.jpg">sticker/crazy.jpg</file>
+        <file alias="silly.jpg">sticker/silly.jpg</file>
     </qresource>
 </RCC>
