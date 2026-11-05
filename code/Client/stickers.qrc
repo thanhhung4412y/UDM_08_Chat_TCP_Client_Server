@@ -1,0 +1,12 @@
+
+<RCC>
+    <qresource prefix="/stickers">
+        <file alias="doremon.jpg">sticker/doremon.jpg</file>
+        <file alias="nobita.jpg">sticker/nobita.jpg</file>
+        <file alias="happy.jpg">sticker/happy.jpg</file>
+        <file alias="like.jpg">sticker/like.jpg</file>
+        <file alias="dislike.jpg">sticker/dislike.jpg</file>
+        <file alias="sprise.jpg">sticker/sprise.jpg</file>
+        <file alias="crazy.jpg">sticker/crazy.jpg</file>
+    </qresource>
+</RCC>
