@@ -2,6 +2,7 @@
  
 [![C++17](https://img.shields.io/badge/C%2B%2B-17-00599C?logo=cplusplus&logoColor=white)](https://en.cppreference.com/w/cpp/17)
 [![Qt](https://img.shields.io/badge/Qt-6-41CD52?logo=qt&logoColor=white)](https://www.qt.io/download-open-source)
+![Qt](https://img.shields.io/badge/CMake-064F8C?logo=cmake&logoColor=fff)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/)
  
 A client-server chat application over TCP, written in C++.
