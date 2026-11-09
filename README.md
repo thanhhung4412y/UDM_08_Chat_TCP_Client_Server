@@ -67,8 +67,7 @@ Example:
 - `error` (text): error message
 
 ## Limitations
- 
-- No accounts, messages are not stored.
+
 - No offline user list and no message history synchronization (online users only).
  
 ## License
