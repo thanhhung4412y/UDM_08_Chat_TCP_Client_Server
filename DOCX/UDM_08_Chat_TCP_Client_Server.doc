@@ -1,0 +1,1356 @@
+Date: Mon, 9 Nov 2026 17:59:07 +0000 (UTC)
+Message-ID: <90009966.9.1794247147676@a6cc1e0dc76a>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_8_1008187723.1794247147676"
+
+------=_Part_8_1008187723.1794247147676
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>UDM_08_Chat_TCP_Client_Server</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font: var(--ds-font-body-small, Arial, Helvetica, FreeSans, sans-se=
+rif);
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: var(--ds-surface, #fff) !important;
+        color: var(--ds-text, #000) !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: var(--ds-text, #000);
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        page-break-after: avoid;
+    }
+
+    pre {
+        font: var(--ds-font-code, Monaco, "Courier New", monospace);
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>UDM_08_Chat_TCP_Client_Server</h1>
+    <div class=3D"Section1">
+        <h1 local-id=3D"3996d20c47d1" id=3D"UDM_08_Chat_TCP_Client_Server-=
+=E1=BB=A8ngd=E1=BB=A5ngChatClient-ServerquaTCPb=E1=BA=B1ngC++"><strong><spa=
+n style=3D"color: rgb(255,86,48);">=E1=BB=A8ng d=E1=BB=A5ng Chat Client-Ser=
+ver qua TCP b=E1=BA=B1ng C++</span></strong></h1>
+<h2 local-id=3D"289b50384f3f" id=3D"UDM_08_Chat_TCP_Client_Server-UDM_08_Ch=
+at_TCP_Client_Server">UDM_08_Chat_TCP_Client_Server
+<br></h2>
+<h1 local-id=3D"cb67fc6b2153" id=3D"UDM_08_Chat_TCP_Client_Server-I.Gi=E1=
+=BB=9Bithi=E1=BB=87u">I. Gi=E1=BB=9Bi thi=E1=BB=87u</h1>
+<p local-id=3D"37f0b015041e"></p>
+<p local-id=3D"dc966548a85e">1.Th=C3=B4ng tin d=E1=BB=B1 =C3=A1n</p>
+<p local-id=3D"e4e4131be730"></p>
+<p local-id=3D"3ef2bb65004a"></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"838" data-layout=3D"center" data-local-id=3D"465=
+433fdfda8" class=3D"confluenceTable">
+<tbody>
+<tr data-local-id=3D"ac353d01f1e5">
+<th data-local-id=3D"c09eabe1bcd7" class=3D"confluenceTh">
+<p local-id=3D"1dcb6f0026e8"><strong>H=E1=BB=8C V=C3=80 T=C3=8AN</strong></=
+p>
+</th>
+<th data-local-id=3D"7a7e7d609072" class=3D"confluenceTh">
+<p local-id=3D"54285699fe5d"><strong>MSSV</strong></p>
+</th>
+<th data-local-id=3D"d3f97b2fb113" class=3D"confluenceTh">
+<p local-id=3D"546f1e38d28d"><strong>MAIL</strong></p>
+</th>
+<th data-local-id=3D"ddfc5d70b780" class=3D"confluenceTh">
+<p local-id=3D"47eb295c2119"><strong>CH=E1=BB=A8C V=E1=BB=A4</strong></p>
+</th>
+</tr>
+<tr data-local-id=3D"907638264d40">
+<td data-local-id=3D"5786fe6c38d3" class=3D"confluenceTd">
+<p local-id=3D"891e9515b239">Nguy=E1=BB=85n Thanh H=C3=B9ng</p>
+</td>
+<td data-local-id=3D"a98edcc0d952" class=3D"confluenceTd">
+<p local-id=3D"067d4ae0c461">080206006425</p>
+</td>
+<td data-local-id=3D"db31fae0c79d" class=3D"confluenceTd">
+<p local-id=3D"90c18df25f1b">hungnt6425@ut.edu.vn</p>
+</td>
+<td data-local-id=3D"f2af8335eefa" class=3D"confluenceTd">
+<p local-id=3D"07c2d36aa477">Nh=C3=B3m tr=C6=B0=E1=BB=9Fng</p>
+</td>
+</tr>
+<tr data-local-id=3D"9792c557917b">
+<td data-local-id=3D"1ffa81680cdc" class=3D"confluenceTd">
+<p local-id=3D"120704313570">Ph=C3=B9ng Nguy=E1=BB=85n H=E1=BB=AFu Th=E1=BB=
+=8Bnh</p>
+</td>
+<td data-local-id=3D"6866161cf1ee" class=3D"confluenceTd">
+<p local-id=3D"6e424171226f">083206007830</p>
+</td>
+<td data-local-id=3D"65e88f5faad9" class=3D"confluenceTd">
+<p local-id=3D"79db88048fa7"><a class=3D"external-link" href=3D"mailto:thin=
+hpnh7830@ut.edu.vn" rel=3D"nofollow">thinhpnh7830@ut.edu.vn</a></p>
+</td>
+<td data-local-id=3D"47d099ce67a0" class=3D"confluenceTd">
+<p local-id=3D"7daa0a43f39b">Th=C3=A0nh vi=C3=AAn nh=C3=B3m</p>
+</td>
+</tr>
+<tr data-local-id=3D"c6da7e974e0d">
+<td data-local-id=3D"a3dea74fb083" class=3D"confluenceTd">
+<p local-id=3D"70ebc2661541">Tr=E1=BA=A7n =C4=90=E1=BB=A9c Duy</p>
+</td>
+<td data-local-id=3D"f15010a045b9" class=3D"confluenceTd">
+<p local-id=3D"d1275894ff6d">079207005063</p>
+</td>
+<td data-local-id=3D"2af98d132be8" class=3D"confluenceTd">
+<p local-id=3D"ef47a0ae513d"><a class=3D"external-link" href=3D"mailto:duyt=
+d795063@ut.edu.vn" rel=3D"nofollow">duytd795063@ut.edu.vn</a></p>
+</td>
+<td data-local-id=3D"6d81753f81f4" class=3D"confluenceTd">
+<p local-id=3D"d0646a5453dd">Th=C3=A0nh vi=C3=AAn nh=C3=B3m</p>
+</td>
+</tr>
+<tr data-local-id=3D"314de4ff2658">
+<td data-local-id=3D"bb5e3c2d3e56" class=3D"confluenceTd">
+<p local-id=3D"c25d32cb04af">L=C3=AA Quang T=C3=B9ng</p>
+</td>
+<td data-local-id=3D"c2dc92764bc7" class=3D"confluenceTd">
+<p local-id=3D"895cd36f8f35">056206010690</p>
+</td>
+<td data-local-id=3D"1817025cbdb8" class=3D"confluenceTd">
+<p local-id=3D"9e9c51e8ac86"><a class=3D"external-link" href=3D"mailto:tung=
+lq0690@ut.edu.vn" rel=3D"nofollow">tunglq0690@ut.edu.vn</a></p>
+</td>
+<td data-local-id=3D"9208fe0edf9b" class=3D"confluenceTd">
+<p local-id=3D"579b7c6b4a3c">Th=C3=A0nh vi=C3=AAn nh=C3=B3m</p>
+</td>
+</tr>
+<tr data-local-id=3D"5e2f6e5e64b3">
+<td data-local-id=3D"3f3e131be9bb" class=3D"confluenceTd">
+<p local-id=3D"780923375c29">Nguy=E1=BB=85n T=E1=BA=A5n Tr=C6=B0=E1=BB=9Dng=
+</p>
+</td>
+<td data-local-id=3D"8a8872a5ad5c" class=3D"confluenceTd">
+<p local-id=3D"44b870cff5c5">087206000096</p>
+</td>
+<td data-local-id=3D"03416a9e7f6d" class=3D"confluenceTd">
+<p local-id=3D"36c04942a1a4">truongnt0096@ut.edu.vn</p>
+</td>
+<td data-local-id=3D"09d142ba7070" class=3D"confluenceTd">
+<p local-id=3D"050046b8e77c">Th=C3=A0nh vi=C3=AAn nh=C3=B3m</p>
+</td>
+</tr>
+<tr data-local-id=3D"0eb00bbb18e7">
+<td data-local-id=3D"4e57956f2989" class=3D"confluenceTd">
+<p local-id=3D"0c952757e7eb">Th=C3=A1i Nguy=E1=BB=85n Anh Tu=E1=BA=A5n</p>
+</td>
+<td data-local-id=3D"66095751ba66" class=3D"confluenceTd">
+<p local-id=3D"ac63edcdd4bc">087206016780</p>
+</td>
+<td data-local-id=3D"a261eff8b6df" class=3D"confluenceTd">
+<p local-id=3D"9f70e70db76c">tuantna6780@ut.edu.vn</p>
+</td>
+<td data-local-id=3D"c2e82635d7ce" class=3D"confluenceTd">
+<p local-id=3D"5d0008094caf">Th=C3=A0nh vi=C3=AAn nh=C3=B3m</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"bd381bddd828"></p>
+<p local-id=3D"81690b758e84">2.???</p>
+<p local-id=3D"46637bdc221c"></p>
+<p local-id=3D"970d1676ae53">3.C=C3=A1c ph=E1=BA=A7n m=E1=BB=81m t=C6=B0=C6=
+=A1ng t=E1=BB=B1</p>
+<p local-id=3D"2af29952aa4c"></p>
+<p local-id=3D"7da900b5ea01">4.M=E1=BB=A5c =C4=91=C3=ADch v=C3=A0 t=E1=BA=
+=A7m nh=C3=ACn</p>
+<p local-id=3D"470e96ca3d06"></p>
+<p local-id=3D"3c205dcd92c2">5.T=C3=ADnh n=C4=83ng v=C3=A0 h=E1=BA=A1n ch=
+=E1=BA=BF</p>
+<p local-id=3D"56b3c70f745a"></p>
+<p local-id=3D"11559cca0b97">5.1 T=C3=ADnh n=C4=83ng</p>
+<p local-id=3D"61dc51c911ef"></p>
+<p local-id=3D"9e7ffff1671e">5.1.1 T=C3=ADnh n=C4=83ng c=E1=BB=A7a Server</=
+p>
+<p local-id=3D"d35ca95a5cf1"></p>
+<p local-id=3D"8d75dd7d57a9">5.1.2 T=C3=ADnh n=C4=83ng c=E1=BB=A7a Client</=
+p>
+<p local-id=3D"4397e45e45c6"></p>
+<p local-id=3D"8b598efa38a9">5.2 H=E1=BA=A1n ch=E1=BA=BF v=C3=A0 ngo=E1=BA=
+=A1i l=E1=BB=87</p>
+<h1 local-id=3D"b3d1070851ee" id=3D"UDM_08_Chat_TCP_Client_Server-II.Ti=E1=
+=BA=BFn=C4=91=E1=BB=99d=E1=BB=B1=C3=A1n">
+<br>
+II. Ti=E1=BA=BFn =C4=91=E1=BB=99 d=E1=BB=B1 =C3=A1n
+</h1>
+<p local-id=3D"4998b6dd88a5"></p>
+<h2 local-id=3D"123eb043b568" id=3D"UDM_08_Chat_TCP_Client_Server-1.T=E1=BB=
+=95ngquan">1.T=E1=BB=95ng quan</h2>
+<p local-id=3D"21e5c16400ce">
+<br>
+1.1 Ph=C3=A2n b=E1=BB=95 th=E1=BB=9Di gian
+</p>
+<p local-id=3D"b2e6592b1b0c">
+<br>
+1.2 C=C3=A1c m=E1=BB=A5c ti=C3=AAu
+</p>
+<p local-id=3D"c730b31f51e2">
+<br>
+1.3 Ki=E1=BB=83m tra c=C3=A1c ch=E1=BB=A9c n=C4=83ng ch=C3=ADnh
+</p>
+<p local-id=3D"87af263691f9">
+<br>
+1.4 C=C3=A1c r=E1=BB=A7i ro, nguy c=C6=A1
+</p>
+<p local-id=3D"043709e58d33"></p>
+<h2 local-id=3D"0ef550926173" id=3D"UDM_08_Chat_TCP_Client_Server-2.Ph=C6=
+=B0=C6=A1ngph=C3=A1pqu=E1=BA=A3nl=C3=BD">2.Ph=C6=B0=C6=A1ng ph=C3=A1p qu=E1=
+=BA=A3n l=C3=BD</h2>
+<p local-id=3D"fc169ae7ae2e"></p>
+<p local-id=3D"c3bd99ad1ef2">2.1 Qu=E1=BA=A3n l=C3=AD ch=E1=BA=A5t l=C6=B0=
+=E1=BB=A3ng</p>
+<p local-id=3D"16e74a6a9e3a"></p>
+<p local-id=3D"42532056a06d">2.2 =C4=90=C3=A1nh gi=C3=A1</p>
+<p local-id=3D"e519bee699d2"></p>
+<p local-id=3D"14b3d0b7ce11">2.3 Ki=E1=BB=83m tra</p>
+<p local-id=3D"dba2801a5e8d"></p>
+<p local-id=3D"0ebd1651b7b7"></p>
+<p local-id=3D"5c8e26cb7f3c"><span style=3D"color: rgb(255,86,48);"> 3. =C4=
+=91=E1=BA=BFn 5. ---&gt; c=E1=BA=A7n x=C3=A9t l=E1=BA=A1i n=C3=AAn t=E1=BA=
+=A1m b=E1=BB=8F qua</span></p>
+<p local-id=3D"197e411b9b52"></p>
+<h2 local-id=3D"88514e38a964" id=3D"UDM_08_Chat_TCP_Client_Server-6.Qu=E1=
+=BA=A3nl=C3=BDc=E1=BA=A5uh=C3=ACnh">6.Qu=E1=BA=A3n l=C3=BD c=E1=BA=A5u h=C3=
+=ACnh</h2>
+<p local-id=3D"5f694c848c37"></p>
+<p local-id=3D"336c929c6ac1">6.1 Qu=E1=BA=A3n l=C3=BD t=C3=A0i li=E1=BB=87u=
+</p>
+<ul local-id=3D"8907a3f16d8f">
+<li local-id=3D"65f54e99d6e3">
+<p local-id=3D"d1420463577e">Confluence</p>
+</li>
+<li local-id=3D"fa441d12b88c">
+<p local-id=3D"b89ea297aa0d">MS World</p>
+</li>
+<li local-id=3D"9080713eb94a">
+<p local-id=3D"55bb504d9747">Google Drive</p>
+</li>
+</ul>
+<p local-id=3D"51390381df1e">6.2 Qu=E1=BA=A3n l=C3=AD source code</p>
+<ul local-id=3D"4087f6f8e77e">
+<li local-id=3D"99620ea23186">
+<p local-id=3D"372ace865347">GitHub</p>
+</li>
+<li local-id=3D"07860237399b">
+<p local-id=3D"c2a99b79b9fd">Qt Creator</p>
+</li>
+</ul>
+<p local-id=3D"24d55e96b30a">6.3 C=C3=A1c c=C3=B4ng c=E1=BB=A5 h=E1=BB=97 t=
+r=E1=BB=A3</p>
+<p local-id=3D"6aae6b0f5b84"></p>
+<h1 local-id=3D"8eaff077f148" id=3D"UDM_08_Chat_TCP_Client_Server-III.Y=C3=
+=AAuc=E1=BA=A7uch=E1=BB=A9cn=C4=83ng">III. Y=C3=AAu c=E1=BA=A7u ch=E1=BB=A9=
+c n=C4=83ng</h1>
+<p local-id=3D"e30ef2a99736"></p>
+<h2 local-id=3D"253cb01c4e6e" id=3D"UDM_08_Chat_TCP_Client_Server-1.T=E1=BB=
+=95ngquan.1">1.T=E1=BB=95ng quan</h2>
+<p local-id=3D"9d2e419e32da"></p>
+<h2 local-id=3D"73279b2dd06f" id=3D"UDM_08_Chat_TCP_Client_Server-2.Y=C3=AA=
+uc=E1=BA=A7u">2.Y=C3=AAu c=E1=BA=A7u</h2>
+<p local-id=3D"d3733c153406"></p>
+<p local-id=3D"3e759c5fc86f">2.1 T=C3=A1c nh=C3=A2n</p>
+<p local-id=3D"39eb11a8f092"></p>
+<p local-id=3D"9a869dcf198a">2.2 Use case</p>
+<p local-id=3D"dc80298e4394"></p>
+<p local-id=3D"eee5b35047d2">2.2.1 S=C6=A1 =C4=91=E1=BB=93</p>
+<p local-id=3D"f70f907d34d4"></p>
+<p local-id=3D"3f76dd68a812">2.2.2 =C4=90=E1=BA=B7c t=E1=BA=A3</p>
+<p local-id=3D"8030ee5390f1"></p>
+<h2 local-id=3D"2667022830c1" id=3D"UDM_08_Chat_TCP_Client_Server-3.Y=C3=AA=
+uc=E1=BA=A7uch=E1=BB=A9cn=C4=83ng">3.Y=C3=AAu c=E1=BA=A7u ch=E1=BB=A9c n=C4=
+=83ng</h2>
+<p local-id=3D"f52b60a8ddec"></p>
+<p local-id=3D"6990696aae7d">3.1 T=E1=BB=95ng quan</p>
+<p local-id=3D"eeb8fe3bc233">3.1.1 Flow c=E1=BB=A7a Server</p>
+<p local-id=3D"56072bcf555d">3.1.2 =C4=90=E1=BA=B7c t=E1=BA=A3 c=E1=BB=A7a =
+Server</p>
+<p local-id=3D"2cd7e9094e91">3.1.3 Flow c=E1=BB=A7a Client</p>
+<p local-id=3D"067dec51703c">3.1.2 =C4=90=E1=BA=B7c t=E1=BA=A3 c=E1=BB=A7a =
+Client</p>
+<p local-id=3D"749b1f65b36f"></p>
+<h1 local-id=3D"eea057c6d87d" id=3D"UDM_08_Chat_TCP_Client_Server-IV.Ph=C3=
+=A2nt=C3=ADchthi=E1=BA=BFtk=E1=BA=BF">IV. Ph=C3=A2n t=C3=ADch thi=E1=BA=BFt=
+ k=E1=BA=BF</h1>
+<p local-id=3D"946ad05ccf7e"></p>
+<p local-id=3D"5abd605d1dfc">1.Thi=E1=BA=BFt k=E1=BA=BF server</p>
+<p local-id=3D"1d9ebf8c3844"></p>
+<p local-id=3D"78de95cdc7c5">2.Thi=E1=BA=BFt k=E1=BA=BF client</p>
+<p local-id=3D"cb5edd30c842"></p>
+<p local-id=3D"48fcf173d209">3.Frontend v=C3=A0 UI</p>
+<p local-id=3D"3eb00f2d3ac4"></p>
+<p local-id=3D"2df4fe6db69d">4.T=C3=ADnh n=C4=83ng tr=C3=B2 chuy=E1=BB=87n<=
+/p>
+<p local-id=3D"87b3bdacfcb1"></p>
+<p local-id=3D"ec8223e170c8">5.Database</p>
+<p local-id=3D"79101b1fe8e6"></p>
+<h1 local-id=3D"abb96e3a384f" id=3D"UDM_08_Chat_TCP_Client_Server-V.Ki=E1=
+=BB=83mth=E1=BB=ADph=E1=BA=A7nm=E1=BB=81m">V. Ki=E1=BB=83m th=E1=BB=AD ph=
+=E1=BA=A7n m=E1=BB=81m</h1>
+<h2 local-id=3D"ef1e386ba190" id=3D"UDM_08_Chat_TCP_Client_Server-1.Ph=E1=
+=BA=A1mvi">1.Ph=E1=BA=A1m vi</h2>
+<p local-id=3D"645b73ee8a5e"><strong>1.1 Ki=E1=BB=83m th=E1=BB=AD ch=E1=BB=
+=A9c n=C4=83ng</strong></p>
+<h3 local-id=3D"8ef1550d9c00" id=3D"UDM_08_Chat_TCP_Client_Server-TC_01=E2=
+=80=93TCPConnection"><strong>TC_01 =E2=80=93 TCP Connection</strong></h3>
+<ul local-id=3D"69d2b979-afdb-494f-9136-03f866ad0ae5">
+<li local-id=3D"1e95b9fc-2ce4-4172-a1e4-bb2b8a51d2f9">
+<p local-id=3D"f3369ab77941">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra k=
+h=E1=BA=A3 n=C4=83ng k=E1=BA=BFt n=E1=BB=91i gi=E1=BB=AFa client v=C3=A0 se=
+rver khi server =C4=91ang ho=E1=BA=A1t =C4=91=E1=BB=99ng</p>
+</li>
+<li local-id=3D"2ba50b06-8d67-4a05-af2c-23d56f88f5d7">
+<p local-id=3D"e4f99e45c686">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Kh=E1=BB=9Fi =C4=91=E1=BB=99ng Server, m=E1=BB=9F Client</p>
+</li>
+<li local-id=3D"14e21a33-6ea2-4736-ad11-5bb79346fe9f">
+<p local-id=3D"6e92cd3a77e1">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Client thi=E1=BA=BFt l=E1=BA=ADp k=E1=BA=BFt n=E1=BB=91i TLS th=C3=A0nh c=
+=C3=B4ng sau khi x=C3=A1c minh danh t=C3=ADnh Server</p>
+</li>
+<li local-id=3D"987eae72-e4b2-413d-abaf-01114a1eff34">
+<p local-id=3D"b66f12a7b429">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"ea184f9daa99" id=3D"UDM_08_Chat_TCP_Client_Server-TC_02=E2=
+=80=93UserRegistration"><strong>TC_02 =E2=80=93 User Registration</strong><=
+/h3>
+<ul local-id=3D"cdc33c50-c8ec-41d4-baeb-a449c9404810">
+<li local-id=3D"5abce0aa-580c-4426-95b5-1d34d4c9afd8">
+<p local-id=3D"69cfb516cfb5">M=E1=BB=A5c =C4=91=C3=ADch: X=C3=A1c minh r=E1=
+=BA=B1ng ng=C6=B0=E1=BB=9Di d=C3=B9ng c=C3=B3 th=E1=BB=83 =C4=91=C4=83ng k=
+=C3=AD th=C3=A0nh c=C3=B4ng v=E1=BB=9Bi t=C3=AAn, m=E1=BA=ADt kh=E1=BA=A9u =
+h=E1=BB=A3p l=E1=BB=87 v=C3=A0 tham gia v=C3=A0o =E1=BB=A9ng d=E1=BB=A5ng n=
+h=E1=BA=AFn tin</p>
+</li>
+<li local-id=3D"df042c12-1bed-46cb-8d76-8a30000599e5">
+<p local-id=3D"7c18c1a0ee41">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Nh=E1=BA=ADp t=C3=AAn, m=E1=BA=ADt kh=E1=BA=A9u h=E1=BB=A3p l=E1=BB=87=
+, k=E1=BA=BFt n=E1=BB=91i Server</p>
+</li>
+<li local-id=3D"b2678b89-0604-4597-b728-ea433ac1e3a3">
+<p local-id=3D"51c3e23f7d55">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ T=C3=A0i kho=E1=BA=A3n =C4=91=C6=B0=E1=BB=A3c t=E1=BA=A1o th=C3=A0nh c=C3=
+=B4ng v=C3=A0 ng=C6=B0=E1=BB=9Di d=C3=B9ng =C4=91=C6=B0=E1=BB=A3c chuy=E1=
+=BB=83n sang tr=E1=BA=A1ng th=C3=A1i =C4=91=C4=83ng nh=E1=BA=ADp</p>
+</li>
+<li local-id=3D"060a7ce5-30e9-4be9-98c0-f6843f0f01e0">
+<p local-id=3D"43b294c73dd5">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"f8e255f8e502" id=3D"UDM_08_Chat_TCP_Client_Server-TC_03=E2=
+=80=93InvalidUsername"><strong>TC_03 =E2=80=93 Invalid Username</strong></h=
+3>
+<ul local-id=3D"85a27733-7fa1-4f10-bfe7-2d8dc7ad39ce">
+<li local-id=3D"8f490cff-bfbc-4173-af9d-d712737a6df9">
+<p local-id=3D"f9440ddfc337">M=E1=BB=A5c =C4=91=C3=ADch: =C4=90=E1=BA=A3m b=
+=E1=BA=A3o r=E1=BA=B1ng h=E1=BB=87 th=E1=BB=91ng t=E1=BB=AB ch=E1=BB=91i =
+=C4=91=C4=83ng k=C3=AD khi ng=C6=B0=E1=BB=9Di =C4=91=E1=BB=83 tr=E1=BB=91ng=
+ t=C3=AAn ho=E1=BA=B7c nh=E1=BA=ADp t=C3=AAn qu=C3=A1 d=C3=A0i (h=C6=A1n 20=
+ k=C3=AD t=E1=BB=B1)</p>
+</li>
+<li local-id=3D"07866096-0829-47c1-a9d3-765007da0f31">
+<p local-id=3D"ef65cbac73cd">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: =C4=90=C4=83ng k=C3=BD b=E1=BA=B1ng t=C3=AAn r=E1=BB=97ng ho=E1=BA=B7c=
+ t=C3=AAn d=C3=A0i h=C6=A1n 20 k=C3=BD t=E1=BB=B1</p>
+</li>
+<li local-id=3D"9cf13913-70b9-42b6-ba53-053c4a8a4692">
+<p local-id=3D"23c090f52aaa">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Server t=E1=BB=AB ch=E1=BB=91i =C4=91=C4=83ng k=C3=BD v=C3=A0 th=C3=B4ng b=
+=C3=A1o l=E1=BB=97i cho ng=C6=B0=E1=BB=9Di d=C3=B9ng</p>
+</li>
+<li local-id=3D"3aa2295a-8b63-4007-91d9-009e553e2832">
+<p local-id=3D"207e73b128bb">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"0dcf118fa107" id=3D"UDM_08_Chat_TCP_Client_Server-TC_04=E2=
+=80=93DuplicateUsername"><strong>TC_04 =E2=80=93 Duplicate Username</strong=
+></h3>
+<ul local-id=3D"7e7daa27-aaee-49b6-8c0a-cc3b281b6c3f">
+<li local-id=3D"1e0bf8b5-5c83-4275-8c92-356c5322c49e">
+<p local-id=3D"1ac3b2150d57">M=E1=BB=A5c =C4=91=C3=ADch: Ng=C4=83n ch=E1=BA=
+=B7n nhi=E1=BB=81u ng=C6=B0=E1=BB=9Di d=C3=B9ng =C4=91=E1=BA=B7t t=C3=AAn t=
+r=C3=B9ng v=E1=BB=9Bi nhau kh=C3=B4ng ph=C3=A2n bi=E1=BB=87t hoa th=C6=B0=
+=E1=BB=9Dng</p>
+</li>
+<li local-id=3D"72d50bec-4550-4906-a40e-d6d3556a2a97">
+<p local-id=3D"bf93916e5c17">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Hai Client =C4=91=C4=83ng k=C3=BD c=C3=B9ng m=E1=BB=99t t=C3=AAn, kh=
+=C3=B4ng ph=C3=A2n bi=E1=BB=87t ch=E1=BB=AF hoa/th=C6=B0=E1=BB=9Dng</p>
+</li>
+<li local-id=3D"b1453e44-f2cb-483a-8c72-e2aa1b8e82dc">
+<p local-id=3D"b638fedb3816">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Client th=E1=BB=A9 hai b=E1=BB=8B t=E1=BB=AB ch=E1=BB=91i =C4=91=C4=83ng n=
+h=E1=BA=ADp</p>
+</li>
+<li local-id=3D"f0c49d2d-cffc-4a85-9d2c-caf63402b226">
+<p local-id=3D"c429fe0a2703">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"32967cedf56a" id=3D"UDM_08_Chat_TCP_Client_Server-TC_05=E2=
+=80=93PasswordValidation"><strong>TC_05 =E2=80=93 Password Validation</stro=
+ng></h3>
+<ul local-id=3D"36937370-5304-41fe-a2e9-c18975f6da5e">
+<li local-id=3D"944ae91a-3642-4c56-9f3a-a0f70002c79f">
+<p local-id=3D"c22e1efbb4ff">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra q=
+uy t=E1=BA=AFc =C4=91=E1=BB=99 d=C3=A0i m=E1=BA=ADt kh=E1=BA=A9u t=E1=BB=AB=
+ 12 =C4=91=E1=BA=BFn 128 k=C3=BD t=E1=BB=B1</p>
+</li>
+<li local-id=3D"3fdfb762-8cda-4687-8168-163d96b32820">
+<p local-id=3D"0f3b7db8a0ab">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Nh=E1=BA=ADp m=E1=BA=ADt kh=E1=BA=A9u ng=E1=BA=AFn h=C6=A1n 12 k=C3=BD=
+ t=E1=BB=B1 ho=E1=BA=B7c d=C3=A0i h=C6=A1n 128 k=C3=BD t=E1=BB=B1</p>
+</li>
+<li local-id=3D"fa9560e2-cdd3-48fd-8f53-66dd6632a855">
+<p local-id=3D"51e44ebe8520">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ H=E1=BB=87 th=E1=BB=91ng t=E1=BB=AB ch=E1=BB=91i m=E1=BA=ADt kh=E1=BA=A9u =
+kh=C3=B4ng =C4=91=C3=A1p =E1=BB=A9ng =C4=91=E1=BB=99 d=C3=A0i h=E1=BB=A3p l=
+=E1=BB=87</p>
+</li>
+<li local-id=3D"629e9dc6-b648-4d68-be3f-4a46bb85336c">
+<p local-id=3D"442335c50d08">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"8aae3e310838" id=3D"UDM_08_Chat_TCP_Client_Server-TC_06=E2=
+=80=93PasswordConfirmation"><strong>TC_06 =E2=80=93 Password Confirmation</=
+strong></h3>
+<ul local-id=3D"e96395e6-c284-4252-b6e9-f778735fb08e">
+<li local-id=3D"883a07e2-8270-4a01-b60f-8286d87968a5">
+<p local-id=3D"4f734fbd19c7">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra t=
+=C3=ADnh nh=E1=BA=A5t qu=C3=A1n gi=E1=BB=AFa m=E1=BA=ADt kh=E1=BA=A9u v=C3=
+=A0 m=E1=BA=ADt kh=E1=BA=A9u x=C3=A1c nh=E1=BA=ADn</p>
+</li>
+<li local-id=3D"59a351c4-9c6a-4b91-9057-2650f5ed8e1e">
+<p local-id=3D"af84ae0921ad">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Nh=E1=BA=ADp hai m=E1=BA=ADt kh=E1=BA=A9u kh=C3=A1c nhau</p>
+</li>
+<li local-id=3D"76e7e538-ae7c-41f9-bd5d-abbe4e36c664">
+<p local-id=3D"2b6b323c8946">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ H=E1=BB=87 th=E1=BB=91ng kh=C3=B4ng cho ph=C3=A9p =C4=91=C4=83ng k=C3=BD k=
+hi hai m=E1=BA=ADt kh=E1=BA=A9u kh=C3=B4ng kh=E1=BB=9Bp</p>
+</li>
+<li local-id=3D"1d0d3bfe-72a3-4905-8c26-64030ebe93c6">
+<p local-id=3D"dbfc1bb68194">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"3dd3cb695bd2" id=3D"UDM_08_Chat_TCP_Client_Server-TC_07=E2=
+=80=93UserLogin"><strong>TC_07 =E2=80=93 User Login</strong></h3>
+<ul local-id=3D"c88d2b9e-15d2-4d2d-b8df-21077e27f9f7">
+<li local-id=3D"9d9d6093-65d7-4b47-98ea-cad87dab5180">
+<p local-id=3D"3d117d5ec358">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra k=
+h=E1=BA=A3 n=C4=83ng =C4=91=C4=83ng nh=E1=BA=ADp b=E1=BA=B1ng t=C3=A0i kho=
+=E1=BA=A3n v=C3=A0 m=E1=BA=ADt kh=E1=BA=A9u h=E1=BB=A3p l=E1=BB=87</p>
+</li>
+<li local-id=3D"e403573e-3fb2-4e95-9cce-2e8bd9dd0398">
+<p local-id=3D"330423cfdd40">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Nh=E1=BA=ADp t=C3=A0i kho=E1=BA=A3n =C4=91=C3=A3 =C4=91=C4=83ng k=C3=
+=BD</p>
+</li>
+<li local-id=3D"4172ba57-cdc4-456f-8f0a-891503caf0c6">
+<p local-id=3D"6f3058e85d4b">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Ng=C6=B0=E1=BB=9Di d=C3=B9ng =C4=91=C4=83ng nh=E1=BA=ADp th=C3=A0nh c=C3=
+=B4ng v=C3=A0 c=C3=B3 th=E1=BB=83 s=E1=BB=AD d=E1=BB=A5ng ch=E1=BB=A9c n=C4=
+=83ng chat</p>
+</li>
+<li local-id=3D"226790e6-0339-4d3b-ab47-62cce02735c2">
+<p local-id=3D"5b9962fe221b">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"fb62d45cdfe8" id=3D"UDM_08_Chat_TCP_Client_Server-TC_08=E2=
+=80=93InvalidPassword"><strong>TC_08 =E2=80=93 Invalid Password</strong></h=
+3>
+<ul local-id=3D"2a66d9b6-7f1a-486b-802c-7786c68bc489">
+<li local-id=3D"8f300481-b34e-4722-beba-97f68af0111c">
+<p local-id=3D"d93a3de99edb">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra h=
+=E1=BB=87 th=E1=BB=91ng t=E1=BB=AB ch=E1=BB=91i =C4=91=C4=83ng nh=E1=BA=ADp=
+ khi m=E1=BA=ADt kh=E1=BA=A9u kh=C3=B4ng ch=C3=ADnh x=C3=A1c</p>
+</li>
+<li local-id=3D"75b7f63b-ad9d-48eb-ba7d-b5175fc1d89f">
+<p local-id=3D"db90e814da6b">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Nh=E1=BA=ADp m=E1=BA=ADt kh=E1=BA=A9u sai</p>
+</li>
+<li local-id=3D"af619adf-45ec-45f2-b67e-d5c45cf09d43">
+<p local-id=3D"b020b73a4d39">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ H=E1=BB=87 th=E1=BB=91ng t=E1=BB=AB ch=E1=BB=91i =C4=91=C4=83ng nh=E1=BA=
+=ADp v=C3=A0 th=C3=B4ng b=C3=A1o l=E1=BB=97i</p>
+</li>
+<li local-id=3D"efbf5c79-929a-4f5e-a6e3-3076130461d9">
+<p local-id=3D"04c7d36546f8">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"c8b735e87035" id=3D"UDM_08_Chat_TCP_Client_Server-TC_09=E2=
+=80=93AccountPersistence"><strong>TC_09 =E2=80=93 Account Persistence</stro=
+ng></h3>
+<ul local-id=3D"f07abe23-2076-4b08-8f99-7185af25be1a">
+<li local-id=3D"5f3bf36b-5e6e-4cbc-a4f0-67b6ca7a95af">
+<p local-id=3D"4bb8e0ff4282">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra t=
+=C3=A0i kho=E1=BA=A3n v=E1=BA=ABn t=E1=BB=93n t=E1=BA=A1i sau khi Server =
+=C4=91=C6=B0=E1=BB=A3c kh=E1=BB=9Fi =C4=91=E1=BB=99ng l=E1=BA=A1i</p>
+</li>
+<li local-id=3D"45323693-0994-425d-91d2-db133845a3cc">
+<p local-id=3D"f2bbe4200682">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: =C4=90=C4=83ng k=C3=BD t=C3=A0i kho=E1=BA=A3n, =C4=91=C3=B3ng Server, =
+kh=E1=BB=9Fi =C4=91=E1=BB=99ng l=E1=BA=A1i Server, =C4=91=C4=83ng nh=E1=BA=
+=ADp b=E1=BA=B1ng t=C3=A0i kho=E1=BA=A3n c=C5=A9.</p>
+</li>
+<li local-id=3D"2f2ec018-c827-4e54-9ce1-53758c48587b">
+<p local-id=3D"b7aa215ecf7f">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ T=C3=A0i kho=E1=BA=A3n v=E1=BA=ABn =C4=91=C6=B0=E1=BB=A3c l=C6=B0u trong S=
+QLite v=C3=A0 c=C3=B3 th=E1=BB=83 =C4=91=C4=83ng nh=E1=BA=ADp b=E1=BA=B1ng =
+th=C3=B4ng tin h=E1=BB=A3p l=E1=BB=87</p>
+</li>
+<li local-id=3D"a444db2d-73ad-4928-b81c-3ad53e29e835">
+<p local-id=3D"66fa05e74030">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"d5a4a346b925" id=3D"UDM_08_Chat_TCP_Client_Server-TC_10=E2=
+=80=93OnlineUserList"><strong>TC_10 =E2=80=93 Online User List</strong></h3=
+>
+<ul local-id=3D"4ff11cf0-f4d4-436f-9c00-553eb1b3f6f9">
+<li local-id=3D"2c20a85c-ac5a-430f-b785-2e1c90046ca9">
+<p local-id=3D"e41053bbb8b1">M=E1=BB=A5c =C4=91=C3=ADch: =C4=90=E1=BA=A3m b=
+=E1=BA=A3o r=E1=BA=B1ng ng=C6=B0=E1=BB=9Di d=C3=B9ng =C4=91=C6=B0=E1=BB=A3c=
+ c=E1=BA=ADp nh=E1=BA=ADt ch=C3=ADnh x=C3=A1c danh s=C3=A1ch ng=C6=B0=E1=BB=
+=9Di d=C3=B9ng =C4=91ang online tr=C3=AAn h=E1=BB=87 th=E1=BB=91ng</p>
+</li>
+<li local-id=3D"b63a5b77-11e4-4576-8b1b-8a5874f6a7bf">
+<p local-id=3D"7075adc61970">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: C=C3=A1c client =C4=91=C4=83ng nh=E1=BA=ADp th=C3=A0nh c=C3=B4ng v=C3=
+=A0 c=C3=B3 t=C3=AAn kh=C3=A1c nhau</p>
+</li>
+<li local-id=3D"026b6030-aea7-4e8b-ab23-466cc67a77ca">
+<p local-id=3D"1c2972180700">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Danh s=C3=A1ch online hi=E1=BB=83n th=E1=BB=8B =C4=91=E1=BA=A7y =C4=91=E1=
+=BB=A7 ng=C6=B0=E1=BB=9Di d=C3=B9ng</p>
+</li>
+<li local-id=3D"dc0ad07f-6fed-4e33-b5cd-550bb4836421">
+<p local-id=3D"a3dbe448e7ed">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"819f4f8b76af" id=3D"UDM_08_Chat_TCP_Client_Server-TC_11=E2=
+=80=93ClientDisconnection"><strong>TC_11 =E2=80=93 Client Disconnection</st=
+rong></h3>
+<ul local-id=3D"1bf288f4-44ae-45e4-8330-d6353403d43c">
+<li local-id=3D"0aeb3f43-180b-4eca-b469-b2aee49621d0">
+<p local-id=3D"1e65485a56fa">M=E1=BB=A5c =C4=91=C3=ADch: X=C3=A1c minh r=E1=
+=BA=B1ng server ph=C3=A1t hi=E1=BB=87n vi=E1=BB=87c ng=E1=BA=AFt k=E1=BA=BF=
+t n=E1=BB=91i c=E1=BB=A7a client v=C3=A0 c=E1=BA=ADp nh=E1=BA=ADt danh s=C3=
+=A1ch ng=C6=B0=E1=BB=9Di d=C3=B9ng tr=E1=BB=B1c tuy=E1=BA=BFn cho ph=C3=B9 =
+h=E1=BB=A3p</p>
+</li>
+<li local-id=3D"0b2b67b1-f404-4216-b41b-93b289954b27">
+<p local-id=3D"389698ba8eb6">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: M=E1=BB=99t Client =C4=91ang online ng=E1=BA=AFt k=E1=BA=BFt n=E1=BB=
+=91i</p>
+</li>
+<li local-id=3D"e6d5b9ac-532b-4ad4-bcd9-a645d90a6666">
+<p local-id=3D"c4950361a9bb">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Server c=E1=BA=ADp nh=E1=BA=ADt danh s=C3=A1ch online v=C3=A0 th=C3=B4ng b=
+=C3=A1o cho c=C3=A1c ng=C6=B0=E1=BB=9Di d=C3=B9ng kh=C3=A1c</p>
+</li>
+<li local-id=3D"2bb4b33b-0aed-46f1-af01-2d97440d7e2c">
+<p local-id=3D"c522429511d9">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"8168a15645b0" id=3D"UDM_08_Chat_TCP_Client_Server-TC_12=E2=
+=80=93UnexpectedServerDisconnection"><strong>TC_12 =E2=80=93 Unexpected Ser=
+ver Disconnection</strong></h3>
+<ul local-id=3D"d2592325-90b4-4618-9b92-354badb17031">
+<li local-id=3D"68ff95b7-6ca9-4b13-ba77-2a274111bd0e">
+<p local-id=3D"52ff7758dc4f">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra k=
+hi server g=E1=BA=B7p c=C3=A1c t=C3=ACnh hu=E1=BB=91ng b=E1=BA=A5t kh=E1=BA=
+=A3 kh=C3=A1ng b=E1=BA=AFt bu=E1=BB=99c ph=E1=BA=A3i ng=E1=BA=AFt k=E1=BA=
+=BFt n=E1=BB=91i</p>
+</li>
+<li local-id=3D"74a4d032-3e72-4a75-8969-3c3e5d317c37">
+<p local-id=3D"894465b7e245">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Ng=E1=BA=AFt k=E1=BA=BFt n=E1=BB=91i server</p>
+</li>
+<li local-id=3D"3ed0e825-1454-49bf-824a-5a40aff35dc4">
+<p local-id=3D"81432511de91">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Th=C3=B4ng b=C3=A1o r=E1=BA=B1ng server =C4=91=C3=A3 b=E1=BB=8B ng=E1=BA=
+=AFt k=E1=BA=BFt n=E1=BB=91i</p>
+</li>
+<li local-id=3D"05c3f613-2362-42b8-9523-f39697e65e37">
+<p local-id=3D"12d93ccb94b5">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"785664ac0858" id=3D"UDM_08_Chat_TCP_Client_Server-TC_13=E2=
+=80=93Reconnection"><strong>TC_13 =E2=80=93 Reconnection</strong></h3>
+<ul local-id=3D"beed2c9f-947b-4cdf-a9e3-5ba9ea46c924">
+<li local-id=3D"d4446cdf-6432-4824-ac37-240f0018986a">
+<p local-id=3D"b4dd47537ef3">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra k=
+h=E1=BA=A3 n=C4=83ng k=E1=BA=BFt n=E1=BB=91i l=E1=BA=A1i sau khi m=E1=BA=A5=
+t k=E1=BA=BFt n=E1=BB=91i v=E1=BB=9Bi Server</p>
+</li>
+<li local-id=3D"cbfcdbad-fbc8-4071-ae8d-300d07dcc9fd">
+<p local-id=3D"156e8d9eaffd">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Ng=E1=BA=AFt k=E1=BA=BFt n=E1=BB=91i Server, kh=E1=BB=9Fi =C4=91=E1=BB=
+=99ng l=E1=BA=A1i Server, Client th=E1=BB=B1c hi=E1=BB=87n k=E1=BA=BFt n=E1=
+=BB=91i v=C3=A0 =C4=91=C4=83ng nh=E1=BA=ADp l=E1=BA=A1i</p>
+</li>
+<li local-id=3D"5994a8dc-0f7c-4013-ba8d-70e2ff9389c7">
+<p local-id=3D"d808d3585128">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Client c=C3=B3 th=E1=BB=83 k=E1=BA=BFt n=E1=BB=91i l=E1=BA=A1i v=C3=A0 =C4=
+=91=C4=83ng nh=E1=BA=ADp th=C3=A0nh c=C3=B4ng b=E1=BA=B1ng t=C3=A0i kho=E1=
+=BA=A3n h=E1=BB=A3p l=E1=BB=87</p>
+</li>
+<li local-id=3D"49e740ec-1bea-4509-a493-0b99139afe16">
+<p local-id=3D"6b1ab0c56ab9">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"331833fa1ee2" id=3D"UDM_08_Chat_TCP_Client_Server-TC_14=E2=
+=80=93ConcurrentLogin"><strong>TC_14 =E2=80=93 Concurrent Login</strong></h=
+3>
+<ul local-id=3D"cc5ac06a-b029-4591-99f8-5d0fae820201">
+<li local-id=3D"8b93b395-c69f-434d-889b-db2a57771f1d">
+<p local-id=3D"9aa7fb65eb27">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra v=
+i=E1=BB=87c ng=C4=83n m=E1=BB=99t t=C3=A0i kho=E1=BA=A3n =C4=91=C4=83ng nh=
+=E1=BA=ADp =C4=91=E1=BB=93ng th=E1=BB=9Di tr=C3=AAn nhi=E1=BB=81u Client</p=
+>
+</li>
+<li local-id=3D"77293343-44fb-429c-9262-90e8e726b894">
+<p local-id=3D"01cfba388926">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: D=C3=B9ng c=C3=B9ng 1 t=C3=A0i kho=E1=BA=A3n =C4=91=C4=83ng nh=E1=BA=
+=ADp tr=C3=AAn Client th=E1=BB=A9 2</p>
+</li>
+<li local-id=3D"2841b664-326a-4f2d-8321-e78b6f878406">
+<p local-id=3D"f0ad7825ddf9">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Client 2 kh=C3=B4ng th=E1=BB=83 t=E1=BA=A1o phi=C3=AAn th=E1=BB=A9 hai khi=
+ t=C3=A0i kho=E1=BA=A3n =C4=91ang online. Sau khi phi=C3=AAn c=C5=A9 k=E1=
+=BA=BFt th=C3=BAc, t=C3=A0i kho=E1=BA=A3n c=C3=B3 th=E1=BB=83 =C4=91=C4=83n=
+g nh=E1=BA=ADp l=E1=BA=A1i</p>
+</li>
+<li local-id=3D"acc45830-34fd-4ad4-92fd-5591acb38e5f">
+<p local-id=3D"7cfb29995309">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"2c49f9d75163" id=3D"UDM_08_Chat_TCP_Client_Server-TC_15=E2=
+=80=93PublicChat"><strong>TC_15 =E2=80=93 Public Chat</strong></h3>
+<ul local-id=3D"a59ee5f9-296d-4c66-acf3-55c05dc4e1e5">
+<li local-id=3D"34ab6c74-7d1b-4cf1-b937-57a501fa3a07">
+<p local-id=3D"1571186faca1">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra t=
+=C3=ADnh n=C4=83ng nh=E1=BA=AFn tin c=C3=B4ng khai, t=E1=BA=A5t c=E1=BA=A3 =
+client =C4=91ang online =C4=91=E1=BB=81u c=C3=B3 th=E1=BB=83 nh=E1=BA=ADn t=
+in nh=E1=BA=AFn =C4=91=C3=B3</p>
+</li>
+<li local-id=3D"28c4d555-c1b8-4b2d-b580-9a986307c0e6">
+<p local-id=3D"0c91c9a74b6d">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Client g=E1=BB=ADi tin nh=E1=BA=AFn trong ph=C3=B2ng chung</p>
+</li>
+<li local-id=3D"e3c4d1f1-7730-41ae-9a05-11c372d6e513">
+<p local-id=3D"8e4d8aa27fdc">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ C=C3=A1c Client =C4=91ang Online nh=E1=BA=ADn =C4=91=C6=B0=E1=BB=A3c tin n=
+h=E1=BA=AFn</p>
+</li>
+<li local-id=3D"72a20d7a-50c8-4f05-bcfd-9752222ff893">
+<p local-id=3D"63c2259e66d0">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"f3b8f4d4e316" id=3D"UDM_08_Chat_TCP_Client_Server-TC_16=E2=
+=80=93PrivateChat"><strong>TC_16 =E2=80=93 Private Chat</strong></h3>
+<ul local-id=3D"50054abf-09bb-438e-956f-46f47cc7c045">
+<li local-id=3D"1bfb4e35-48a8-4dff-8e7d-918d79227e8e">
+<p local-id=3D"7a8e443d98a4">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra t=
+=C3=ADnh n=C4=83ng nh=E1=BA=AFn tin ri=C3=AAng t=C6=B0, ch=E1=BB=89 ng=C6=
+=B0=E1=BB=9Di g=E1=BB=ADi v=C3=A0 ng=C6=B0=E1=BB=9Di =C4=91=C6=B0=E1=BB=A3c=
+ ch=E1=BB=8Dn nh=E1=BA=ADn l=C3=A0 =C4=91=E1=BB=8Dc =C4=91=C6=B0=E1=BB=A3c =
+tin nh=E1=BA=AFn =C4=91=C3=B3</p>
+</li>
+<li local-id=3D"9b02a448-a8a3-4fb2-ad87-385ed08c81b7">
+<p local-id=3D"35a8c5d25572">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Client A ch=E1=BB=8Dn Client B v=C3=A0 g=E1=BB=ADi tin nh=E1=BA=AFn ri=
+=C3=AAng</p>
+</li>
+<li local-id=3D"527a435b-a0d2-44af-a6e5-cc19c4c3fc17">
+<p local-id=3D"c1d155b45d83">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Ch=E1=BB=89 A v=C3=A0 B nh=C3=ACn th=E1=BA=A5y n=E1=BB=99i dung tin nh=E1=
+=BA=AFn ri=C3=AAng</p>
+</li>
+<li local-id=3D"f2701d33-2c43-435f-b1ed-8792e3f807b0">
+<p local-id=3D"9a576b31cf0f">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"6447c4bde2bf" id=3D"UDM_08_Chat_TCP_Client_Server-TC_17=E2=
+=80=93ReplyMessage"><strong>TC_17 =E2=80=93 Reply Message</strong></h3>
+<ul local-id=3D"c69008b7-d797-4d1a-86aa-fc281eb7b566">
+<li local-id=3D"92069303-78fe-4581-a1be-473097d9cb36">
+<p local-id=3D"bef036ff3d33"><strong>M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=
+=83m tra t=C3=ADnh n=C4=83ng ph=E1=BA=A3n h=E1=BB=93i tin nh=E1=BA=AFn, ph=
+=E1=BA=A3n h=E1=BB=93i ch=C3=ADnh x=C3=A1c tin nh=E1=BA=AFn =C4=91=C6=B0=E1=
+=BB=A3c ch=E1=BB=8Dn</strong></p>
+</li>
+<li local-id=3D"0c7651b2-87d5-48b1-99af-8236b322b990">
+<p local-id=3D"f5a15c7508dc"><strong>D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m t=
+h=E1=BB=AD: Ch=E1=BB=8Dn m=E1=BB=99t tin nh=E1=BA=AFn trong ph=C3=B2ng chun=
+g ho=E1=BA=B7c =C4=91o=E1=BA=A1n chat ri=C3=AAng, th=E1=BB=B1c hi=E1=BB=87n=
+ ph=E1=BA=A3n h=E1=BB=93i v=C3=A0 g=E1=BB=ADi n=E1=BB=99i dung tr=E1=BA=A3 =
+l=E1=BB=9Di</strong></p>
+</li>
+<li local-id=3D"000719b9-011f-4d84-b044-1e49655caa43">
+<p local-id=3D"59a04830e809"><strong>K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=
+=BB=A3i: Tin nh=E1=BA=AFn tr=E1=BA=A3 l=E1=BB=9Di k=C3=A8m n=E1=BB=99i dung=
+ =C4=91=C6=B0=E1=BB=A3c tr=C3=ADch d=E1=BA=ABn hi=E1=BB=83n th=E1=BB=8B t=
+=E1=BB=AB tin nh=E1=BA=AFn =C4=91=C6=B0=E1=BB=A3c ch=E1=BB=8Dn</strong></p>
+</li>
+<li local-id=3D"589b5940-ae5a-40a6-9983-79166b8d6eca">
+<p local-id=3D"6f851177136d"><strong>K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=
+=E1=BA=BF:</strong></p>
+</li>
+</ul>
+<h3 local-id=3D"ab5757f52491" id=3D"UDM_08_Chat_TCP_Client_Server-TC_18=E2=
+=80=93ForwardMessage"><strong>TC_18 =E2=80=93 Forward Message</strong></h3>
+<ul local-id=3D"05a49c25-8119-4b87-acce-aacc9dbf9863">
+<li local-id=3D"2cb8bfee-2e93-44cb-8e4f-b4de96978f27">
+<p local-id=3D"710e306dc7a2">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra t=
+=C3=ADnh n=C4=83ng chuy=E1=BB=83n tin nh=E1=BA=AFn, hi=E1=BB=83n th=E1=BB=
+=8B ch=C3=ADnh x=C3=A1c tin nh=E1=BA=AFn =C4=91=C6=B0=E1=BB=A3c ch=E1=BB=8D=
+n</p>
+</li>
+<li local-id=3D"b61efc58-0398-4cff-9098-a2e7bcfcc318">
+<p local-id=3D"1db418df1f40">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Ch=E1=BB=8Dn n=E1=BB=99i dung tin nh=E1=BA=AFn, th=E1=BB=B1c hi=E1=BB=
+=87n chuy=E1=BB=83n ti=E1=BA=BFp =C4=91=E1=BA=BFn =C4=91o=E1=BA=A1n ch=C3=
+=A1t mong mu=E1=BB=91n</p>
+</li>
+<li local-id=3D"1575967d-84d9-4894-a0ae-2957572c571b">
+<p local-id=3D"e602824b2763">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Tin nh=E1=BA=AFn =C4=91=C6=B0=E1=BB=A3c chuy=E1=BB=83n ti=E1=BA=BFp v=C3=
+=A0 hi=E1=BB=83n th=E1=BB=8B th=C3=B4ng tin ng=C6=B0=E1=BB=9Di chuy=E1=BB=
+=83n ti=E1=BA=BFp</p>
+</li>
+<li local-id=3D"2c8260f9-5389-4b0d-83f9-fbe539e9b76d">
+<p local-id=3D"0d02bc7ca190">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"dd3f389c0fb8" id=3D"UDM_08_Chat_TCP_Client_Server-TC_19=E2=
+=80=93SendImage"><strong>TC_19 =E2=80=93 Send Image</strong></h3>
+<ul local-id=3D"f0f45535-5aa5-41c1-8a42-e24d834ed815">
+<li local-id=3D"2b98cbea-ab5f-453d-9f5e-dde56d322af5">
+<p local-id=3D"f6b11b571615">M=E1=BB=A5c =C4=91=C3=ADch: =C4=90=E1=BA=A3m b=
+=E1=BA=A3o ng=C6=B0=E1=BB=9Di d=C3=B9ng c=C3=B3 th=E1=BB=83 g=E1=BB=ADi =C4=
+=91=C6=B0=E1=BB=A3c h=C3=ACnh =E1=BA=A3nh h=E1=BB=A3p l=E1=BB=87 v=C3=A0 ng=
+=C6=B0=E1=BB=9Di nh=E1=BA=ADn c=C3=B3 th=E1=BB=83 xem =C4=91=C6=B0=E1=BB=A3=
+c h=C3=ACnh =C4=91=C3=B3</p>
+</li>
+<li local-id=3D"289026f0-bcf4-4158-b774-71647a59e6bb">
+<p local-id=3D"47d8d9a4526e">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Ch=E1=BB=8Dn v=C3=A0 g=E1=BB=ADi =E1=BA=A3nh h=E1=BB=A3p l=E1=BB=87</p=
+>
+</li>
+<li local-id=3D"14041891-b38e-4249-adf9-391eb2918e07">
+<p local-id=3D"356c9bea0c72">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Ng=C6=B0=E1=BB=9Di nh=E1=BA=ADn nh=E1=BA=ADn v=C3=A0 hi=E1=BB=83n th=E1=BB=
+=8B h=C3=ACnh =E1=BA=A3nh</p>
+</li>
+<li local-id=3D"2b565544-b602-4544-8eab-a4be686a3b10">
+<p local-id=3D"6167e373c866">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"e42d4ffba90d" id=3D"UDM_08_Chat_TCP_Client_Server-TC_20=E2=
+=80=93SendEmoji"><strong>TC_20 =E2=80=93 Send Emoji</strong></h3>
+<ul local-id=3D"3abed608-5e10-4c8a-8436-480c8db35d94">
+<li local-id=3D"a6bafdc4-f565-4097-baa4-8055833aaf72">
+<p local-id=3D"8dc4f4b5f6d7">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra t=
+=C3=ADnh n=C4=83ng g=E1=BB=ADi emoji, c=C3=B3 th=E1=BB=83 g=E1=BB=ADi c=C3=
+=B9ng v=E1=BB=9Bi =C4=91o=E1=BA=A1n tin nh=E1=BA=AFn ho=E1=BA=B7c g=E1=BB=
+=ADi ri=C3=AAng, g=E1=BB=ADi 1 ho=E1=BA=B7c nhi=E1=BB=81u emoji c=C3=B9ng l=
+=C3=BAc</p>
+</li>
+<li local-id=3D"de6e1a65-c6bb-4411-992c-676026c20ca4">
+<p local-id=3D"e99ab414ce11">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Ch=E1=BB=8Dn Emoji t=E1=BB=AB b=E1=BA=A3ng Emoji v=C3=A0 g=E1=BB=ADi t=
+in nh=E1=BA=AFn</p>
+</li>
+<li local-id=3D"997da7f6-ad46-476a-8b28-df1586f2f220">
+<p local-id=3D"18725163405e">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Emoji =C4=91=C6=B0=E1=BB=A3c hi=E1=BB=83n th=E1=BB=8B ch=C3=ADnh x=C3=A1c =
+trong tin nh=E1=BA=AFn</p>
+</li>
+<li local-id=3D"000a7f32-f41a-4c0d-a414-e9f7dc958fe8">
+<p local-id=3D"a29c95171f9d">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"c01a679bfc2d" id=3D"UDM_08_Chat_TCP_Client_Server-TC_21=E2=
+=80=93SendSticker"><strong>TC_21 =E2=80=93 Send Sticker</strong></h3>
+<ul local-id=3D"f3eb7a7f-52ff-42ca-ae0a-f07d3151f959">
+<li local-id=3D"b649959e-d769-4050-9d92-b226a3bbf783">
+<p local-id=3D"392331430a6c">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra k=
+h=E1=BA=A3 n=C4=83ng g=E1=BB=ADi sticker</p>
+</li>
+<li local-id=3D"0554b116-c7d1-413b-8301-f3688817c5b5">
+<p local-id=3D"7216ee14cbcc">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Ch=E1=BB=8Dn sticker =C4=91=E1=BB=83 g=E1=BB=ADi</p>
+</li>
+<li local-id=3D"e3b9c107-80fd-407b-a766-0b2ab2be9e48">
+<p local-id=3D"0136441e4d31">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Sticker =C4=91=C6=B0=E1=BB=A3c g=E1=BB=ADi v=C3=A0 hi=E1=BB=83n th=E1=BB=
+=8B trong khung chat</p>
+</li>
+<li local-id=3D"2d5e8381-4601-4258-a42b-b3f44ed7583e">
+<p local-id=3D"3c1863536d57">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"2f09bf2a37d4" id=3D"UDM_08_Chat_TCP_Client_Server-TC_22=E2=
+=80=93SendVideo"><strong>TC_22 =E2=80=93 Send Video</strong></h3>
+<ul local-id=3D"c98fe1b6-560c-490a-b65a-e778737e8064">
+<li local-id=3D"c64e71e2-6172-4cf9-8b29-e3c4f98657ad">
+<p local-id=3D"aff2b4d11ec0">M=E1=BB=A5c =C4=91=C3=ADch: =C4=90=E1=BA=A3m b=
+=E1=BA=A3o client c=C3=B3 th=E1=BB=83 ch=E1=BB=8Dn 1 t=E1=BB=87p video MP4 =
+h=E1=BB=A3p l=E1=BB=87 v=E1=BB=9Bi k=C3=ADch th=C6=B0=E1=BB=9Bc t=E1=BB=91i=
+ =C4=91a kh=C3=B4ng qu=C3=A1 1 GiB</p>
+</li>
+<li local-id=3D"75ebdafa-ed0a-428b-a8a8-09a8e9cafd05">
+<p local-id=3D"ec0bbc86ff23">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Ch=E1=BB=8Dn file MP4 c=C3=B3 dung l=C6=B0=E1=BB=A3ng h=E1=BB=A3p l=E1=
+=BB=87 (1 byte =C4=91=E1=BA=BFn 1 GiB)</p>
+</li>
+<li local-id=3D"706df913-8568-40a3-8a8b-b94fd60a64d5">
+<p local-id=3D"49311cf9fed4">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Client hi=E1=BB=83n th=E1=BB=8B th=C3=B4ng tin file video =C4=91=C3=A3 ch=
+=E1=BB=8Dn.</p>
+</li>
+<li local-id=3D"e26e6f5e-15ad-4380-940d-c379d8c8b3d2">
+<p local-id=3D"37017194b87b">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"2e644c7f3985" id=3D"UDM_08_Chat_TCP_Client_Server-TC_23=E2=
+=80=93VideoTransferCancellation"><strong>TC_23 =E2=80=93 Video Transfer Can=
+cellation</strong></h3>
+<ul local-id=3D"69e2bf2f-2ff5-463a-902c-253144272eb5">
+<li local-id=3D"c5c8b1fc-3e8f-4775-a6a0-818f81f67b45">
+<p local-id=3D"415ccb6104df">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra k=
+h=E1=BA=A3 n=C4=83ng h=E1=BB=A7y qu=C3=A1 tr=C3=ACnh truy=E1=BB=81n video =
+=C4=91ang di=E1=BB=85n ra</p>
+</li>
+<li local-id=3D"05d1a38b-5881-4ad9-810b-0f301d1a038e">
+<p local-id=3D"4c3996826a55">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: H=E1=BB=A7y khi qu=C3=A1 tr=C3=ACnh truy=E1=BB=81n file video ch=C6=B0=
+a ho=C3=A0n t=E1=BA=A5t</p>
+</li>
+<li local-id=3D"744f6623-8455-4ac9-a002-9a42410d848c">
+<p local-id=3D"eaba2eedb3b3">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Qu=C3=A1 tr=C3=ACnh truy=E1=BB=81n b=E1=BB=8B h=E1=BB=A7y; video ch=C6=B0a=
+ ho=C3=A0n t=E1=BA=A5t kh=C3=B4ng =C4=91=C6=B0=E1=BB=A3c ghi nh=E1=BA=ADn l=
+=C3=A0 t=E1=BB=87p truy=E1=BB=81n th=C3=A0nh c=C3=B4ng</p>
+</li>
+<li local-id=3D"59603f67-d25c-486b-be9b-3553f34040c5">
+<p local-id=3D"5b3d1631dc57">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"af1807a10a92" id=3D"UDM_08_Chat_TCP_Client_Server-TC_24=E2=
+=80=93InvalidVideoFile"><strong>TC_24 =E2=80=93 Invalid Video File</strong>=
+</h3>
+<ul local-id=3D"8d4361f5-46c8-4696-915d-d946543e1f2c">
+<li local-id=3D"b1b5193a-397b-493b-8b22-aff018e55fe9">
+<p local-id=3D"248a5cb465e7">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra k=
+h=E1=BA=A3 n=C4=83ng t=E1=BB=AB ch=E1=BB=91i t=E1=BB=87p video kh=C3=B4ng h=
+=E1=BB=A3p l=E1=BB=87</p>
+</li>
+<li local-id=3D"8bfe4c9f-e9b9-4b2c-a8d2-1a0387c27772">
+<p local-id=3D"eee756f59035">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: Ch=E1=BB=8Dn t=E1=BB=87p kh=C3=B4ng ph=E1=BA=A3i MP4 ho=E1=BA=B7c t=E1=
+=BB=87p c=C3=B3 =C4=91=E1=BB=8Bnh d=E1=BA=A1ng kh=C3=B4ng h=E1=BB=A3p l=E1=
+=BB=87</p>
+</li>
+<li local-id=3D"23f7b55b-4ae4-4c73-9b3d-0bdd47ef0dda">
+<p local-id=3D"fda34a55f150">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ H=E1=BB=87 th=E1=BB=91ng t=E1=BB=AB ch=E1=BB=91i t=E1=BB=87p kh=C3=B4ng h=
+=E1=BB=A3p l=E1=BB=87 v=C3=A0 th=C3=B4ng b=C3=A1o l=E1=BB=97i ph=C3=B9 h=E1=
+=BB=A3p</p>
+</li>
+<li local-id=3D"e4d51d70-aa14-4773-93a3-d26756e78073">
+<p local-id=3D"c6ecfc2a75c3">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"5cf1efd18e62" id=3D"UDM_08_Chat_TCP_Client_Server-TC_25=E2=
+=80=93VideoIntegrity"><strong>TC_25 =E2=80=93 Video Integrity</strong></h3>
+<ul local-id=3D"87f1dcfd-238a-4d1e-a9f7-126ad51e1786">
+<li local-id=3D"d85ec187-2510-4731-b5c9-d7ee5caad635">
+<p local-id=3D"9476d3dfb25f">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra t=
+=C3=ADnh to=C3=A0n v=E1=BA=B9n c=E1=BB=A7a d=E1=BB=AF li=E1=BB=87u video sa=
+u khi g=E1=BB=ADi</p>
+</li>
+<li local-id=3D"09b04c7f-f0db-4219-8831-361b8fcfd1d4">
+<p local-id=3D"78abcecf934c">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: G=E1=BB=ADi video =C4=91=E1=BA=BFn Client nh=E1=BA=ADn</p>
+</li>
+<li local-id=3D"e638d6cb-f153-4556-b334-c1d8fc13377f">
+<p local-id=3D"2e9901781a72">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ Hai video tr=C3=B9ng kh=E1=BB=9Bp, x=C3=A1c nh=E1=BA=ADn d=E1=BB=AF li=E1=
+=BB=87u video =C4=91=C6=B0=E1=BB=A3c truy=E1=BB=81n =C4=91=E1=BA=A7y =C4=91=
+=E1=BB=A7 v=C3=A0 ch=C3=ADnh x=C3=A1c</p>
+</li>
+<li local-id=3D"220a3220-8424-4cd5-aab1-ce8eab850efd">
+<p local-id=3D"7f8fb78698bc">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"4fbb3ee3062f" id=3D"UDM_08_Chat_TCP_Client_Server-TC_26=E2=
+=80=93ChatHistoryPersistence"><strong>TC_26 =E2=80=93 Chat History Persiste=
+nce</strong></h3>
+<ul local-id=3D"ca1e853d-0be2-4c21-8fce-3205e867297b">
+<li local-id=3D"a9f0b158-069a-4a89-bf3d-a104c658c009">
+<p local-id=3D"3f729569dee2">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra k=
+h=E1=BA=A3 n=C4=83ng l=C6=B0u v=C3=A0 kh=C3=B4i ph=E1=BB=A5c l=E1=BB=8Bch s=
+=E1=BB=AD tr=C3=B2 chuy=E1=BB=87n b=E1=BA=B1ng SQLite.</p>
+</li>
+<li local-id=3D"3d7198b5-813a-478f-ae94-212267d3bdc1">
+<p local-id=3D"e003a9d6fb9a">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: =C4=90=C3=B3ng Client, m=E1=BB=9F l=E1=BA=A1i Client v=C3=A0 =C4=91=C4=
+=83ng nh=E1=BA=ADp c=C3=B9ng t=C3=A0i kho=E1=BA=A3n, m=E1=BB=9F l=E1=BB=8Bc=
+h s=E1=BB=AD chat.</p>
+</li>
+<li local-id=3D"f00a5c0b-a7ca-4148-9df6-c8bd5929b48d">
+<p local-id=3D"8d05f3138744">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ L=E1=BB=8Bch s=E1=BB=AD tin nh=E1=BA=AFn =C4=91=C3=A3 l=C6=B0u =C4=91=C6=
+=B0=E1=BB=A3c kh=C3=B4i ph=E1=BB=A5c ch=C3=ADnh x=C3=A1c sau khi m=E1=BB=9F=
+ l=E1=BA=A1i Client.</p>
+</li>
+<li local-id=3D"27db13d5-5966-4cf3-8875-7bb1259dddc9">
+<p local-id=3D"ad8197b786ff">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<h3 local-id=3D"997f81c606d1" id=3D"UDM_08_Chat_TCP_Client_Server-TC_27=E2=
+=80=93AccountHistoryIsolation"><strong>TC_27 =E2=80=93 Account History Isol=
+ation</strong></h3>
+<ul local-id=3D"967358de-6440-44eb-a0d7-86771f77daf8">
+<li local-id=3D"26b67964-18ba-4df1-a5ba-1853e27fd283">
+<p local-id=3D"ec6abc6f11c7">M=E1=BB=A5c =C4=91=C3=ADch: Ki=E1=BB=83m tra k=
+h=E1=BA=A3 n=C4=83ng ph=C3=A2n t=C3=A1ch l=E1=BB=8Bch s=E1=BB=AD tr=C3=B2 c=
+huy=E1=BB=87n gi=E1=BB=AFa c=C3=A1c t=C3=A0i kho=E1=BA=A3n</p>
+</li>
+<li local-id=3D"ab13f68d-346f-4686-a117-7b0b73defaa9">
+<p local-id=3D"f3866b72b56d">D=E1=BB=AF li=E1=BB=87u ki=E1=BB=83m th=E1=BB=
+=AD: =C4=90=C4=83ng nh=E1=BA=ADp t=C3=A0i kho=E1=BA=A3n A v=C3=A0 t=E1=BA=
+=A1o l=E1=BB=8Bch s=E1=BB=AD chat, =C4=91=C4=83ng xu=E1=BA=A5t; =C4=91=C4=
+=83ng nh=E1=BA=ADp t=C3=A0i kho=E1=BA=A3n B, ki=E1=BB=83m tra l=E1=BB=8Bch =
+s=E1=BB=AD.</p>
+</li>
+<li local-id=3D"8ae2ae69-0514-4d12-bc33-8d1c275ff0c8">
+<p local-id=3D"ff68351292ee">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i:=
+ T=C3=A0i kho=E1=BA=A3n B kh=C3=B4ng =C4=91=C6=B0=E1=BB=A3c hi=E1=BB=83n th=
+=E1=BB=8B l=E1=BB=8Bch s=E1=BB=AD ri=C3=AAng thu=E1=BB=99c t=C3=A0i kho=E1=
+=BA=A3n A</p>
+</li>
+<li local-id=3D"2de5180c-1e24-4976-ab19-a20415532b95">
+<p local-id=3D"007ab8ded495">K=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=
+=BF:</p>
+</li>
+</ul>
+<p local-id=3D"8a15f39187fe"></p>
+<p local-id=3D"a869cd2ea65d"><strong>1.2 M=E1=BB=A9c =C4=91=E1=BB=99 ki=E1=
+=BB=83m th=E1=BB=AD</strong></p>
+<ul local-id=3D"872e6bd2-8bc2-40b8-b8e8-b03dbf0bfcca">
+<li local-id=3D"d95f4d6c-eb11-4583-ba76-9072bb7cf321">
+<p local-id=3D"19a5844a079f"><strong>Ki=E1=BB=83m th=E1=BB=AD =C4=91=C6=A1n=
+ v=E1=BB=8B (Unit Testing):</strong> T=E1=BA=ADp trung ki=E1=BB=83m tra t=
+=C3=ADnh ch=C3=ADnh x=C3=A1c c=E1=BB=A7a t=E1=BB=ABng th=C3=A0nh ph=E1=BA=
+=A7n ho=E1=BA=B7c ch=E1=BB=A9c n=C4=83ng ri=C3=AAng l=E1=BA=BB, ch=E1=BA=B3=
+ng h=E1=BA=A1n nh=C6=B0 x=E1=BB=AD l=C3=BD d=E1=BB=AF li=E1=BB=87u =C4=91=
+=E1=BA=A7u v=C3=A0o, ki=E1=BB=83m tra t=C3=AAn ng=C6=B0=E1=BB=9Di d=C3=B9ng=
+ v=C3=A0 x=E1=BB=AD l=C3=BD tin nh=E1=BA=AFn. M=E1=BB=A5c ti=C3=AAu l=C3=A0=
+ ph=C3=A1t hi=E1=BB=87n l=E1=BB=97i trong t=E1=BB=ABng th=C3=A0nh ph=E1=BA=
+=A7n tr=C6=B0=E1=BB=9Bc khi k=E1=BA=BFt h=E1=BB=A3p v=C3=A0o h=E1=BB=87 th=
+=E1=BB=91ng.</p>
+</li>
+<li local-id=3D"73cd6f3b-d31d-4b61-816f-e43bb59df6b3">
+<p local-id=3D"c87e77b6b157"><strong>Ki=E1=BB=83m th=E1=BB=AD t=C3=ADch h=
+=E1=BB=A3p (Integration Testing):</strong> Ki=E1=BB=83m tra s=E1=BB=B1 ph=
+=E1=BB=91i h=E1=BB=A3p gi=E1=BB=AFa c=C3=A1c th=C3=A0nh ph=E1=BA=A7n Client=
+ v=C3=A0 Server, =C4=91=E1=BA=B7c bi=E1=BB=87t l=C3=A0 qu=C3=A1 tr=C3=ACnh =
+thi=E1=BA=BFt l=E1=BA=ADp k=E1=BA=BFt n=E1=BB=91i TCP, g=E1=BB=ADi v=C3=A0 =
+nh=E1=BA=ADn d=E1=BB=AF li=E1=BB=87u, x=E1=BB=AD l=C3=BD tin nh=E1=BA=AFn v=
+=C3=A0 c=E1=BA=ADp nh=E1=BA=ADt danh s=C3=A1ch ng=C6=B0=E1=BB=9Di d=C3=B9ng=
+ tr=E1=BB=B1c tuy=E1=BA=BFn.</p>
+</li>
+<li local-id=3D"4c32243b-dfff-407c-b0d1-04574fa2646f">
+<p local-id=3D"e0ed4b7e000d"><strong>Ki=E1=BB=83m th=E1=BB=AD h=E1=BB=87 th=
+=E1=BB=91ng (System Testing):</strong> Ki=E1=BB=83m tra to=C3=A0n b=E1=BB=
+=99 =E1=BB=A9ng d=E1=BB=A5ng sau khi c=C3=A1c th=C3=A0nh ph=E1=BA=A7n =C4=
+=91=C6=B0=E1=BB=A3c t=C3=ADch h=E1=BB=A3p, nh=E1=BA=B1m x=C3=A1c minh c=C3=
+=A1c ch=E1=BB=A9c n=C4=83ng ho=E1=BA=A1t =C4=91=E1=BB=99ng =C4=91=C3=BAng t=
+heo y=C3=AAu c=E1=BA=A7u trong m=C3=B4i tr=C6=B0=E1=BB=9Dng s=E1=BB=AD d=E1=
+=BB=A5ng th=E1=BB=B1c t=E1=BA=BF.</p>
+</li>
+<li local-id=3D"a5a844b2-0312-4a7d-b9d2-7bb6755ef0e0">
+<p local-id=3D"821a43a3f238"><strong>Ki=E1=BB=83m th=E1=BB=AD ch=E1=BA=A5p =
+nh=E1=BA=ADn (Acceptance Testing):</strong> =C4=90=C3=A1nh gi=C3=A1 =E1=BB=
+=A9ng d=E1=BB=A5ng d=E1=BB=B1a tr=C3=AAn c=C3=A1c y=C3=AAu c=E1=BA=A7u ban =
+=C4=91=E1=BA=A7u c=E1=BB=A7a =C4=91=E1=BB=81 t=C3=A0i, x=C3=A1c =C4=91=E1=
+=BB=8Bnh li=E1=BB=87u h=E1=BB=87 th=E1=BB=91ng c=C3=B3 =C4=91=C3=A1p =E1=BB=
+=A9ng =C4=91=C6=B0=E1=BB=A3c nh=E1=BB=AFng m=E1=BB=A5c ti=C3=AAu v=C3=A0 ch=
+=E1=BB=A9c n=C4=83ng =C4=91=C3=A3 =C4=91=E1=BA=B7t ra hay kh=C3=B4ng.</p>
+</li>
+</ul>
+<p local-id=3D"749bd7de2684"><strong>1.3 R=C3=A0ng bu=E1=BB=99c v=C3=A0 gi=
+=E1=BA=A3 =C4=91=E1=BB=8Bnh</strong></p>
+<p local-id=3D"28c8b4d64126">a. R=C3=A0ng bu=E1=BB=99c</p>
+<ul local-id=3D"8364d8f2-8ac3-4e6a-b5f5-acf18e4d121d">
+<li local-id=3D"f93cf42f-e90d-40f9-acde-a904eb91fd6b">
+<p local-id=3D"1ff050463960">Server ph=E1=BA=A3i =C4=91=C6=B0=E1=BB=A3c kh=
+=E1=BB=9Fi ch=E1=BA=A1y tr=C6=B0=E1=BB=9Bc khi Client c=C3=B3 th=E1=BB=83 t=
+hi=E1=BA=BFt l=E1=BA=ADp k=E1=BA=BFt n=E1=BB=91i.</p>
+</li>
+<li local-id=3D"adad45ef-91e3-4f31-9919-e700727b4735">
+<p local-id=3D"832cc0cbd845">C=C3=A1c Client v=C3=A0 Server c=E1=BA=A7n c=
+=C3=B3 k=E1=BA=BFt n=E1=BB=91i m=E1=BA=A1ng ph=C3=B9 h=E1=BB=A3p =C4=91=E1=
+=BB=83 th=E1=BB=B1c hi=E1=BB=87n trao =C4=91=E1=BB=95i d=E1=BB=AF li=E1=BB=
+=87u.</p>
+</li>
+<li local-id=3D"47006349-8b5c-4aaa-869b-3cea75581a6a">
+<p local-id=3D"74ca52d8f629">S=E1=BB=91 l=C6=B0=E1=BB=A3ng Client tham gia =
+ki=E1=BB=83m th=E1=BB=AD ph=E1=BB=A5 thu=E1=BB=99c v=C3=A0o s=E1=BB=91 l=C6=
+=B0=E1=BB=A3ng thi=E1=BA=BFt b=E1=BB=8B v=C3=A0 =C4=91i=E1=BB=81u ki=E1=BB=
+=87n m=C3=B4i tr=C6=B0=E1=BB=9Dng ki=E1=BB=83m th=E1=BB=AD hi=E1=BB=87n c=
+=C3=B3.</p>
+</li>
+<li local-id=3D"2c0623fe-1a5b-4edb-854b-41a87f1ff81c">
+<p local-id=3D"f32216f3d517">K=E1=BA=BFt qu=E1=BA=A3 ki=E1=BB=83m th=E1=BB=
+=AD c=C3=B3 th=E1=BB=83 b=E1=BB=8B =E1=BA=A3nh h=C6=B0=E1=BB=9Fng b=E1=BB=
+=9Fi t=C3=ACnh tr=E1=BA=A1ng k=E1=BA=BFt n=E1=BB=91i m=E1=BA=A1ng v=C3=A0 c=
+=E1=BA=A5u h=C3=ACnh thi=E1=BA=BFt b=E1=BB=8B.</p>
+</li>
+<li local-id=3D"5bab36de-b433-442f-999d-71eea34212be">
+<p local-id=3D"24c13d349389">Ph=E1=BA=A1m vi ki=E1=BB=83m th=E1=BB=AD ch=E1=
+=BB=89 gi=E1=BB=9Bi h=E1=BA=A1n trong c=C3=A1c ch=E1=BB=A9c n=C4=83ng =C4=
+=91=C3=A3 =C4=91=C6=B0=E1=BB=A3c tri=E1=BB=83n khai c=E1=BB=A7a =E1=BB=A9ng=
+ d=E1=BB=A5ng.</p>
+</li>
+</ul>
+<p local-id=3D"075c571fc4ee">b. Gi=E1=BA=A3 =C4=91=E1=BB=8Bnh</p>
+<ul local-id=3D"cb5485c7-8695-4b24-b270-b0dd9abbbc74">
+<li local-id=3D"0466607d-aa17-41aa-93ae-99e724b7dd90">
+<p local-id=3D"f90c1fb63951">=E1=BB=A8ng d=E1=BB=A5ng Client v=C3=A0 Server=
+ =C4=91=C3=A3 =C4=91=C6=B0=E1=BB=A3c bi=C3=AAn d=E1=BB=8Bch v=C3=A0 kh=E1=
+=BB=9Fi ch=E1=BA=A1y th=C3=A0nh c=C3=B4ng tr=C6=B0=E1=BB=9Bc khi ti=E1=BA=
+=BFn h=C3=A0nh ki=E1=BB=83m th=E1=BB=AD.</p>
+</li>
+<li local-id=3D"7e5c8eae-948b-482a-b928-e75776f976ad">
+<p local-id=3D"ef96a88ba628">C=C3=A1c Client tham gia ki=E1=BB=83m th=E1=BB=
+=AD s=E1=BB=AD d=E1=BB=A5ng phi=C3=AAn b=E1=BA=A3n =E1=BB=A9ng d=E1=BB=A5ng=
+ t=C6=B0=C6=A1ng th=C3=ADch v=E1=BB=9Bi Server.</p>
+</li>
+<li local-id=3D"6e709887-9aad-47cb-9c7a-84ddb114dd7a">
+<p local-id=3D"3af41a59b3d5">D=E1=BB=AF li=E1=BB=87u =C4=91=E1=BA=A7u v=C3=
+=A0o =C4=91=C6=B0=E1=BB=A3c chu=E1=BA=A9n b=E1=BB=8B ph=C3=B9 h=E1=BB=A3p v=
+=E1=BB=9Bi t=E1=BB=ABng tr=C6=B0=E1=BB=9Dng h=E1=BB=A3p ki=E1=BB=83m th=E1=
+=BB=AD.</p>
+</li>
+<li local-id=3D"4f104f87-6ab9-4e63-b312-84d2c0a5f6ce">
+<p local-id=3D"1a1341638c8d">K=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i =
+c=E1=BB=A7a m=E1=BB=97i tr=C6=B0=E1=BB=9Dng h=E1=BB=A3p ki=E1=BB=83m th=E1=
+=BB=AD =C4=91=C6=B0=E1=BB=A3c x=C3=A1c =C4=91=E1=BB=8Bnh d=E1=BB=B1a tr=C3=
+=AAn y=C3=AAu c=E1=BA=A7u ch=E1=BB=A9c n=C4=83ng c=E1=BB=A7a =E1=BB=A9ng d=
+=E1=BB=A5ng.</p>
+</li>
+<li local-id=3D"d0e62ee2-a68e-4307-b4c8-91c41a0020ca">
+<p local-id=3D"2e2b13d52703">M=E1=BB=99t tr=C6=B0=E1=BB=9Dng h=E1=BB=A3p ki=
+=E1=BB=83m th=E1=BB=AD =C4=91=C6=B0=E1=BB=A3c xem l=C3=A0 =C4=91=E1=BA=A1t =
+khi k=E1=BA=BFt qu=E1=BA=A3 th=E1=BB=B1c t=E1=BA=BF =C4=91=C3=A1p =E1=BB=A9=
+ng k=E1=BA=BFt qu=E1=BA=A3 mong =C4=91=E1=BB=A3i.</p>
+</li>
+</ul>
+<h2 local-id=3D"6b3202f26b36" id=3D"UDM_08_Chat_TCP_Client_Server-2.Ph=C6=
+=B0=C6=A1ngth=E1=BB=A9c">2.Ph=C6=B0=C6=A1ng th=E1=BB=A9c</h2>
+<p local-id=3D"1e1af3a73757"><strong>2.1 Ph=C3=A2n lo=E1=BA=A1i</strong></p=
+>
+<ul local-id=3D"52997afb-1060-4dcd-8406-66174c98f6bb">
+<li local-id=3D"761c0abb-1912-4e9d-baf0-738426c6620e">
+<p local-id=3D"86db50a3d1d4"><strong>Ki=E1=BB=83m th=E1=BB=AD ch=E1=BB=A9c =
+n=C4=83ng (Functional Testing):</strong> X=C3=A1c minh c=C3=A1c ch=E1=BB=A9=
+c n=C4=83ng c=E1=BB=A7a =E1=BB=A9ng d=E1=BB=A5ng c=C3=B3 =C4=91=C3=A1p =E1=
+=BB=A9ng =C4=91=C3=BAng y=C3=AAu c=E1=BA=A7u hay kh=C3=B4ng. N=E1=BB=99i du=
+ng ki=E1=BB=83m th=E1=BB=AD bao g=E1=BB=93m =C4=91=C4=83ng k=C3=BD ng=C6=B0=
+=E1=BB=9Di d=C3=B9ng, g=E1=BB=ADi v=C3=A0 nh=E1=BA=ADn tin nh=E1=BA=AFn, tr=
+=C3=B2 chuy=E1=BB=87n ri=C3=AAng t=C6=B0, tr=C3=B2 chuy=E1=BB=87n c=C3=B4ng=
+ khai, tr=E1=BA=A3 l=E1=BB=9Di v=C3=A0 chuy=E1=BB=83n ti=E1=BA=BFp tin nh=
+=E1=BA=AFn.</p>
+</li>
+<li local-id=3D"e69a630d-62d2-4d63-9304-7231c051422e">
+<p local-id=3D"2ffdb1d131f9"><strong>Ki=E1=BB=83m th=E1=BB=AD giao di=E1=BB=
+=87n (UI Testing):</strong> Ki=E1=BB=83m tra giao di=E1=BB=87n ng=C6=B0=E1=
+=BB=9Di d=C3=B9ng, kh=E1=BA=A3 n=C4=83ng hi=E1=BB=83n th=E1=BB=8B c=C3=A1c =
+th=C3=A0nh ph=E1=BA=A7n v=C3=A0 thao t=C3=A1c tr=C3=AAn =E1=BB=A9ng d=E1=BB=
+=A5ng, bao g=E1=BB=93m khu v=E1=BB=B1c tr=C3=B2 chuy=E1=BB=87n, danh s=C3=
+=A1ch ng=C6=B0=E1=BB=9Di d=C3=B9ng, n=C3=BAt ch=E1=BB=A9c n=C4=83ng v=C3=A0=
+ c=C3=A1c th=C3=A0nh ph=E1=BA=A7n t=C6=B0=C6=A1ng t=C3=A1c.</p>
+</li>
+<li local-id=3D"64b721a0-9b0e-4815-90b0-4ee8aa1df839">
+<p local-id=3D"c4494c47a80b"><strong>Ki=E1=BB=83m th=E1=BB=AD x=E1=BB=AD l=
+=C3=BD l=E1=BB=97i (Error Handling Testing):</strong> Ki=E1=BB=83m tra kh=
+=E1=BA=A3 n=C4=83ng ph=C3=A1t hi=E1=BB=87n v=C3=A0 x=E1=BB=AD l=C3=BD c=C3=
+=A1c t=C3=ACnh hu=E1=BB=91ng b=E1=BA=A5t th=C6=B0=E1=BB=9Dng nh=C6=B0 t=C3=
+=AAn ng=C6=B0=E1=BB=9Di d=C3=B9ng kh=C3=B4ng h=E1=BB=A3p l=E1=BB=87, ng=C6=
+=B0=E1=BB=9Di nh=E1=BA=ADn kh=C3=B4ng tr=E1=BB=B1c tuy=E1=BA=BFn ho=E1=BA=
+=B7c k=E1=BA=BFt n=E1=BB=91i Client-Server b=E1=BB=8B gi=C3=A1n =C4=91o=E1=
+=BA=A1n.</p>
+</li>
+<li local-id=3D"18e1456d-6289-4f94-b6fd-b4e98ce7e8ff">
+<p local-id=3D"0e8017bcfd8d"><strong>Ki=E1=BB=83m th=E1=BB=AD t=C6=B0=C6=A1=
+ng th=C3=ADch (Compatibility Testing):</strong> =C4=90=C3=A1nh gi=C3=A1 kh=
+=E1=BA=A3 n=C4=83ng ho=E1=BA=A1t =C4=91=E1=BB=99ng c=E1=BB=A7a =E1=BB=A9ng =
+d=E1=BB=A5ng trong m=C3=B4i tr=C6=B0=E1=BB=9Dng thi=E1=BA=BFt b=E1=BB=8B v=
+=C3=A0 c=E1=BA=A5u h=C3=ACnh =C4=91=C6=B0=E1=BB=A3c s=E1=BB=AD d=E1=BB=A5ng=
+ =C4=91=E1=BB=83 ki=E1=BB=83m th=E1=BB=AD.</p>
+</li>
+</ul>
+<p local-id=3D"ab7422171e77"><strong>2.2 M=E1=BB=A9c =C4=91=E1=BB=99</stron=
+g></p>
+<h1 local-id=3D"4b151744d6c8" id=3D"UDM_08_Chat_TCP_Client_Server-VI.Phi=C3=
+=AAnb=E1=BA=A3nho=C3=A0nch=E1=BB=89nhv=C3=A0h=C6=B0=E1=BB=9Bngd=E1=BA=ABns=
+=E1=BB=ADd=E1=BB=A5ng">VI. Phi=C3=AAn b=E1=BA=A3n ho=C3=A0n ch=E1=BB=89nh v=
+=C3=A0 h=C6=B0=E1=BB=9Bng d=E1=BA=ABn s=E1=BB=AD d=E1=BB=A5ng</h1>
+<p local-id=3D"c84b05c7eb83"></p>
+<h2 local-id=3D"312e6f933689" id=3D"UDM_08_Chat_TCP_Client_Server-1.Phi=C3=
+=AAnb=E1=BA=A3nho=C3=A0nch=E1=BB=89nh">1.Phi=C3=AAn b=E1=BA=A3n ho=C3=A0n c=
+h=E1=BB=89nh</h2>
+<p local-id=3D"5d949d3e01fb"></p>
+<h2 local-id=3D"ede542fb395b" id=3D"UDM_08_Chat_TCP_Client_Server-2.H=C6=B0=
+=E1=BB=9Bngd=E1=BA=ABnt=E1=BA=A3ixu=E1=BB=91ng">2.H=C6=B0=E1=BB=9Bng d=E1=
+=BA=ABn t=E1=BA=A3i xu=E1=BB=91ng</h2>
+<p local-id=3D"aeb1e0549b40"></p>
+<h2 local-id=3D"25caddde9aba" id=3D"UDM_08_Chat_TCP_Client_Server-3.H=C6=B0=
+=E1=BB=9Bngd=E1=BA=ABns=E1=BB=ADd=E1=BB=A5ng">3.H=C6=B0=E1=BB=9Bng d=E1=BA=
+=ABn s=E1=BB=AD d=E1=BB=A5ng</h2>
+<p local-id=3D"cd771b6f8b90"></p>
+<p local-id=3D"08078f5b0b73">3.1 T=E1=BB=95ng quan</p>
+<p local-id=3D"faba209102b3"></p>
+<p local-id=3D"c0327aa97dd5">3.2 Giao di=E1=BB=87n ch=C3=ADnh v=C3=A0 c=C3=
+=A1c ch=E1=BB=A9c n=C4=83ng</p>
+<p local-id=3D"176151eba4ee"></p>
+    </div>
+</body>
+</html>
+------=_Part_8_1008187723.1794247147676--
