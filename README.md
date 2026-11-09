@@ -11,11 +11,9 @@ This project was developed for educational purposes as a course assignment.
  
 ## Installation
  
-Download and install the following tools (CMake and Qt Creator are included in the Qt installer):
+Download and install the following tools (CMake, MinGW and Qt Creator are included in the Qt installer):
  
 - Qt 6: https://www.qt.io/download-open-source
-
-- C++17 compiler VS Code: https://code.visualstudio.com/Download
 
 - Git: https://git-scm.com/downloads (Download the source code as a ZIP file from GitHub, or clone it with Git)
 
@@ -24,9 +22,6 @@ Then clone the repository, open `CMakeLists.txt` in Qt Creator, select a Qt 6 ki
 ```bash
 git clone https://github.com/thanhhung4412y/UDM_08_Chat_TCP_Client_Server.git
 ```
- 
-> [!IMPORTANT]
-> `CMakeLists.txt` contains `add_subdirectory(untitled)`, so the `untitled/` directory must exist. If you don't use it, remove that line.
  
 ## Usage
  
@@ -53,6 +48,7 @@ Example:
 - `forward` (to, text): forward a message; empty `to` means the public room
 - `sticker` (to, id): send a sticker
 - `image` (to, data): send an image; data is a Base64-encoded JPEG
+
 ### Server to Client
  
 - `joined` (name): login successful
@@ -66,9 +62,13 @@ Example:
 - `image` (sender, to, data): image
 - `error` (text): error message
 
+## Features
+
+- Added password registration/login, TLS connection, and local chat history.
+
 ## Limitations
 
-- No offline user list and no message history synchronization (online users only).
+- Chat history is stored on each client device, not synchronized through the server.
  
 ## License
  
