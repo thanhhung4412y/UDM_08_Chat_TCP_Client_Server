@@ -1,3 +1,10 @@
+#include "connectiondialog.h"
+#include "sessionconnection.h"
+#include "chathistory.h"
+#include "videoclient.h"
+#include <QStandardPaths>
+#include <QDesktopServices>
+#include <QTextBrowser>
 #include <QComboBox>
 #include <QApplication>
 #include <QWidget>
@@ -38,10 +45,12 @@
 #include <QMenu>
 #include <QAction>
 #include <QPoint>
-int main(int argc, char *argv[])
+static bool runChat(const ConnectionProfile &profile)
 {
-    QApplication app(argc, argv);
-
+    const QString username = profile.username;
+    const QString serverHost = profile.host;
+    const quint16 serverPort = profile.port;
+    bool changeRequested = false;
     qDebug() << "Nobita exists:"
              << QFile::exists(":/stickers/nobita.jpg");
 
@@ -54,39 +63,17 @@ int main(int argc, char *argv[])
     qDebug() << "Doremon loaded:"
              << !QPixmap(":/stickers/doremon.jpg").isNull();
 
-    // Yeu cau nguoi dung nhap ten
-    bool ok = false;
-
-    QString username = QInputDialog::getText(
-                           nullptr,
-                           "Dang nhap Chat TCP",
-                           "Nhap ten cua ban:",
-                           QLineEdit::Normal,
-                           "",
-                           &ok
-                           ).trimmed();
-
-    if (!ok || username.isEmpty()) {
-        return 0;
-    }
-
-    if (username.size() > 20) {
-        QMessageBox::warning(
-            nullptr, "Loi",
-            "Ten khong duoc vuot qua 20 ky tu");
-        return 0;
-    }
-
     QWidget window;
     window.setWindowTitle(
-        "Chat TCP - " + username
+        "Chat TCP - " + username + " @ " + profile.endpoint()
         );
     window.resize(800, 500);
 
     QLabel *status =
         new QLabel("Dang ket noi...");
 
-    QTextEdit *chatBox = new QTextEdit();
+    QTextBrowser *chatBox = new QTextBrowser();
+    chatBox->setOpenLinks(false);
     chatBox->setReadOnly(true);
 
     QListWidget *onlineList = new QListWidget();
@@ -317,9 +304,93 @@ int main(int argc, char *argv[])
         }
         );
 
-    QTcpSocket socket;
-    QByteArray buffer;
+    QSslSocket socket;
+    JsonChannel channel(&socket);
+    SessionConnection connection(&socket, &channel, profile);
+    connection.setTrustPrompt([&](const QString &fingerprint, const QString &previous) {
+        const QString notice = previous.isEmpty() ? "Lan dau ket noi Server nay." : "CANH BAO: Danh tinh Server da thay doi.";
+        return QMessageBox::question(&window, "Xac minh Server",
+            notice + "\nSo sanh SHA-256 duoi day voi cua so Server:\n\n" + fingerprint
+            + (previous.isEmpty() ? QString() : "\n\nDau van tay cu:\n" + previous)
+            + "\n\nChi bam Yes neu dau van tay khop voi Server cua ban.",
+            QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes;
+    });
+    ChatHistory history(chatBox, username, serverHost, serverPort);
+    auto *historyStatus = new QLabel();
+    historyStatus->setTextFormat(Qt::PlainText);
+    historyStatus->setWordWrap(true);
+    auto *historyButton = new QPushButton("Lich su");
+    inputLayout->insertWidget(0, historyButton);
+    mainLayout->insertWidget(1, historyStatus);
+    QObject::connect(&history, &ChatHistory::storageStatus, &window,
+        [historyStatus](const QString &text) { historyStatus->setText(text); });
+    QObject::connect(&history, &ChatHistory::linkError, &window,
+        [&](const QString &text) { QMessageBox::warning(&window, "Video", text); });
+    QObject::connect(historyButton, &QPushButton::clicked, &window, [&] { history.showDialog(&window); });
+    bool historyInitialized = false;
+    historyButton->setEnabled(false);
+    VideoClient videos(&channel, &socket,
+        QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) + "/ChatTCP_Videos");
+    auto *videoStatus = new QLabel("Video MP4: toi da 1 GiB");
+    videoStatus->setTextFormat(Qt::PlainText);
+    auto *cancelVideo = new QPushButton("Huy video");
+    cancelVideo->setEnabled(false);
+    mainLayout->insertWidget(1, videoStatus);
+    mainLayout->insertWidget(2, cancelVideo);
+    QObject::connect(cancelVideo, &QPushButton::clicked, &videos, &VideoClient::cancel);
+    QObject::connect(&videos, &VideoClient::progress, &window, [&](const QString &text) {
+        videoStatus->setText(text);
+        cancelVideo->setEnabled(videos.isSending());
+    });
+    QObject::connect(&videos, &VideoClient::failed, &window, [&](const QString &text) {
+        videoStatus->setText("Video: " + text);
+        cancelVideo->setEnabled(videos.isSending());
+        chatBox->append("[Loi video] " + text.toHtmlEscaped());
+    });
+    QObject::connect(&videos, &VideoClient::historyReady, &history, &ChatHistory::completedVideo);
+    QObject::connect(&videos, &VideoClient::completed, &window,
+        [&](const QString &, const QString &, const QString &name, bool) {
+            videoStatus->setText("Video hoan tat: " + name);
+            cancelVideo->setEnabled(videos.isSending());
+        });
     QString replyQuote;
+    status->setTextFormat(Qt::PlainText);
+    auto *reconnectButton = new QPushButton("Ket noi lai");
+    auto *changeButton = new QPushButton("Dang xuat / Doi ket noi");
+    auto *connectionBar = new QHBoxLayout();
+    connectionBar->addWidget(reconnectButton);
+    connectionBar->addWidget(changeButton);
+    connectionBar->addStretch();
+    mainLayout->insertLayout(1, connectionBar);
+    QObject::connect(reconnectButton, &QPushButton::clicked, &connection, &SessionConnection::connectNow);
+    QObject::connect(changeButton, &QPushButton::clicked, &window, [&] {
+        if ((videos.isSending() || videos.incomingCount() > 0)
+            && QMessageBox::question(&window, "Doi ket noi",
+                "Dang truyen video. Doi ket noi se dung video dang truyen. Tiep tuc?",
+                QMessageBox::Yes | QMessageBox::No, QMessageBox::No) != QMessageBox::Yes) return;
+        changeRequested = true;
+        window.close();
+    });
+    QObject::connect(&connection, &SessionConnection::changed, &window,
+        [&](SessionConnection::State state, const QString &text) {
+            status->setText(text);
+            sendButton->setEnabled(state == SessionConnection::Ready);
+            messageInput->setEnabled(state == SessionConnection::Ready);
+            reconnectButton->setEnabled(state == SessionConnection::Idle);
+            if (state == SessionConnection::Ready && !historyInitialized) {
+                history.initialize(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + "/history");
+                historyInitialized = true;
+                historyButton->setEnabled(true);
+            }
+            if (state == SessionConnection::Idle) {
+                onlineList->clear(); onlineLabel->setText("Online (0)");
+                receiverBox->clear(); receiverBox->addItem("Phong chung", "");
+                replyQuote.clear(); messageInput->setPlaceholderText("Nhap tin nhan...");
+            }
+        });
+    QObject::connect(&connection, &SessionConnection::failed, &window, [&](const QString &text) {
+        chatBox->append("[Loi ket noi] " + text.toHtmlEscaped());
+    });
 
     QObject::connect(
         receiverBox,
@@ -337,11 +408,7 @@ int main(int argc, char *argv[])
 
     // Ham gui JSON
     auto sendPacket = [&](const QJsonObject &packet) {
-        QByteArray data =
-            QJsonDocument(packet)
-                .toJson(QJsonDocument::Compact);
-
-        socket.write(data + "\n");
+        channel.send(packet);
     };
 
     // =====================================
@@ -459,37 +526,7 @@ int main(int argc, char *argv[])
             if (filePath.isEmpty())
                 return;
 
-            QFileInfo fileInfo(filePath);
-
-            if (!fileInfo.exists() ||
-                !fileInfo.isFile()) {
-                QMessageBox::warning(
-                    &window, "Loi",
-                    "Khong tim thay video"
-                    );
-                return;
-            }
-
-            const qint64 maxSize =
-                20LL * 1024 * 1024;
-
-            if (fileInfo.size() <= 0 ||
-                fileInfo.size() > maxSize) {
-                QMessageBox::warning(
-                    &window, "Loi",
-                    "Video phai co dung luong tu 1 byte "
-                    "den 20 MiB"
-                    );
-                return;
-            }
-
-            QMessageBox::information(
-                &window,
-                "Da chon Video",
-                QString("Ten: %1\nDung luong: %2 KB")
-                    .arg(fileInfo.fileName())
-                    .arg(fileInfo.size() / 1024)
-                );
+            videos.start(filePath, receiverBox->currentData().toString());
         }
         );
 
@@ -551,71 +588,20 @@ int main(int argc, char *argv[])
             dialog.exec();
         }
         );
-    // Khi ket noi TCP thanh cong
-    QObject::connect(
-        &socket, &QTcpSocket::connected,
-        &window, [&]() {
-
-            status->setText(
-                "Da ket noi TCP - Dang dang ky ten..."
-                );
-
-            sendPacket({
-                {"type", "join"},
-                {"name", username}
-            });
-        }
-        );
-
     // Nhan va xu ly du lieu JSON
     QObject::connect(
-        &socket, &QTcpSocket::readyRead,
-        &window, [&]() {
-
-            buffer.append(socket.readAll());
-
-            while (true) {
-
-                int pos = buffer.indexOf('\n');
-                if (pos < 0)
-                    break;
-
-                if (pos > 512 * 1024) {
-                    socket.disconnectFromHost();
-                    break;
-                }
-
-                QByteArray line = buffer.left(pos);
-                buffer.remove(0, pos + 1);
-
-                QJsonParseError error;
-                QJsonDocument doc =
-                    QJsonDocument::fromJson(
-                        line, &error);
-
-                if (error.error !=
-                        QJsonParseError::NoError ||
-                    !doc.isObject())
-                    continue;
-
-                QJsonObject packet = doc.object();
+        &channel, &JsonChannel::packetReceived,
+        &window, [&](const QJsonObject &packet) {
+                if (connection.state() != SessionConnection::Ready && packet.value("type") != "joined" && packet.value("type") != "error") return;
+                if (videos.handle(packet)) return;
+                if (history.receive(packet)) return;
                 QString type =
                     packet.value("type").toString();
 
                 if (type == "joined") {
-
-                    status->setText(
-                        "Da dang nhap: " + username
-                        );
-
-                    sendButton->setEnabled(true);
-                    messageInput->setEnabled(true);
-
-                    chatBox->append(
-                        "[He thong] Dang nhap thanh cong!"
-                        );
+                    if (connection.state() == SessionConnection::Ready)
+                        chatBox->append("[He thong] Dang nhap thanh cong!");
                 }
-
                 else if (type == "system") {
 
                     QString text =
@@ -626,202 +612,6 @@ int main(int argc, char *argv[])
                         text.toHtmlEscaped()
                         );
                 }
-
-                else if (type == "chat") {
-
-                    QString sender =
-                        packet.value("sender").toString();
-
-                    QString text =
-                        packet.value("text").toString();
-
-                    chatBox->append(
-                        "<b>" + sender.toHtmlEscaped() +
-                        ":</b> " + text.toHtmlEscaped()
-                        );
-                }
-
-                else if (type == "reply") {
-
-                    QString sender =
-                        packet.value("sender").toString();
-
-                    QString text =
-                        packet.value("text").toString();
-
-                    QString quote =
-                        packet.value("quote").toString();
-
-                    QString html =
-                        "<div style='margin:5px 0;'>"
-                        "<span style='color:gray;'>"
-                        "&#8618; Reply: " + quote.toHtmlEscaped() +
-                        "</span>"
-                        "<div><b>" + sender.toHtmlEscaped() +
-                        ":</b> " + text.toHtmlEscaped() +
-                        "</div></div>";
-
-                    chatBox->append(html);
-                }
-
-                else if (type == "forward") {
-
-                    QString sender =
-                        packet.value("sender").toString();
-
-                    QString receiver =
-                        packet.value("to").toString();
-
-                    QString text =
-                        packet.value("text").toString();
-
-                    QString destination =
-                        receiver.isEmpty()
-                            ? "Phong chung"
-                            : receiver;
-
-                    QString title =
-                        "[Forward boi " + sender +
-                        " -> " + destination + "]";
-
-                    chatBox->append(
-                        "<b><span style='color:#7c3aed'>"
-                        + title.toHtmlEscaped() +
-                        "</span></b> "
-                        + text.toHtmlEscaped()
-                        );
-                }
-
-
-                else if (type == "sticker") {
-
-                    QString sender =
-                        packet.value("sender").toString();
-
-                    QString id =
-                        packet.value("id").toString();
-
-                    QStringList allowed = {
-                        "nobita", "doremon"
-                    };
-
-                    if (!allowed.contains(id))
-                        continue;
-
-                    QString path =
-                        ":/stickers/" + id + ".jpg";
-
-                    QPixmap pixmap(path);
-
-                    if (!pixmap.isNull()) {
-
-                        chatBox->document()->addResource(
-                            QTextDocument::ImageResource,
-                            QUrl(path),
-                            pixmap.toImage()
-                            );
-
-                        chatBox->append(
-                            "<b>" + sender.toHtmlEscaped() +
-                            " da gui Sticker:</b>"
-                            "<div><img src='" + path +
-                            "' width='120'></div>"
-                            );
-
-                    } else {
-
-                        chatBox->append(
-                            "[Loi] Khong tai duoc Sticker"
-                            );
-                    }
-                }
-
-                else if (type == "image") {
-
-                    QString sender =
-                        packet.value("sender").toString();
-
-                    QString encoded =
-                        packet.value("data").toString();
-
-                    if (encoded.isEmpty() ||
-                        encoded.size() > 350000)
-                        continue;
-
-                    QByteArray imageBytes =
-                        QByteArray::fromBase64(
-                            encoded.toLatin1()
-                            );
-
-                    if (imageBytes.isEmpty() ||
-                        imageBytes.size() > 256 * 1024)
-                        continue;
-
-                    QImage image;
-
-                    if (!image.loadFromData(imageBytes, "JPEG")) {
-
-                        chatBox->append(
-                            "[Loi] Anh nhan duoc khong hop le"
-                            );
-                        continue;
-                    }
-
-                    QString imageUrl =
-                        "chatimg:/" +
-                        QUuid::createUuid().toString(
-                            QUuid::WithoutBraces
-                            );
-
-                    chatBox->document()->addResource(
-                        QTextDocument::ImageResource,
-                        QUrl(imageUrl),
-                        image
-                        );
-
-                    QString title =
-                        sender.toHtmlEscaped() +
-                        " da gui anh:";
-
-                    QString receiver =
-                        packet.value("to").toString();
-
-                    if (!receiver.isEmpty()) {
-                        title = "[Anh rieng] " + title;
-                    }
-
-                    chatBox->append(
-                        "<b>" + title + "</b>"
-                                        "<div><img src='" + imageUrl +
-                        "' width='240'></div>"
-                        );
-                }
-else if (type == "private") {
-                    QString sender =
-                        packet.value("sender").toString();
-
-                    QString receiver =
-                        packet.value("to").toString();
-
-                    QString text =
-                        packet.value("text").toString();
-
-                    QString title;
-
-                    if (sender == username) {
-                        title = "[Ban -> " + receiver + "]";
-                    } else {
-                        title = "[Tin rieng tu " + sender + "]";
-                    }
-
-                    chatBox->append(
-                        "<span style='color:#2563eb'>"
-                        "<b>" + title.toHtmlEscaped() +
-                        "</b></span>: " +
-                        text.toHtmlEscaped()
-                        );
-                }
-
 
                 else if (type == "users") {
 
@@ -871,19 +661,10 @@ else if (type == "private") {
                         "</span>"
                         );
 
-                    // Chi bao dang ky that bai khi chua dang nhap
-                    if (!sendButton->isEnabled()) {
-                        status->setText("Dang ky that bai");
-                    }
-
-                    // Khong khoa Chat neu da dang nhap
+                    // Connection status and retries are handled by SessionConnection.
                 }
 
-            }
 
-if (buffer.size() > 512 * 1024) {
-    socket.disconnectFromHost();
-}
         }
         );
 
@@ -1102,39 +883,26 @@ if (buffer.size() > 512 * 1024) {
         messageInput, &QLineEdit::returnPressed,
         &window, sendMessage
         );
-    // Ngat ket noi
-    QObject::connect(
-        &socket, &QTcpSocket::disconnected,
-        &window, [&]() {
-
-            status->setText("Mat ket noi Server");
-            sendButton->setEnabled(false);
-            messageInput->setEnabled(false);
-
-            onlineList->clear();
-            onlineLabel->setText("Online (0)");
-
-            chatBox->append(
-                "[He thong] Da ngat ket noi"
-                );
-        }
-        );
-
-    QObject::connect(
-        &socket, &QTcpSocket::errorOccurred,
-        &window,
-        [&](QAbstractSocket::SocketError) {
-
-            chatBox->append(
-                "[Loi] " +
-                socket.errorString().toHtmlEscaped()
-                );
-        }
-        );
-
     window.show();
 
-    socket.connectToHost("127.0.0.1", 12345);
+    connection.connectNow();
 
-    return app.exec();
+    QApplication::exec();
+    connection.stop();
+    return changeRequested;
+}
+
+
+
+int main(int argc, char *argv[])
+{
+    QApplication app(argc, argv);
+    app.setOrganizationName("ChatTCP1");
+    app.setApplicationName("ChatClient");
+    while (true) {
+        ConnectionDialog dialog;
+        if (dialog.exec() != QDialog::Accepted) break;
+        if (!runChat(dialog.profile())) break;
+    }
+    return 0;
 }
