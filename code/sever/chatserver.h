@@ -9,6 +9,12 @@
 #include <QByteArray>
 #include <QString>
 #include <QJsonObject>
+#include "jsonchannel.h"
+#include "videorelay.h"
+#include "authservice.h"
+#include "emailservice.h"
+#include <QSslServer>
+#include "recallstore.h"
 
 class ChatServer : public QObject
 {
@@ -16,18 +22,34 @@ class ChatServer : public QObject
 
 public:
     explicit ChatServer(QObject *parent = nullptr);
+    ~ChatServer() override;
+    void shutdown();
 
-    bool start(quint16 port = 12345);
+    bool start(quint16 port = 12345, const QString &dataDirectory = {});
+    quint16 port() const { return server->serverPort(); }
+    QString certificateFingerprint() const;
+    QString dataPath() const { return directory; }
+    QString startupError() const { return lastError; }
 
 private:
     // TCP Server
-    QTcpServer *server;
+    QSslServer *server;
+    AuthService *authentication = nullptr;
+    EmailService *emails = nullptr;
+    QString directory, lastError;
+    RecallStore recalls;
+    QHash<QTcpSocket*,qint64> recallSync,editSync,receiptSync;
+    QHash<QTcpSocket*,QPair<qint64,int>> recallLimits,editLimits;
 
     // Luu du lieu nhan cua tung Client
-    QHash<QTcpSocket*, QByteArray> buffers;
+    QHash<QTcpSocket*, JsonChannel*> channels;
+    VideoRelay *videos;
 
     // Luu ten nguoi dung da dang ky
     QHash<QTcpSocket*, QString> names;
+    QHash<QTcpSocket*, QString> passwordRequests;
+    QHash<QTcpSocket*, QString> recoveryRequests;
+    QHash<QTcpSocket*, qint64> avatarTimes;
 
     // Gui JSON cho mot Client
     void sendPacket(
