@@ -1,6 +1,11 @@
 #include "authprotocol.h"
 #include "avatarprotocol.h"
+#include "groupimageprotocol.h"
 #include <QDateTime>
+#include <QUuid>
+#include <QSet>
+#include <QSaveFile>
+#include <QFile>
 
 #include "chatserver.h"
 #include "historyprotocol.h"
@@ -15,6 +20,11 @@
 #include <QJsonParseError>
 #include <QDebug>
 #include <algorithm>
+
+namespace {
+constexpr qsizetype GroupHistoryCount = 300;
+constexpr qsizetype GroupHistoryBytes = 384 * 1024;
+}
 
 ChatServer::ChatServer(QObject *parent)
     : QObject(parent)
@@ -71,7 +81,7 @@ ChatServer::ChatServer(QObject *parent)
 
                                     broadcast({
                                         {"type", "system"},
-                                        {"text", name + " da roi phong chat"}
+                                        {"text", name + " đã ngoại tuyến"}
                                     });
 
                                     updateOnlineUsers();
@@ -79,6 +89,85 @@ ChatServer::ChatServer(QObject *parent)
                             });
                 }
             });
+}
+
+void ChatServer::loadGroups() {
+    groups.clear();
+    QFile file(QDir(directory).filePath("groups.json"));
+    if(!file.open(QIODevice::ReadOnly)) return;
+    if(file.size()>1024*1024) {qWarning()<<"groups.json quá lớn";return;}
+    QJsonParseError error;
+    const QJsonDocument doc=QJsonDocument::fromJson(file.readAll(),&error);
+    if(error.error!=QJsonParseError::NoError || !doc.isArray()) return;
+    for(const auto &value:doc.array()) {
+        if(!value.isObject() || groups.size()>=1000) continue;
+        const auto obj=value.toObject();
+        const QString id=obj.value("id").toString(), name=obj.value("name").toString();
+        const auto membersValue=obj.value("members").toArray();
+        if(QUuid(id).isNull() || name.isEmpty() || name.size()>48 || membersValue.size()<2 || membersValue.size()>16) continue;
+        QStringList members;QSet<QString> unique;
+        for(const auto &v:membersValue) {
+            const QString person=v.toString();const QString key=AuthProtocol::canonical(person);
+            if(!AuthProtocol::validName(person) || unique.contains(key)) {members.clear();break;}
+            members.append(person);unique.insert(key);
+        }
+        if(members.size()>=2) groups.insert(id,{name,members});
+    }
+}
+bool ChatServer::saveGroups() {
+    QJsonArray data;
+    for(auto it=groups.cbegin();it!=groups.cend();++it) {
+        QJsonArray members;for(const auto &name:it.value().members) members.append(name);
+        data.append(QJsonObject{{"id",it.key()},{"name",it.value().name},{"members",members}});
+    }
+    QSaveFile file(QDir(directory).filePath("groups.json"));
+    if(!file.open(QIODevice::WriteOnly)) return false;
+    if(file.write(QJsonDocument(data).toJson(QJsonDocument::Compact))<0) return false;
+    return file.commit();
+}
+void ChatServer::sendGroupsFor(QTcpSocket *client) {
+    const QString account=names.value(client);
+    if(account.isEmpty()) return;
+    for(auto it=groups.cbegin();it!=groups.cend();++it) {
+        bool member=false;
+        for(const auto &name:it.value().members)
+            if(AuthProtocol::canonical(name)==AuthProtocol::canonical(account)) { member=true; break; }
+        if(!member) continue;
+        QJsonArray users;
+        for(const auto &name:it.value().members) users.append(name);
+        sendPacket(client,{{"type","group_created"},{"id",it.key()},
+            {"name",it.value().name},{"members",users},{"existing",true}});
+    }
+}
+
+bool ChatServer::readGroupHistory(const QString &id, QJsonArray &messages) const {
+    QFile file(QDir(directory).filePath("group-history/" + id + ".json"));
+    if (!file.exists()) return true;
+    if (!file.open(QIODevice::ReadOnly) || file.size() > GroupHistoryBytes) return false;
+    const auto document = QJsonDocument::fromJson(file.readAll());
+    if (!document.isArray()) return false;
+    messages = document.array();
+    return true;
+}
+
+bool ChatServer::saveGroupMessage(const QString &id, const QJsonObject &message) const {
+    QJsonArray messages;
+    if (!readGroupHistory(id, messages)) return false;
+    messages.append(message);
+    return writeGroupHistory(id, messages);
+}
+
+bool ChatServer::writeGroupHistory(const QString &id, QJsonArray messages) const {
+    while (messages.size() > GroupHistoryCount) messages.removeFirst();
+    QByteArray data = QJsonDocument(messages).toJson(QJsonDocument::Compact);
+    while (data.size() > GroupHistoryBytes) {
+        messages.removeFirst();
+        data = QJsonDocument(messages).toJson(QJsonDocument::Compact);
+    }
+    const QDir root(directory);
+    if (!root.mkpath("group-history")) return false;
+    QSaveFile file(root.filePath("group-history/" + id + ".json"));
+    return file.open(QIODevice::WriteOnly) && file.write(data) == data.size() && file.commit();
 }
 
 QString ChatServer::certificateFingerprint() const {
@@ -95,6 +184,8 @@ bool ChatServer::start(quint16 port, const QString &dataDirectory)
 {
     if (!authentication) {
         directory = dataDirectory.isEmpty() ? QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) : dataDirectory;
+        if(!QDir().mkpath(directory)) {lastError="Không tạo được thư mục dữ liệu Server.";return false;}
+        loadGroups();
         if(!recalls.open(QDir(directory).filePath("recalls.sqlite"),lastError)) return false;
         QSslConfiguration tls;
         if (!TlsIdentity::load(QDir(directory).filePath("tls"), tls, lastError)) return false;
@@ -102,6 +193,7 @@ bool ChatServer::start(quint16 port, const QString &dataDirectory)
         authentication = new AuthService(QDir(directory).filePath("accounts.sqlite"), this);
         if (!authentication->initialize(lastError)) { delete authentication; authentication = nullptr; return false; }
         emails=new EmailService(QDir(directory).filePath("accounts.sqlite"),this);
+        connect(emails,&EmailService::deliveryStatus,this,&ChatServer::mailStatus);
         connect(emails,&EmailService::reply,this,[this](QTcpSocket *c,const QJsonObject &p){if(channels.contains(c))sendPacket(c,p);});
         connect(emails,&EmailService::verified,this,[this](QTcpSocket *c,const QString &purpose,const QString &name,const QString &email,const QString &password,const QByteArray &credential){
             if(!channels.contains(c)||names.contains(c))return;
@@ -129,7 +221,8 @@ bool ChatServer::start(quint16 port, const QString &dataDirectory)
             for (const auto &name : names) sendPacket(client, {{"type","avatar"},{"name",name},{"data",QString::fromLatin1(authentication->avatar(name).toBase64())}});
             broadcast({{"type","avatar"},{"name",result.name},{"data",QString::fromLatin1(authentication->avatar(result.name).toBase64())}});
             sendPacket(client, {{"type", "joined"}, {"name", result.name}, {"account_id", result.id}});
-            broadcast({{"type", "system"}, {"text", result.name + " da tham gia phong chat"}});
+            sendGroupsFor(client);
+            broadcast({{"type", "system"}, {"text", result.name + " đã trực tuyến"}});
             updateOnlineUsers();
         });
         connect(authentication, &AuthService::recoveryFinished, this, [this](QTcpSocket *client, const AccountResult &result, bool reset) {
@@ -238,6 +331,184 @@ void ChatServer::processPacket(
     const QJsonObject &packet)
 {
     QString type = packet.value("type").toString();
+    // Server owns membership. Clients cannot supply an arbitrary sender or room audience.
+    if(type=="group_create") {
+        if(!names.contains(client)) return;
+        const QString groupName=packet.value("name").toString().trimmed();
+        const auto list=packet.value("members").toArray();
+        bool invalidName=groupName.isEmpty() || groupName.size()>48;
+        for(QChar ch:groupName) if(ch.unicode()<32 || ch.unicode()==127) invalidName=true;
+        if(invalidName || list.isEmpty() || list.size()>15 || groups.size()>=1000) {
+            sendPacket(client,{{"type","error"},{"text","Tên nhóm hoặc số thành viên không hợp lệ (2–16 người tính cả bạn)."}});return;
+        }
+        QStringList members{names.value(client)};
+        QSet<QString> unique{AuthProtocol::canonical(names.value(client))};
+        for(const auto &value:list) {
+            if(!value.isString()) {sendPacket(client,{{"type","error"},{"text","Danh sách thành viên không hợp lệ."}});return;}
+            const QString invited=value.toString();
+            QString onlineName;
+            for(const auto &actual:names)
+                if(AuthProtocol::canonical(actual)==AuthProtocol::canonical(invited)) {onlineName=actual;break;}
+            if(onlineName.isEmpty() || unique.contains(AuthProtocol::canonical(onlineName))) {
+                sendPacket(client,{{"type","error"},{"text","Chọn các tài khoản đang online, không trùng nhau và không chọn chính mình."}});return;
+            }
+            unique.insert(AuthProtocol::canonical(onlineName)); members.append(onlineName);
+        }
+        int ownGroups=0;
+        for(const auto &room:groups) if(room.members.contains(names.value(client),Qt::CaseInsensitive)) ++ownGroups;
+        if(ownGroups>=32) {sendPacket(client,{{"type","error"},{"text","Bạn đã đạt giới hạn 32 nhóm trên Server."}});return;}
+        const QString id=QUuid::createUuid().toString(QUuid::WithoutBraces);
+        groups.insert(id,{groupName,members});
+        if(!saveGroups()) {
+            groups.remove(id);
+            sendPacket(client,{{"type","error"},{"text","Không lưu được nhóm trên Server."}});return;
+        }
+        QJsonArray audience;for(const auto &member:members) audience.append(member);
+        const QJsonObject created{{"type","group_created"},{"id",id},{"name",groupName},{"members",audience}};
+        for(auto *socket:names.keys()) if(members.contains(names.value(socket),Qt::CaseInsensitive)) sendPacket(socket,created);
+        return;
+    }
+    if (type == "group_rename" || type == "group_invite") {
+        if (!names.contains(client)) return;
+        const QString id = packet.value("id").toString();
+        auto group = groups.find(id);
+        if (group == groups.end() || group->members.isEmpty()
+            || AuthProtocol::canonical(group->members.first()) != AuthProtocol::canonical(names.value(client))) {
+            sendPacket(client, {{"type","error"},{"text","Chỉ người tạo nhóm mới có thể thực hiện thao tác này."}});
+            return;
+        }
+        const auto previous = *group;
+        QString invited;
+        if (type == "group_invite") {
+            const QString target = AuthProtocol::canonical(packet.value("name").toString());
+            for (const auto &account : names)
+                if (AuthProtocol::canonical(account) == target) { invited = account; break; }
+            if (invited.isEmpty() || group->members.contains(invited, Qt::CaseInsensitive)
+                || group->members.size() >= 16) {
+                sendPacket(client, {{"type","error"},{"text","Hãy chọn người đang online, chưa thuộc nhóm. Nhóm tối đa 16 thành viên."}});
+                return;
+            }
+            group->members.append(invited);
+        } else {
+            const QString name = packet.value("name").toString().trimmed();
+            const bool valid = !name.isEmpty() && name.size() <= 48
+                && std::none_of(name.cbegin(), name.cend(), [](QChar ch) { return ch.unicode() < 32 || ch.unicode() == 127; });
+            if (!valid) {
+                sendPacket(client, {{"type","error"},{"text","Tên nhóm phải dài từ 1 đến 48 ký tự hợp lệ."}});
+                return;
+            }
+            group->name = name;
+        }
+        if (!saveGroups()) {
+            *group = previous;
+            sendPacket(client, {{"type","error"},{"text","Không lưu được thay đổi của nhóm."}});
+            return;
+        }
+        const auto members = group->members;
+        QJsonObject update{{"type","group_created"},{"id",id},{"name",group->name},
+                                 {"members",QJsonArray::fromStringList(members)},{"existing",true}};
+        for (auto *peer : names.keys()) {
+            const QString account = names.value(peer);
+            if (!members.contains(account, Qt::CaseInsensitive)) continue;
+            update["existing"] = account != invited;
+            sendPacket(peer, update);
+        }
+        return;
+    }
+    if (type == "group_chat" || type == "group_image" || type == "group_sticker"
+        || type == "group_history_request" || type == "group_message_update") {
+        if(!names.contains(client)) return;
+        const QString id=packet.value("id").toString();
+        const auto it=groups.constFind(id);
+        const bool member = it != groups.cend() && it.value().members.contains(names.value(client), Qt::CaseInsensitive);
+        if (type == "group_history_request") {
+            QJsonObject response{{"type","group_history"},{"id",id}};
+            QJsonArray messages;
+            if (!member) response["error"] = "Bạn không phải thành viên của nhóm này.";
+            else if (!readGroupHistory(id, messages)) response["error"] = "Không đọc được lịch sử nhóm.";
+            else response["messages"] = messages;
+            sendPacket(client, response);
+            return;
+        }
+        if (!member) {
+            sendPacket(client, {{"type","error"},{"text","Bạn không phải thành viên của nhóm này."}});
+            return;
+        }
+        if (type == "group_message_update") {
+            const QString messageId = packet.value("message_id").toString();
+            const QString operation = packet.value("operation").toString();
+            const QString account = AuthProtocol::canonical(names.value(client));
+            QJsonArray messages;
+            if (!VideoProtocol::validId(messageId) || !readGroupHistory(id, messages)) return;
+            for (qsizetype index = 0; index < messages.size(); ++index) {
+                auto message = messages.at(index).toObject();
+                if (message.value("message_id") != messageId || message.value("recalled").toBool()) continue;
+                const bool own = AuthProtocol::canonical(message.value("sender").toString()) == account;
+                if (operation == "react") {
+                    const QString emoji = packet.value("emoji").toString();
+                    if (emoji != "👍" && emoji != "❤️" && emoji != "😂") return;
+                    auto reactions = message.value("reactions").toObject();
+                    if (reactions.value(account) == emoji) reactions.remove(account);
+                    else reactions[account] = emoji;
+                    message["reactions"] = reactions;
+                } else if (!own) {
+                    sendPacket(client, {{"type","error"},{"text","Bạn chỉ có thể sửa hoặc thu hồi tin của mình."}});
+                    return;
+                } else if (operation == "edit" && message.contains("text")) {
+                    const QString text = packet.value("text").toString().trimmed();
+                    if (text.isEmpty() || text.toUtf8().size() > 4000) return;
+                    message["text"] = text;
+                    message["edited"] = true;
+                } else if (operation == "recall") {
+                    for (const auto *field : {"text", "image", "sticker", "quote", "reactions", "edited"})
+                        message.remove(field);
+                    message["recalled"] = true;
+                } else return;
+                messages[index] = message;
+                if (!writeGroupHistory(id, messages)) {
+                    sendPacket(client, {{"type","error"},{"text","Không lưu được thay đổi của tin nhắn."}});
+                    return;
+                }
+                const auto members = it->members;
+                for (auto *peer : names.keys())
+                    if (members.contains(names.value(peer), Qt::CaseInsensitive))
+                        sendPacket(peer, {{"type","group_history_changed"},{"id",id}});
+                return;
+            }
+            sendPacket(client, {{"type","error"},{"text","Tin nhắn không còn trong lịch sử nhóm."}});
+            return;
+        }
+        QJsonObject message{{"sender",names.value(client)},
+            {"message_id",QUuid::createUuid().toString(QUuid::WithoutBraces)},
+            {"utc",QDateTime::currentDateTimeUtc().toString(Qt::ISODateWithMs)}};
+        if (type == "group_image") {
+            const QString image = packet.value("data").toString();
+            if (GroupImageProtocol::decode(image).isNull()) {
+                sendPacket(client, {{"type","error"},{"text","Ảnh nhóm phải là JPEG hợp lệ, tối đa 96 KiB và 960 px mỗi cạnh."}});
+                return;
+            }
+            message["image"] = image;
+        } else if (type == "group_sticker") {
+            const QString sticker = packet.value("sticker").toString();
+            if (sticker != "nobita" && sticker != "doremon") return;
+            message["sticker"] = sticker;
+        } else {
+            const QString text = packet.value("text").toString().trimmed();
+            if (text.isEmpty() || text.toUtf8().size() > 4000) return;
+            message["text"] = text;
+            const QString quote = packet.value("quote").toString().trimmed().left(500);
+            if (!quote.isEmpty()) message["quote"] = quote;
+        }
+        if (!saveGroupMessage(id, message)) {
+            sendPacket(client, {{"type","error"},{"text","Không lưu được tin nhắn nhóm. Tin chưa được gửi."}});
+            return;
+        }
+        auto msg = message;
+        msg["type"] = "group_chat";
+        msg["id"] = id;
+        for(auto *socket:names.keys()) if(it.value().members.contains(names.value(socket),Qt::CaseInsensitive)) sendPacket(socket,msg);
+        return;
+    }
     if (type == "recovery_setup" || type == "recovery_reset") {
         const QString request = packet.value("request_id").toString();
         if (!VideoProtocol::validId(request) || recoveryRequests.contains(client) || passwordRequests.contains(client)) return;
@@ -278,8 +549,28 @@ void ChatServer::processPacket(
         return;
     }
     if (passwordRequests.contains(client)) return;
+    if(type=="video_start" && names.contains(client) && packet.value("to").toString().trimmed().isEmpty()) {
+        sendPacket(client,{{"type","video_error"},{"id",packet.value("id")},{"text","Hãy chọn người nhận video."}});return;
+    }
     if(type=="video_start" && names.contains(client) && recalls.contains(packet.value("id").toString())) {
         sendPacket(client,{{"type","video_error"},{"id",packet.value("id")},{"text","Mã video đã dùng."}});return;
+    }
+    if (type == "video_start" && names.contains(client)) {
+        const QString target = packet.value("to").toString();
+        if (VideoProtocol::groupTarget(target)) {
+            const auto group = groups.constFind(target.mid(6));
+            if (group == groups.cend() || !group->members.contains(names.value(client), Qt::CaseInsensitive)) {
+                sendPacket(client, {{"type","video_error"},{"id",packet.value("id").toString().left(36)},
+                                    {"text","Bạn không phải thành viên của nhóm này."}});
+                return;
+            }
+            QList<QTcpSocket *> recipients;
+            for (auto peer = names.cbegin(); peer != names.cend(); ++peer)
+                if (peer.key() != client && group->members.contains(peer.value(), Qt::CaseInsensitive))
+                    recipients.append(peer.key());
+            videos->handle(client, packet, recipients);
+            return;
+        }
     }
     if (videos->handle(client, packet)) return;
     if(type=="email_begin" || type=="email_confirm") {
@@ -481,12 +772,9 @@ void ChatServer::processPacket(
         };
         imagePacket = HistoryProtocol::stamp(imagePacket);
 
-        // Gui vao phong chung
+        // No global room: never broadcast media to all connected users.
         if (receiverName.isEmpty()) {
-
-            broadcast(imagePacket);
-            qDebug() << senderName
-                     << "gui anh vao phong chung";
+            sendPacket(client,{{"type","error"},{"text","Hãy chọn người nhận ảnh."}});
             return;
         }
 
@@ -522,70 +810,34 @@ void ChatServer::processPacket(
         return;
     } // Ket thuc xu ly image
 
-    // Gui tin nhan
-    if (type == "chat") {
-
-        if (!names.contains(client))
-            return;
-
-        QString text =
-            packet.value("text").toString().trimmed();
-
-        if (text.isEmpty() ||
-            text.toUtf8().size() > 4000)
-            return;
-
-        QString sender = names.value(client);
-
-        broadcast({
-            {"type", "chat"},
-            {"sender", sender},
-            {"text", text}
-        });
-
-
-        qDebug() << sender << ":" << text;
+    // Public-room messages are no longer accepted.
+    if(type=="chat") {
+        sendPacket(client,{{"type","error"},{"text","Phòng chung đã được gỡ bỏ. Hãy tạo nhóm hoặc nhắn riêng."}});
         return;
     }
 
-    // Xu ly Reply trong phong chung
-
-    // ==================================
-    // XU LY REPLY TRONG PHONG CHUNG
-    // ==================================
-    if (type == "reply") {
-
-        if (!names.contains(client))
-            return;
-
-        QString text =
-            packet.value("text").toString().trimmed();
-
-        QString quote =
-            packet.value("quote").toString().trimmed();
-
-        if (text.isEmpty() || quote.isEmpty() ||
-            text.toUtf8().size() > 4000 ||
-            quote.toUtf8().size() > 1000) {
-            return;
-        }
-
-        QString sender = names.value(client);
-
-        broadcast({
-            {"type", "reply"},
-            {"sender", sender},
-            {"text", text},
-            {"quote", quote}
-        });
-
-        qDebug() << sender << "reply:" << text;
+    // Replies are private after removing the public room.
+    if(type=="reply") {
+        const QString to=packet.value("to").toString().trimmed();
+        const QString text=packet.value("text").toString().trimmed();
+        const QString quote=packet.value("quote").toString().trimmed();
+        if(to.isEmpty() || text.isEmpty() || quote.isEmpty() || text.toUtf8().size()>4000 || quote.toUtf8().size()>1000) return;
+        QTcpSocket *receiver=nullptr;
+        for(auto *peer:names.keys()) if(AuthProtocol::canonical(names.value(peer))==AuthProtocol::canonical(to)) {receiver=peer;break;}
+        if(!receiver) {sendPacket(client,{{"type","error"},{"text","Người nhận hiện không online."}});return;}
+        const QJsonObject outgoing=HistoryProtocol::stamp({{"type","reply"},{"sender",names.value(client)},
+            {"to",names.value(receiver)},{"text",text},{"quote",quote}});
+        sendPacket(receiver,outgoing);
+        if(receiver!=client) sendPacket(client,outgoing);
         return;
     }
 
     // ==================================
     // XU LY FORWARD
     // ==================================
+    if(type=="forward" && packet.value("to").toString().trimmed().isEmpty()) {
+        sendPacket(client,{{"type","error"},{"text","Hãy chọn người nhận tin chuyển tiếp."}});return;
+    }
     if (type == "forward") {
 
         // Kiem tra Client da dang nhap
@@ -666,6 +918,9 @@ void ChatServer::processPacket(
     // ==================================
     // XU LY STICKER
     // ==================================
+    if(type=="sticker" && packet.value("to").toString().trimmed().isEmpty()) {
+        sendPacket(client,{{"type","error"},{"text","Hãy chọn người nhận Sticker."}});return;
+    }
     if (type == "sticker") {
 
         // Kiem tra Client da dang nhap
