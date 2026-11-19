@@ -22,6 +22,9 @@ inline bool number(const QJsonValue &v, qint64 &n, qint64 max = MaxSize) {
 inline bool validId(const QString &id) {
     return !QUuid(id).isNull() && QUuid(id).toString(QUuid::WithoutBraces) == id;
 }
+inline bool groupTarget(const QString &to) {
+    return to.startsWith("group:") && validId(to.mid(6));
+}
 inline bool validName(const QString &name) {
     if (name.isEmpty() || name.size() > 160 || name != name.trimmed()
         || name.contains('/') || name.contains('\\') || name.contains(':')

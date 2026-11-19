@@ -1,5 +1,6 @@
 #include "videorelay.h"
 #include <QTimer>
+#include <QDateTime>
 
 VideoRelay::VideoRelay(Send s, Name n, Peers p, QObject *parent, int timeoutMs)
     : QObject(parent), send(std::move(s)), name(std::move(n)), peers(std::move(p)) {
@@ -37,6 +38,8 @@ void VideoRelay::advance(const std::shared_ptr<Transfer> &t) {
     t->activity.restart();
     if (phase == "done") {
         transfers.remove(t->id);
+        if(completed && !VideoProtocol::groupTarget(t->to))
+            completed({{"type","video"},{"_event_id",t->id},{"sender",name(t->sender)},{"to",t->to},{"_utc",QDateTime::currentDateTimeUtc().toString(Qt::ISODateWithMs)}});
         send(t->sender, {{"type", "video_done"}, {"id", t->id}, {"offset", double(t->offset)}});
     } else {
         // Exactly one chunk in flight, acknowledged by every recipient's disk writer.
@@ -46,7 +49,8 @@ void VideoRelay::advance(const std::shared_ptr<Transfer> &t) {
             abort(t->id, "Khong gui duoc xac nhan video");
     }
 }
-bool VideoRelay::handle(QTcpSocket *client, const QJsonObject &p) {
+bool VideoRelay::handle(QTcpSocket *client, const QJsonObject &p,
+                        const QList<QTcpSocket *> &groupRecipients) {
     const QString type = p.value("type").toString();
     if (!type.startsWith("video_")) return false;
     const QString id = p.value("id").toString();
@@ -66,15 +70,24 @@ bool VideoRelay::handle(QTcpSocket *client, const QJsonObject &p) {
             || !VideoProtocol::validName(filename)) { reject("MP4 khong hop le hoac Server dang ban (toi da 1 GiB)"); return true; }
         const QString to = p.value("to").toString();
         auto t = std::make_shared<Transfer>();
-        t->id = id; t->sender = client; t->size = size; t->phase = "ready";
-        bool found = to.isEmpty();
-        for (auto *peer : peers()) {
-            if (to.isEmpty() || name(peer) == to) {
-                found = true;
-                if (peer != client) t->receivers.insert(peer);
+        t->id = id; t->to=to; t->sender = client; t->size = size; t->phase = "ready";
+        if (VideoProtocol::groupTarget(to)) {
+            for (auto *peer : groupRecipients)
+                if (peer != client && !name(peer).isEmpty()) t->receivers.insert(peer);
+            if (t->receivers.isEmpty()) {
+                reject("Không có thành viên khác đang online trong nhóm.");
+                return true;
             }
+        } else {
+            bool found = to.isEmpty();
+            for (auto *peer : peers()) {
+                if (to.isEmpty() || name(peer) == to) {
+                    found = true;
+                    if (peer != client) t->receivers.insert(peer);
+                }
+            }
+            if (!found) { reject("Nguoi nhan video khong online"); return true; }
         }
-        if (!found) { reject("Nguoi nhan video khong online"); return true; }
         transfers.insert(id, t);
         forward(t, {{"type", "video_start"}, {"id", id}, {"name", filename},
                     {"size", double(size)}, {"sender", name(client)}, {"to", to}});

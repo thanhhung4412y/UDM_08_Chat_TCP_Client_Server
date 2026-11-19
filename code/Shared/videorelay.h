@@ -16,12 +16,14 @@ public:
     using Peers = std::function<QList<QTcpSocket *>()>;
     VideoRelay(Send send, Name name, Peers peers, QObject *parent = nullptr,
                int timeoutMs = VideoProtocol::TimeoutMs);
-    bool handle(QTcpSocket *client, const QJsonObject &packet);
+    bool handle(QTcpSocket *client, const QJsonObject &packet,
+                const QList<QTcpSocket *> &groupRecipients = {});
     void disconnected(QTcpSocket *client);
+    std::function<void(const QJsonObject &)> completed;
     int activeCount() const { return transfers.size(); }
 private:
     struct Transfer {
-        QString id;
+        QString id, to;
         QTcpSocket *sender = nullptr;
         QSet<QTcpSocket *> receivers, pending;
         qint64 size = 0, offset = 0;
