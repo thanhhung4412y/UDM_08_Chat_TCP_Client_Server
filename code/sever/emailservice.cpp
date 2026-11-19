@@ -25,7 +25,7 @@ void EmailService::begin(QTcpSocket *client,const QJsonObject &packet) {
     // Hard cap includes pending SMTP tasks; clients cannot build an unbounded queue.
     if(active>=8 || total>=100 || limits.size()>=4094 || challenges.contains(client)) {reject("Yêu cầu đang xử lý hoặc quá nhiều yêu cầu. Hãy thử lại sau.");return;}
     if(!allow("ip:"+client->peerAddress().toString(),20,now)||!allow("email:"+email,5,now)) {reject("Vui lòng chờ ít nhất 60 giây; tối đa 5 mã/email mỗi giờ.");return;}
-    if(sender.target<bool(*)(const QString&,const QString&,const QString&)>() && (qEnvironmentVariableIsEmpty("CHATTCP_GMAIL_USER")||qEnvironmentVariableIsEmpty("CHATTCP_GMAIL_APP_PASSWORD"))) {reject("Server chưa cấu hình Gmail. Hãy liên hệ quản trị viên.");return;}
+    if(sender.target<bool(*)(const QString&,const QString&,const QString&)>() && !GmailSender::configured()) {reject("Server chưa cấu hình Gmail. Hãy liên hệ quản trị viên.");return;}
     Challenge c;c.name=name;c.email=email;c.purpose=purpose;c.id=QUuid::createUuid().toString(QUuid::WithoutBraces);c.expires=now+600000;
     // 8 digits generated with rejection sampling by Qt's bounded CSPRNG.
     const auto code=QString::number(QRandomGenerator::system()->bounded(100000000u)).rightJustified(8,'0');
@@ -36,8 +36,16 @@ void EmailService::begin(QTcpSocket *client,const QJsonObject &packet) {
         if(c.purpose=="reset") {AccountStore store;QString error;eligible=store.open(path,error);if(eligible){credential=store.emailCredential(c.name,c.email);eligible=credential.size()==32;}}
         const bool sent=eligible && send(c.email,code,c.purpose);
         if(eligible && !sent) qWarning("ChatTCP: Gmail delivery failed. Check Internet, TLS, Gmail user and App Password. No code or credentials logged.");
-        QMetaObject::invokeMethod(this,[this,guard,c,credential,eligible,sent]{
-            --active;if(!guard || !challenges.contains(guard.data()) || challenges.value(guard.data()).id!=c.id)return;
+        const bool production=send.target<bool(*)(const QString&,const QString&,const QString&)>()!=nullptr;
+        const QString diagnostic=production?GmailSender::lastError():QString("Không gửi được thư qua dịch vụ email.");
+        QMetaObject::invokeMethod(this,[this,guard,c,credential,eligible,sent,diagnostic]{
+            --active;
+            if(eligible)emit deliveryStatus(sent?"Gmail đã chấp nhận thư xác minh. Người nhận cần kiểm tra Hộp thư đến và Thư rác.":diagnostic);
+if(!guard || !challenges.contains(guard.data()) || challenges.value(guard.data()).id!=c.id)return;
+            if(!sent && c.purpose!="reset") {
+                challenges.remove(guard.data());
+                emit reply(guard.data(),{{"type","error"},{"text","Không gửi được mã email. Hãy xem thông báo Gmail trên cửa sổ Server; chờ 60 giây rồi thử lại."}});return;
+            }
             auto &current=challenges[guard.data()];current.credential=credential;current.eligible=eligible&&sent;current.ready=true;
             // Same payload for nonexistent account/email and SMTP failure; do not disclose account existence explicitly.
             emit reply(guard.data(),{{"type","email_challenge"},{"challenge_id",c.id},{"text","Nếu thông tin hợp lệ, mã đã được gửi. Kiểm tra cả thư rác. Mã có hiệu lực 10 phút."}});

@@ -22,9 +22,9 @@ void AuthService::request(QTcpSocket *client, const QString &action, const QStri
     };
     if (pending.contains(client)) return;
     if (action != "login" && action != "register" && !changing && !setup && !reset && !bind) { reject("Thao tac tai khoan khong hop le."); return; }
-    if (!AuthProtocol::validName(name) || !(emailReset ? credential.size()==32 : (reset ? AuthProtocol::validRecovery(password) : AuthProtocol::validPassword(password)))) { reject("Ten 1-20 ky tu; mat khau 12-128 ky tu."); return; }
+    if (!AuthProtocol::validName(name) || !(emailReset ? credential.size()==32 : (reset ? AuthProtocol::validRecovery(password) : AuthProtocol::validPassword(password)))) { reject("Ten 1-20 ky tu; mat khau 8-128 ky tu."); return; }
     if ((changing || reset) && (!AuthProtocol::validPassword(newPassword) || newPassword == password)) {
-        reject("Mat khau moi phai co 12-128 ky tu va khac mat khau cu."); return;
+        reject("Mat khau moi phai co 8-128 ky tu va khac mat khau cu."); return;
     }
     const QString address = client->peerAddress().toString();
     for (auto i = limits.begin(); i != limits.end();) { if (i->window.hasExpired(60000)) i = limits.erase(i); else ++i; }

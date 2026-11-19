@@ -19,6 +19,7 @@ public:
     void setClockForTests(std::function<qint64()> value) {clock=std::move(value);}
     void setSenderForTests(Sender value) { sender=std::move(value); }
 signals:
+    void deliveryStatus(const QString &text);
     void reply(QTcpSocket *client,const QJsonObject &packet);
     void verified(QTcpSocket *client,const QString &purpose,const QString &name,const QString &email,const QString &password,const QByteArray &credential);
 private:

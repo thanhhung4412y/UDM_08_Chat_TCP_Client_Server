@@ -9,6 +9,7 @@
 #include <QByteArray>
 #include <QString>
 #include <QJsonObject>
+#include <QStringList>
 #include "jsonchannel.h"
 #include "videorelay.h"
 #include "authservice.h"
@@ -31,6 +32,8 @@ public:
     QString dataPath() const { return directory; }
     QString startupError() const { return lastError; }
 
+signals:
+    void mailStatus(const QString &text);
 private:
     // TCP Server
     QSslServer *server;
@@ -47,6 +50,15 @@ private:
 
     // Luu ten nguoi dung da dang ky
     QHash<QTcpSocket*, QString> names;
+    struct GroupRoom { QString name; QStringList members; };
+    QHash<QString, GroupRoom> groups;
+    void sendGroupsFor(QTcpSocket *client);
+    bool readGroupHistory(const QString &id, QJsonArray &messages) const;
+    bool saveGroupMessage(const QString &id, const QJsonObject &message) const;
+    bool writeGroupHistory(const QString &id, QJsonArray messages) const;
+    void loadGroups();
+    bool saveGroups();
+
     QHash<QTcpSocket*, QString> passwordRequests;
     QHash<QTcpSocket*, QString> recoveryRequests;
     QHash<QTcpSocket*, qint64> avatarTimes;

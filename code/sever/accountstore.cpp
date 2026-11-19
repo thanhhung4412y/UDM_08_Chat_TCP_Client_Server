@@ -51,7 +51,7 @@ bool AccountStore::open(const QString &path, QString &error) {
 }
 AccountResult AccountStore::create(const QString &name, const QString &password, const QString &email) {
     if (!email.isEmpty() && !AuthProtocol::validEmail(email)) return {false, {}, {}, "Email không hợp lệ."};
-    if (!AuthProtocol::validName(name) || !AuthProtocol::validPassword(password)) return {false, {}, {}, "Ten 1-20 ky tu; mat khau 12-128 ky tu."};
+    if (!AuthProtocol::validName(name) || !AuthProtocol::validPassword(password)) return {false, {}, {}, "Ten 1-20 ky tu; mat khau 8-128 ky tu."};
     const QByteArray random = salt(), hash = derive(password, random);
     if (hash.size() != 32) return {false, {}, {}, "Khong tao duoc bam mat khau."};
     const QString id = QUuid::createUuid().toString(QUuid::WithoutBraces);
@@ -98,7 +98,7 @@ bool AccountStore::isCurrent(const AccountResult &account) {
     return q.exec() && q.next() && AuthProtocol::equalHash(q.value(0).toByteArray(), account.credentialToken);
 }
 AccountResult AccountStore::changePassword(const QString &name, const QString &currentPassword, const QString &newPassword) {
-    if (!AuthProtocol::validPassword(newPassword)) return {false, {}, {}, "Mat khau moi phai co 12-128 ky tu."};
+    if (!AuthProtocol::validPassword(newPassword)) return {false, {}, {}, "Mat khau moi phai co 8-128 ky tu."};
     if (currentPassword == newPassword) return {false, {}, {}, "Mat khau moi phai khac mat khau hien tai."};
     const auto account = login(name, currentPassword);
     if (!account.ok) return {false, {}, {}, "Mat khau hien tai khong dung hoac tai khoan da thay doi."};
