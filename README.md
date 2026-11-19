@@ -15,9 +15,11 @@ Download and install the following tools (CMake, MinGW and Qt Creator are includ
  
 - Qt 6: https://www.qt.io/download-open-source
 
-- Git: https://git-scm.com/downloads (Download the source code as a ZIP file from GitHub, or clone it with Git)
+- Git (optional): https://git-scm.com/downloads (Download the source code as a ZIP file from GitHub, or just clone it with Git)
 
-Then clone the repository, open `CMakeLists.txt` in Qt Creator, select a Qt 6 kit and build.
+Then clone the repository, open `Code/CMakeLists.txt` in Qt Creator, select a Qt 6 kit and build both `chattcp1` (Server) and `ChatClient`.
+
+> **Important:** Before upgrading from an earlier version or making changes, back up and reuse your existing Server/Client `AppData` directories (do not delete SQLite or TLS folders) so existing accounts and history are preserved automatically.
  
 ```bash
 git clone https://github.com/thanhhung4412y/UDM_08_Chat_TCP_Client_Server.git
@@ -26,9 +28,13 @@ git clone https://github.com/thanhhung4412y/UDM_08_Chat_TCP_Client_Server.git
 ## Usage
  
 Run the server (`chattcp1`) first, then one or more clients (`ChatClient`). The server listens on port `12345`.
- 
-Features: online user list, private messages, reply, forward, emoji, stickers and image sharing(still working on video sharing).
- 
+
+To enable email registration and password recovery via Gmail (`smtp.gmail.com:465` over TLS), first turn on 2-Step Verification and create a 16-character [Google App Password](https://myaccount.google.com/apppasswords). Then, run `./Launch-Server-Gmail.ps1` in PowerShell and enter your `chattcp1.exe` path, your Qt `bin` folder (if DLLs aren't deployed yet), your admin Gmail, and the App Password. 
+
+If PowerShell scripts are blocked, you can manually set `CHATTCP_GMAIL_USER` and `CHATTCP_GMAIL_APP_PASSWORD` as environment variables in your terminal session before starting the server.
+
+You can check SMTP connection and authentication status directly on the Server window's **Gmail** line.
+  
 ## Protocol
  
 Each packet is one JSON object on a single line, ending with a newline character (UTF-8).
@@ -52,7 +58,7 @@ Example:
 ### Server to Client
  
 - `joined` (name): login successful
-- `system` (text): system notice, e.g. someone joined or left
+- `system` (text): system notice, example: someone joined or left
 - `users` (names): list of online users
 - `chat` (sender, text): public room message
 - `private` (sender, to, text): private message
@@ -64,11 +70,14 @@ Example:
 
 ## Features
 
-- Added password registration/login, TLS connection, and local chat history.
+- Online user list, private messages, reply, forward, edit/recall, custom avatars, emoji, stickers, image sharing, MP4 video sharing (up to 1 GB).
+
+- PBKDF2 password registration/login (8–128 characters), TLS connection, email linking/verification, and Gmail SMTP password recovery (saved in `accounts.sqlite`).
 
 ## Limitations
 
 - Chat history is stored on each client device, not synchronized through the server.
+- Verification codes (8-digit, 10-minute expiry, max 5 attempts) are rate-limited in RAM (60s cooldown, 5 codes/email/hr, 20 requests/IP/hr, 100 requests/server/hr) for small LAN use behind a firewall; each email binds permanently to one account, and accounts without a linked email must use pre-generated backup codes for recovery.
  
 ## License
  
