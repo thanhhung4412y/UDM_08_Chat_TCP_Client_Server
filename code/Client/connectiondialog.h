@@ -16,6 +16,6 @@ private:
     QLineEdit *username, *host;
     QSpinBox *port;
     QLabel *error;
-    QLineEdit *password, *confirmation;
+    QLineEdit *password, *confirmation, *recoveryCode, *email;
     QComboBox *mode;
 };

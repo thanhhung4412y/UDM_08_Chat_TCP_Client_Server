@@ -8,6 +8,10 @@ struct ConnectionProfile {
     quint16 port = 12345;
     QString password;
     bool registerAccount = false;
+    bool resetPassword = false;
+    QString recoveryCode;
+    QString email;
+    bool emailReset=false, emailBind=false;
     QString endpoint() const;
     static bool validate(const QString &username, const QString &host, int port,
                          ConnectionProfile &profile, QString &error);
