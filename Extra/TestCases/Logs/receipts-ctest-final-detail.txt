@@ -1,0 +1,93 @@
+Start testing: Oct 30 10:31 SE Asia Standard Time
+----------------------------------------------------------
+3/12 Testing: history_tests
+3/12 Test: history_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/receipts-build/history_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/receipts-build
+"history_tests" start time: Oct 30 10:31 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   4.14 sec
+----------------------------------------------------------
+Test Passed.
+"history_tests" end time: Oct 30 10:31 SE Asia Standard Time
+"history_tests" time elapsed: 00:00:04
+----------------------------------------------------------
+
+7/12 Testing: ui_tests
+7/12 Test: ui_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/receipts-build/ui_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/receipts-build
+"ui_tests" start time: Oct 30 10:31 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.36 sec
+----------------------------------------------------------
+Test Passed.
+"ui_tests" end time: Oct 30 10:31 SE Asia Standard Time
+"ui_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/12 Testing: search_tests
+9/12 Test: search_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/receipts-build/search_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/receipts-build
+"search_tests" start time: Oct 30 10:31 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.89 sec
+----------------------------------------------------------
+Test Passed.
+"search_tests" end time: Oct 30 10:31 SE Asia Standard Time
+"search_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/12 Testing: recall_tests
+10/12 Test: recall_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/receipts-build/recall_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/receipts-build
+"recall_tests" start time: Oct 30 10:31 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   6.29 sec
+----------------------------------------------------------
+Test Passed.
+"recall_tests" end time: Oct 30 10:31 SE Asia Standard Time
+"recall_tests" time elapsed: 00:00:06
+----------------------------------------------------------
+
+11/12 Testing: edit_tests
+11/12 Test: edit_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/receipts-build/edit_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/receipts-build
+"edit_tests" start time: Oct 30 10:31 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   7.28 sec
+----------------------------------------------------------
+Test Passed.
+"edit_tests" end time: Oct 30 10:31 SE Asia Standard Time
+"edit_tests" time elapsed: 00:00:07
+----------------------------------------------------------
+
+12/12 Testing: receipt_tests
+12/12 Test: receipt_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/receipts-build/receipt_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/receipts-build
+"receipt_tests" start time: Oct 30 10:31 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   8.97 sec
+----------------------------------------------------------
+Test Passed.
+"receipt_tests" end time: Oct 30 10:31 SE Asia Standard Time
+"receipt_tests" time elapsed: 00:00:08
+----------------------------------------------------------
+
+End testing: Oct 30 10:31 SE Asia Standard Time

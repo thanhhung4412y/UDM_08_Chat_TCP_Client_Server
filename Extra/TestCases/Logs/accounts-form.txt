@@ -1,0 +1,9 @@
+********* Start testing of ConnectionTests *********
+Config: Using QtTest library 6.12.0, Qt 6.12.0 (x86_64-little_endian-llp64 shared (dynamic) release build; by GCC 15.1.0), windows 11
+PASS   : ConnectionTests::initTestCase()
+QWARN  : ConnectionTests::registrationConfirmation() QFontDatabase: Cannot find font directory C:/Qt/6.12.0/mingw_64/lib/fonts.
+Note that Qt no longer ships fonts. Deploy some (from https://dejavu-fonts.github.io/ for example) or switch to fontconfig.
+PASS   : ConnectionTests::registrationConfirmation()
+PASS   : ConnectionTests::cleanupTestCase()
+Totals: 3 passed, 0 failed, 0 skipped, 0 blacklisted, 24ms
+********* Finished testing of ConnectionTests *********

@@ -1,0 +1,32 @@
+[1/37] Automatic MOC and UIC for target chat_history
+[2/37] Building CXX object CMakeFiles/chat_history.dir/chat_history_autogen/mocs_compilation.cpp.obj
+[3/37] Building CXX object CMakeFiles/chat_history.dir/Client/chathistory.cpp.obj
+[4/37] Building CXX object CMakeFiles/chat_history.dir/Client/historyview.cpp.obj
+[5/37] Building CXX object CMakeFiles/chat_history.dir/Client/historysearchdialog.cpp.obj
+[6/37] Linking CXX static library libchat_history.a
+[7/37] Linking CXX executable history_probe.exe
+[8/37] Automatic MOC and UIC for target search_tests
+[9/36] Automatic MOC and UIC for target ui_tests
+[10/35] Automatic MOC and UIC for target history_tests
+[11/34] Building CXX object CMakeFiles/chat_recall.dir/Client/recallclient.cpp.obj
+[12/34] Linking CXX static library libchat_recall.a
+[13/34] Automatic MOC and UIC for target ChatClient
+[14/33] Automatic MOC and UIC for target recall_tests
+[15/32] Building CXX object CMakeFiles/ui_preview.dir/tests/ui_preview.cpp.obj
+[16/32] Building CXX object CMakeFiles/search_tests.dir/tests/search_tests.cpp.obj
+[17/32] Building CXX object CMakeFiles/history_tests.dir/tests/history_tests.cpp.obj
+[18/32] Building CXX object CMakeFiles/ChatClient.dir/Client/main_client.cpp.obj
+[19/32] Linking CXX executable ChatClient.exe
+[20/32] Linking CXX executable transfer_tests.exe
+[21/32] Linking CXX executable history_tests.exe
+[22/32] Linking CXX executable connection_tests.exe
+[23/32] Linking CXX executable auth_tests.exe
+[24/32] Linking CXX executable password_tests.exe
+[25/32] Building CXX object CMakeFiles/search_preview.dir/tests/search_preview.cpp.obj
+[26/32] Linking CXX executable search_tests.exe
+[27/32] Linking CXX executable search_preview.exe
+[28/32] Linking CXX executable ui_preview.exe
+[29/32] Building CXX object CMakeFiles/recall_tests.dir/tests/recall_tests.cpp.obj
+[30/32] Linking CXX executable recall_tests.exe
+[31/32] Building CXX object CMakeFiles/ui_tests.dir/tests/ui_tests.cpp.obj
+[32/32] Linking CXX executable ui_tests.exe

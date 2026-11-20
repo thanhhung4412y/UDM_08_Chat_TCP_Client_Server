@@ -1,0 +1,48 @@
+Start testing: Oct 29 22:02 SE Asia Standard Time
+----------------------------------------------------------
+1/3 Testing: transfer_tests
+1/3 Test: transfer_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/history-build/transfer_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/history-build
+"transfer_tests" start time: Oct 29 22:02 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =  37.89 sec
+----------------------------------------------------------
+Test Passed.
+"transfer_tests" end time: Oct 29 22:02 SE Asia Standard Time
+"transfer_tests" time elapsed: 00:00:37
+----------------------------------------------------------
+
+2/3 Testing: offline_tests
+2/3 Test: offline_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/history-build/offline_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/history-build
+"offline_tests" start time: Oct 29 22:02 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   2.41 sec
+----------------------------------------------------------
+Test Passed.
+"offline_tests" end time: Oct 29 22:02 SE Asia Standard Time
+"offline_tests" time elapsed: 00:00:02
+----------------------------------------------------------
+
+3/3 Testing: history_tests
+3/3 Test: history_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/history-build/history_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/history-build
+"history_tests" start time: Oct 29 22:02 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   3.81 sec
+----------------------------------------------------------
+Test Passed.
+"history_tests" end time: Oct 29 22:02 SE Asia Standard Time
+"history_tests" time elapsed: 00:00:03
+----------------------------------------------------------
+
+End testing: Oct 29 22:02 SE Asia Standard Time

@@ -1,0 +1,16 @@
+[1/18] Automatic MOC and UIC for target chat_history
+[2/17] Building CXX object CMakeFiles/chat_history.dir/Client/historysearchdialog.cpp.obj
+[3/17] Linking CXX static library libchat_history.a
+[4/17] Automatic MOC and UIC for target ui_preview
+[5/16] Linking CXX executable history_probe.exe
+[6/16] Linking CXX executable transfer_tests.exe
+[7/16] Linking CXX executable ChatClient.exe
+[8/16] Linking CXX executable history_tests.exe
+[9/16] Linking CXX executable connection_tests.exe
+[10/16] Linking CXX executable auth_tests.exe
+[11/16] Linking CXX executable password_tests.exe
+[12/16] Linking CXX executable search_tests.exe
+[13/16] Linking CXX executable ui_tests.exe
+[14/16] Linking CXX executable search_preview.exe
+[15/16] Building CXX object CMakeFiles/ui_preview.dir/tests/ui_preview.cpp.obj
+[16/16] Linking CXX executable ui_preview.exe

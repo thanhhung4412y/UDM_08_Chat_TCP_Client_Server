@@ -1,0 +1,32 @@
+********* Start testing of ReceiptTests *********
+Config: Using QtTest library 6.12.0, Qt 6.12.0 (x86_64-little_endian-llp64 shared (dynamic) release build; by GCC 15.1.0), windows 11
+PASS   : ReceiptTests::initTestCase()
+PASS   : ReceiptTests::serverAuthorityMonotonicAtomicAndPersistent()
+PASS   : ReceiptTests::clientPersistencePendingReorderAndInventory()
+QWARN  : ReceiptTests::boundedInventoryAndSenderOnlyLabels() QFontDatabase: Cannot find font directory C:/Qt/6.12.0/mingw_64/lib/fonts.
+Note that Qt no longer ships fonts. Deploy some (from https://dejavu-fonts.github.io/ for example) or switch to fontconfig.
+PASS   : ReceiptTests::boundedInventoryAndSenderOnlyLabels()
+QDEBUG : ReceiptTests::tlsReceivedThenSeenCorrectPeerOfflineRestartAndEdit() Server dang lang nghe cong: 58100
+QDEBUG : ReceiptTests::tlsReceivedThenSeenCorrectPeerOfflineRestartAndEdit() Tin rieng: "Alice" -> "Bob"
+QDEBUG : ReceiptTests::tlsReceivedThenSeenCorrectPeerOfflineRestartAndEdit() "Alice" da thoat
+QDEBUG : ReceiptTests::tlsReceivedThenSeenCorrectPeerOfflineRestartAndEdit() Tin rieng: "Alice" -> "Bob"
+QDEBUG : ReceiptTests::tlsReceivedThenSeenCorrectPeerOfflineRestartAndEdit() "Alice" da thoat
+QDEBUG : ReceiptTests::tlsReceivedThenSeenCorrectPeerOfflineRestartAndEdit() "Carol" da thoat
+QDEBUG : ReceiptTests::tlsReceivedThenSeenCorrectPeerOfflineRestartAndEdit() "Bob" da thoat
+QWARN  : ReceiptTests::tlsReceivedThenSeenCorrectPeerOfflineRestartAndEdit() Fixture session: "Khong ket noi duoc 127.0.0.1:58100: The remote host closed the connection Bam Ket noi lai hoac Doi ket noi."
+QWARN  : ReceiptTests::tlsReceivedThenSeenCorrectPeerOfflineRestartAndEdit() Fixture session: "Khong ket noi duoc 127.0.0.1:58100: The remote host closed the connection Bam Ket noi lai hoac Doi ket noi."
+QWARN  : ReceiptTests::tlsReceivedThenSeenCorrectPeerOfflineRestartAndEdit() Fixture session: "Khong ket noi duoc 127.0.0.1:58100: The remote host closed the connection Bam Ket noi lai hoac Doi ket noi."
+QDEBUG : ReceiptTests::tlsReceivedThenSeenCorrectPeerOfflineRestartAndEdit() Server dang lang nghe cong: 58100
+QDEBUG : ReceiptTests::tlsReceivedThenSeenCorrectPeerOfflineRestartAndEdit() "Bob" da thoat
+QDEBUG : ReceiptTests::tlsReceivedThenSeenCorrectPeerOfflineRestartAndEdit() "Alice" da thoat
+QDEBUG : ReceiptTests::tlsReceivedThenSeenCorrectPeerOfflineRestartAndEdit() "Carol" da thoat
+PASS   : ReceiptTests::tlsReceivedThenSeenCorrectPeerOfflineRestartAndEdit()
+QDEBUG : ReceiptTests::privateImageStickerAndCompletedVideo() Server dang lang nghe cong: 58109
+QDEBUG : ReceiptTests::privateImageStickerAndCompletedVideo() "Alice" gui anh den "Bob"
+QDEBUG : ReceiptTests::privateImageStickerAndCompletedVideo() "Alice" gui sticker cho "Bob"
+QDEBUG : ReceiptTests::privateImageStickerAndCompletedVideo() "Alice" da thoat
+QDEBUG : ReceiptTests::privateImageStickerAndCompletedVideo() "Bob" da thoat
+PASS   : ReceiptTests::privateImageStickerAndCompletedVideo()
+PASS   : ReceiptTests::cleanupTestCase()
+Totals: 7 passed, 0 failed, 0 skipped, 0 blacklisted, 8667ms
+********* Finished testing of ReceiptTests *********

@@ -1,0 +1,42 @@
+********* Start testing of ConnectionTests *********
+Config: Using QtTest library 6.12.0, Qt 6.12.0 (x86_64-little_endian-llp64 shared (dynamic) release build; by GCC 15.1.0), windows 11
+PASS   : ConnectionTests::initTestCase()
+PASS   : ConnectionTests::validation(ipv4)
+PASS   : ConnectionTests::validation(localhost)
+PASS   : ConnectionTests::validation(hostname)
+PASS   : ConnectionTests::validation(ipv6)
+PASS   : ConnectionTests::validation(blank-name)
+PASS   : ConnectionTests::validation(long-name)
+PASS   : ConnectionTests::validation(bad-name)
+PASS   : ConnectionTests::validation(blank-host)
+PASS   : ConnectionTests::validation(url)
+PASS   : ConnectionTests::validation(combined-port)
+PASS   : ConnectionTests::validation(bad-ip)
+PASS   : ConnectionTests::validation(listen-address)
+PASS   : ConnectionTests::validation(listen-v6)
+PASS   : ConnectionTests::validation(multicast)
+PASS   : ConnectionTests::validation(zero-port)
+PASS   : ConnectionTests::validation(large-port)
+PASS   : ConnectionTests::settingsAndHistoryIdentity()
+QWARN  : ConnectionTests::dialogValidationAndRemember() QFontDatabase: Cannot find font directory C:/Qt/6.12.0/mingw_64/lib/fonts.
+Note that Qt no longer ships fonts. Deploy some (from https://dejavu-fonts.github.io/ for example) or switch to fontconfig.
+PASS   : ConnectionTests::dialogValidationAndRemember()
+QDEBUG : ConnectionTests::customPortAndReconnect() Server dang lang nghe cong: 61174
+QDEBUG : ConnectionTests::customPortAndReconnect() "Alice" da thoat
+QDEBUG : ConnectionTests::customPortAndReconnect() "Alice" da thoat
+PASS   : ConnectionTests::customPortAndReconnect()
+PASS   : ConnectionTests::registrationConfirmation()
+QDEBUG : ConnectionTests::refusedThenRetry() Server dang lang nghe cong: 61180
+QDEBUG : ConnectionTests::refusedThenRetry() "Alice" da thoat
+PASS   : ConnectionTests::refusedThenRetry()
+QDEBUG : ConnectionTests::hostnameConnection() Server dang lang nghe cong: 61187
+QDEBUG : ConnectionTests::hostnameConnection() "Alice" da thoat
+PASS   : ConnectionTests::hostnameConnection()
+QDEBUG : ConnectionTests::duplicateNameAndRetry() Server dang lang nghe cong: 61192
+QDEBUG : ConnectionTests::duplicateNameAndRetry() "Alice" da thoat
+QDEBUG : ConnectionTests::duplicateNameAndRetry() "Alice" da thoat
+PASS   : ConnectionTests::duplicateNameAndRetry()
+PASS   : ConnectionTests::handshakeTimeoutAndStop()
+PASS   : ConnectionTests::cleanupTestCase()
+Totals: 26 passed, 0 failed, 0 skipped, 0 blacklisted, 27672ms
+********* Finished testing of ConnectionTests *********

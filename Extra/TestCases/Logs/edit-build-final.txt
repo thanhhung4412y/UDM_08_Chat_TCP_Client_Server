@@ -1,0 +1,34 @@
+[1/41] Automatic MOC and UIC for target video_transfer
+[2/38] Building CXX object CMakeFiles/chat_history.dir/Client/historystore.cpp.obj
+[3/38] Building CXX object CMakeFiles/chat_history.dir/Client/historyview.cpp.obj
+[4/38] Building CXX object CMakeFiles/chat_history.dir/Client/chathistory.cpp.obj
+[5/38] Building CXX object CMakeFiles/chat_history.dir/Client/historysearchdialog.cpp.obj
+[6/38] Linking CXX static library libchat_history.a
+[7/38] Linking CXX executable history_probe.exe
+[8/38] Building CXX object CMakeFiles/account_server.dir/Server/recallstore.cpp.obj
+[9/38] Automatic MOC and UIC for target history_tests
+[10/37] Building CXX object CMakeFiles/account_server.dir/Server/chatserver.cpp.obj
+[11/37] Linking CXX static library libaccount_server.a
+[12/37] Building CXX object CMakeFiles/ChatClient.dir/Client/main_client.cpp.obj
+[13/37] Building CXX object CMakeFiles/ui_preview.dir/tests/ui_preview.cpp.obj
+[14/37] Automatic MOC and UIC for target recall_tests
+[15/36] Automatic MOC and UIC for target edit_tests
+[16/35] Automatic MOC and UIC for target transfer_tests
+[17/34] Building CXX object CMakeFiles/history_tests.dir/tests/history_tests.cpp.obj
+[18/34] Linking CXX executable chattcp1.exe
+[19/34] Linking CXX executable ChatClient.exe
+[20/34] Linking CXX executable history_tests.exe
+[21/34] Linking CXX executable connection_tests.exe
+[22/34] Linking CXX executable auth_tests.exe
+[23/34] Linking CXX executable password_tests.exe
+[24/34] Linking CXX executable ui_tests.exe
+[25/34] Linking CXX executable profile_tests.exe
+[26/34] Linking CXX executable search_tests.exe
+[27/34] Linking CXX executable search_preview.exe
+[28/34] Linking CXX executable ui_preview.exe
+[29/34] Building CXX object CMakeFiles/recall_tests.dir/tests/recall_tests.cpp.obj
+[30/34] Linking CXX executable recall_tests.exe
+[31/34] Building CXX object CMakeFiles/edit_tests.dir/tests/edit_tests.cpp.obj
+[32/34] Linking CXX executable edit_tests.exe
+[33/34] Building CXX object CMakeFiles/transfer_tests.dir/tests/transfer_tests.cpp.obj
+[34/34] Linking CXX executable transfer_tests.exe

@@ -1,0 +1,52 @@
+[1/60] Automatic MOC and UIC for target account_server
+[2/59] Automatic MOC and UIC for target chat_connection
+[3/59] Building CXX object CMakeFiles/account_server.dir/Server/gmailsender.cpp.obj
+[4/59] Building CXX object CMakeFiles/chat_connection.dir/chat_connection_autogen/mocs_compilation.cpp.obj
+[5/59] Building CXX object CMakeFiles/chat_connection.dir/Client/passworddialog.cpp.obj
+[6/59] Building CXX object CMakeFiles/account_server.dir/Server/emailservice.cpp.obj
+[7/59] Linking CXX static library libaccount_server.a
+[8/59] Building CXX object CMakeFiles/chat_connection.dir/Client/recoverydialog.cpp.obj
+[9/59] Linking CXX executable chattcp1.exe
+[10/59] Automatic MOC and UIC for target transfer_tests
+[11/58] Building CXX object CMakeFiles/chat_connection.dir/Client/sessionconnection.cpp.obj
+[12/58] Linking CXX static library libchat_connection.a
+[13/58] Automatic MOC and UIC for target email_tests
+[14/57] Building CXX object CMakeFiles/chat_recall.dir/Client/recallclient.cpp.obj
+[15/57] Automatic MOC and UIC for target connection_tests
+[16/56] Building CXX object CMakeFiles/chat_recall.dir/Client/receiptclient.cpp.obj
+[17/56] Linking CXX static library libchat_recall.a
+[18/56] Automatic MOC and UIC for target ChatClient
+[19/55] Automatic MOC and UIC for target auth_tests
+[20/54] Automatic MOC and UIC for target password_tests
+[21/53] Automatic MOC and UIC for target recall_tests
+[22/52] Automatic MOC and UIC for target ui_preview
+[23/51] Automatic MOC and UIC for target edit_tests
+[24/50] Automatic MOC and UIC for target receipt_tests
+[25/49] Automatic MOC and UIC for target profile_tests
+[26/48] Building CXX object CMakeFiles/transfer_tests.dir/tests/transfer_tests.cpp.obj
+[27/48] Building CXX object CMakeFiles/ChatClient.dir/Client/main_client.cpp.obj
+[28/48] Building CXX object CMakeFiles/recall_tests.dir/tests/recall_tests.cpp.obj
+[29/48] Building CXX object CMakeFiles/ui_preview.dir/tests/ui_preview.cpp.obj
+C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/outputs/ChatTCP1_Email/Code/tests/ui_preview.cpp: In lambda function:
+C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/outputs/ChatTCP1_Email/Code/tests/ui_preview.cpp:88:5: warning: control reaches end of non-void function [-Wreturn-type]
+   88 |     });
+      |     ^
+[30/48] Building CXX object CMakeFiles/edit_tests.dir/tests/edit_tests.cpp.obj
+[31/48] Building CXX object CMakeFiles/receipt_tests.dir/tests/receipt_tests.cpp.obj
+[32/48] Building CXX object CMakeFiles/connection_tests.dir/tests/connection_tests.cpp.obj
+[33/48] Building CXX object CMakeFiles/auth_tests.dir/tests/auth_tests.cpp.obj
+[34/48] Linking CXX executable ChatClient.exe
+[35/48] Building CXX object CMakeFiles/email_tests.dir/tests/email_tests.cpp.obj
+[36/48] Linking CXX executable transfer_tests.exe
+[37/48] Linking CXX executable email_tests.exe
+[38/48] Linking CXX executable connection_tests.exe
+[39/48] Linking CXX executable auth_tests.exe
+[40/48] Linking CXX executable ui_tests.exe
+[41/48] Linking CXX executable recall_tests.exe
+[42/48] Linking CXX executable edit_tests.exe
+[43/48] Linking CXX executable receipt_tests.exe
+[44/48] Linking CXX executable ui_preview.exe
+[45/48] Building CXX object CMakeFiles/password_tests.dir/tests/password_tests.cpp.obj
+[46/48] Linking CXX executable password_tests.exe
+[47/48] Building CXX object CMakeFiles/profile_tests.dir/tests/profile_tests.cpp.obj
+[48/48] Linking CXX executable profile_tests.exe

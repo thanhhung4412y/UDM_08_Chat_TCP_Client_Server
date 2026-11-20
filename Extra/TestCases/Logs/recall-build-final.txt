@@ -1,0 +1,28 @@
+[1/35] Automatic MOC and UIC for target ui_preview
+[2/34] Automatic MOC and UIC for target account_server
+[3/34] Building CXX object CMakeFiles/account_server.dir/Server/recallstore.cpp.obj
+[4/34] Building CXX object CMakeFiles/account_server.dir/account_server_autogen/mocs_compilation.cpp.obj
+[5/34] Building CXX object CMakeFiles/ui_preview.dir/tests/ui_preview.cpp.obj
+[6/34] Linking CXX executable ui_preview.exe
+[7/34] Building CXX object CMakeFiles/account_server.dir/Server/chatserver.cpp.obj
+[8/34] Linking CXX static library libaccount_server.a
+[9/34] Automatic MOC and UIC for target transfer_tests
+[10/33] Automatic MOC and UIC for target connection_tests
+[11/32] Automatic MOC and UIC for target recall_tests
+[12/31] Automatic MOC and UIC for target auth_tests
+[13/30] Automatic MOC and UIC for target password_tests
+[14/29] Automatic MOC and UIC for target profile_tests
+[15/28] Building CXX object CMakeFiles/chattcp1.dir/Server/main.cpp.obj
+[16/28] Building CXX object CMakeFiles/recall_tests.dir/tests/recall_tests.cpp.obj
+[17/28] Building CXX object CMakeFiles/connection_tests.dir/tests/connection_tests.cpp.obj
+[18/28] Building CXX object CMakeFiles/auth_tests.dir/tests/auth_tests.cpp.obj
+[19/28] Linking CXX executable chattcp1.exe
+[20/28] Linking CXX executable connection_tests.exe
+[21/28] Building CXX object CMakeFiles/transfer_tests.dir/tests/transfer_tests.cpp.obj
+[22/28] Linking CXX executable auth_tests.exe
+[23/28] Linking CXX executable transfer_tests.exe
+[24/28] Linking CXX executable recall_tests.exe
+[25/28] Building CXX object CMakeFiles/password_tests.dir/tests/password_tests.cpp.obj
+[26/28] Linking CXX executable password_tests.exe
+[27/28] Building CXX object CMakeFiles/profile_tests.dir/tests/profile_tests.cpp.obj
+[28/28] Linking CXX executable profile_tests.exe

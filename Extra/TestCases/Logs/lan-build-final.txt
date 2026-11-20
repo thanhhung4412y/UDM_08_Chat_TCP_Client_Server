@@ -1,0 +1,6 @@
+[1/8] Automatic MOC and UIC for target ChatClient
+[2/7] Automatic MOC and UIC for target connection_tests
+[3/6] Building CXX object CMakeFiles/ChatClient.dir/Client/main_client.cpp.obj
+[4/6] Linking CXX executable ChatClient.exe
+[5/6] Building CXX object CMakeFiles/connection_tests.dir/tests/connection_tests.cpp.obj
+[6/6] Linking CXX executable connection_tests.exe

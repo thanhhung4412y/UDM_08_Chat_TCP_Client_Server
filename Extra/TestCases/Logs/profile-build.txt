@@ -1,0 +1,83 @@
+[1/83] Automatic MOC and UIC for target chat_history
+[2/83] Automatic MOC and UIC for target video_transfer
+[3/83] Automatic MOC and UIC for target chat_ui
+[4/83] Building CXX object CMakeFiles/chat_history.dir/chat_history_autogen/mocs_compilation.cpp.obj
+[5/83] Building CXX object CMakeFiles/chat_history.dir/Client/chathistory.cpp.obj
+[6/83] Building CXX object CMakeFiles/chat_history.dir/Client/historystore.cpp.obj
+[7/83] Building CXX object CMakeFiles/chat_history.dir/Client/historyview.cpp.obj
+[8/83] Building CXX object CMakeFiles/video_transfer.dir/video_transfer_autogen/mocs_compilation.cpp.obj
+[9/83] Linking CXX static library libchat_history.a
+[10/83] Automatic MOC and UIC for target history_probe
+[11/83] Building CXX object CMakeFiles/video_transfer.dir/Shared/jsonchannel.cpp.obj
+[12/83] Building CXX object CMakeFiles/chat_ui.dir/chat_ui_autogen/mocs_compilation.cpp.obj
+[13/83] Building CXX object CMakeFiles/chat_ui.dir/Client/chattheme.cpp.obj
+[14/83] Building CXX object CMakeFiles/history_probe.dir/history_probe_autogen/mocs_compilation.cpp.obj
+[15/83] Building CXX object CMakeFiles/video_transfer.dir/Shared/videoclient.cpp.obj
+[16/83] Building CXX object CMakeFiles/video_transfer.dir/Shared/videorelay.cpp.obj
+[17/83] Linking CXX static library libvideo_transfer.a
+[18/83] Building CXX object CMakeFiles/history_probe.dir/tests/history_probe.cpp.obj
+[19/83] Automatic MOC and UIC for target chat_connection
+[20/83] Automatic MOC and UIC for target account_server
+[21/83] Linking CXX executable history_probe.exe
+[22/83] Building CXX object CMakeFiles/chat_connection.dir/Client/connectionprofile.cpp.obj
+[23/83] Building CXX object CMakeFiles/chat_ui.dir/Client/chatshell.cpp.obj
+[24/83] Building CXX object CMakeFiles/chat_connection.dir/Client/connectiondialog.cpp.obj
+[25/83] Building CXX object CMakeFiles/chat_connection.dir/chat_connection_autogen/mocs_compilation.cpp.obj
+[26/83] Linking CXX static library libchat_ui.a
+[27/83] Building CXX object CMakeFiles/chat_connection.dir/Client/passworddialog.cpp.obj
+[28/83] Building CXX object CMakeFiles/chat_connection.dir/Client/recoverydialog.cpp.obj
+[29/83] Building CXX object CMakeFiles/account_server.dir/account_server_autogen/mocs_compilation.cpp.obj
+[30/83] Building CXX object CMakeFiles/chat_connection.dir/Client/sessionconnection.cpp.obj
+[31/83] Linking CXX static library libchat_connection.a
+[32/83] Building CXX object CMakeFiles/account_server.dir/Server/accountstore.cpp.obj
+[33/83] Automatic MOC and UIC for target ChatClient
+[34/83] Building CXX object CMakeFiles/account_server.dir/Server/authservice.cpp.obj
+[35/83] Automatic MOC and UIC for target ui_preview
+[36/83] Automatic MOC and UIC for target history_tests
+[37/83] Automatic MOC and UIC for target offline_tests
+[38/83] Automatic RCC for Client/stickers.qrc
+[39/83] Automatic RCC for Client/stickers.qrc
+[40/83] Automatic RCC for Client/stickers.qrc
+[41/83] Building CXX object CMakeFiles/ChatClient.dir/ChatClient_autogen/mocs_compilation.cpp.obj
+[42/83] Building CXX object CMakeFiles/account_server.dir/Server/tlsidentity.cpp.obj
+[43/83] Building CXX object CMakeFiles/ChatClient.dir/ChatClient_autogen/YWBVKQVKFL/qrc_stickers.cpp.obj
+[44/83] Building CXX object CMakeFiles/history_tests.dir/history_tests_autogen/mocs_compilation.cpp.obj
+[45/83] Building CXX object CMakeFiles/account_server.dir/Server/chatserver.cpp.obj
+[46/83] Linking CXX static library libaccount_server.a
+[47/83] Automatic MOC and UIC for target ui_tests
+[48/83] Automatic MOC and UIC for target chattcp1
+[49/83] Automatic MOC and UIC for target transfer_tests
+[50/83] Automatic MOC and UIC for target connection_tests
+[51/83] Automatic MOC and UIC for target auth_tests
+[52/83] Building CXX object CMakeFiles/ChatClient.dir/Client/main_client.cpp.obj
+[53/83] Building CXX object CMakeFiles/history_tests.dir/history_tests_autogen/YWBVKQVKFL/qrc_stickers.cpp.obj
+[54/83] Building CXX object CMakeFiles/ui_preview.dir/ui_preview_autogen/mocs_compilation.cpp.obj
+[55/83] Building CXX object CMakeFiles/ui_preview.dir/ui_preview_autogen/YWBVKQVKFL/qrc_stickers.cpp.obj
+[56/83] Automatic MOC and UIC for target password_tests
+[57/83] Building CXX object CMakeFiles/chattcp1.dir/chattcp1_autogen/mocs_compilation.cpp.obj
+[58/83] Building CXX object CMakeFiles/history_tests.dir/tests/history_tests.cpp.obj
+[59/83] Building CXX object CMakeFiles/transfer_tests.dir/transfer_tests_autogen/mocs_compilation.cpp.obj
+[60/83] Building CXX object CMakeFiles/ui_preview.dir/tests/ui_preview.cpp.obj
+[61/83] Building CXX object CMakeFiles/offline_tests.dir/offline_tests_autogen/mocs_compilation.cpp.obj
+[62/83] Building CXX object CMakeFiles/chattcp1.dir/Server/main.cpp.obj
+[63/83] Building CXX object CMakeFiles/chattcp1.dir/Server/mainwindow.cpp.obj
+[64/83] Building CXX object CMakeFiles/connection_tests.dir/connection_tests_autogen/mocs_compilation.cpp.obj
+[65/83] Building CXX object CMakeFiles/auth_tests.dir/auth_tests_autogen/mocs_compilation.cpp.obj
+[66/83] Building CXX object CMakeFiles/offline_tests.dir/tests/offline_tests.cpp.obj
+[67/83] Building CXX object CMakeFiles/password_tests.dir/password_tests_autogen/mocs_compilation.cpp.obj
+[68/83] Building CXX object CMakeFiles/connection_tests.dir/tests/connection_tests.cpp.obj
+[69/83] Building CXX object CMakeFiles/ui_tests.dir/ui_tests_autogen/mocs_compilation.cpp.obj
+[70/83] Building CXX object CMakeFiles/auth_tests.dir/tests/auth_tests.cpp.obj
+[71/83] Linking CXX executable chattcp1.exe
+[72/83] Linking CXX executable ChatClient.exe
+[73/83] Linking CXX executable offline_tests.exe
+[74/83] Linking CXX executable history_tests.exe
+[75/83] Linking CXX executable connection_tests.exe
+[76/83] Linking CXX executable auth_tests.exe
+[77/83] Linking CXX executable ui_preview.exe
+[78/83] Building CXX object CMakeFiles/transfer_tests.dir/tests/transfer_tests.cpp.obj
+[79/83] Linking CXX executable transfer_tests.exe
+[80/83] Building CXX object CMakeFiles/ui_tests.dir/tests/ui_tests.cpp.obj
+[81/83] Building CXX object CMakeFiles/password_tests.dir/tests/password_tests.cpp.obj
+[82/83] Linking CXX executable ui_tests.exe
+[83/83] Linking CXX executable password_tests.exe

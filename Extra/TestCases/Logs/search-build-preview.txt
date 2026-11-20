@@ -1,0 +1,27 @@
+[0/1] Re-running CMake...
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Configuring done (0.8s)
+-- Generating done (0.8s)
+-- Build files have been written to: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/search-build
+[1/59] Automatic MOC and UIC for target chat_ui
+[2/57] Automatic MOC and UIC for target video_transfer
+[3/55] Automatic MOC and UIC for target chat_history
+[4/53] Automatic MOC and UIC for target history_probe
+[5/51] Automatic MOC and UIC for target offline_tests
+[6/49] Automatic MOC and UIC for target account_server
+[7/47] Automatic MOC and UIC for target chat_connection
+[8/45] Automatic MOC and UIC for target history_tests
+[9/43] Automatic MOC and UIC for target ChatClient
+[10/41] Automatic MOC and UIC for target chattcp1
+[11/39] Automatic MOC and UIC for target search_tests
+[12/37] Automatic MOC and UIC for target ui_preview
+[13/35] Automatic MOC and UIC for target transfer_tests
+[14/33] Automatic MOC and UIC for target connection_tests
+[15/31] Automatic MOC and UIC for target auth_tests
+[16/29] Automatic MOC and UIC for target password_tests
+[17/27] Automatic MOC and UIC for target ui_tests
+[18/25] Automatic MOC and UIC for target profile_tests
+[19/23] Automatic MOC and UIC for target search_preview
+[20/23] Building CXX object CMakeFiles/search_preview.dir/search_preview_autogen/mocs_compilation.cpp.obj
+[21/23] Building CXX object CMakeFiles/search_preview.dir/tests/search_preview.cpp.obj
+[22/23] Linking CXX executable search_preview.exe

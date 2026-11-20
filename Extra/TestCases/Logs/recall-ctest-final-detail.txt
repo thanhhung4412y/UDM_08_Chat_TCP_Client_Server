@@ -1,0 +1,63 @@
+Start testing: Oct 30 08:39 SE Asia Standard Time
+----------------------------------------------------------
+3/10 Testing: history_tests
+3/10 Test: history_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/recall-build/history_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/recall-build
+"history_tests" start time: Oct 30 08:39 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   4.46 sec
+----------------------------------------------------------
+Test Passed.
+"history_tests" end time: Oct 30 08:39 SE Asia Standard Time
+"history_tests" time elapsed: 00:00:04
+----------------------------------------------------------
+
+7/10 Testing: ui_tests
+7/10 Test: ui_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/recall-build/ui_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/recall-build
+"ui_tests" start time: Oct 30 08:39 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.39 sec
+----------------------------------------------------------
+Test Passed.
+"ui_tests" end time: Oct 30 08:39 SE Asia Standard Time
+"ui_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/10 Testing: search_tests
+9/10 Test: search_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/recall-build/search_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/recall-build
+"search_tests" start time: Oct 30 08:39 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   1.01 sec
+----------------------------------------------------------
+Test Passed.
+"search_tests" end time: Oct 30 08:39 SE Asia Standard Time
+"search_tests" time elapsed: 00:00:01
+----------------------------------------------------------
+
+10/10 Testing: recall_tests
+10/10 Test: recall_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/recall-build/recall_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/recall-build
+"recall_tests" start time: Oct 30 08:39 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   8.11 sec
+----------------------------------------------------------
+Test Passed.
+"recall_tests" end time: Oct 30 08:39 SE Asia Standard Time
+"recall_tests" time elapsed: 00:00:08
+----------------------------------------------------------
+
+End testing: Oct 30 08:39 SE Asia Standard Time

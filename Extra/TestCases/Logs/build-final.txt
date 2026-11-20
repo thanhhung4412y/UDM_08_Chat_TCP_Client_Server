@@ -1,0 +1,4 @@
+[1/9] Automatic MOC and UIC for target chattcp1
+[2/7] Automatic MOC and UIC for target offline_tests
+[3/5] Automatic MOC and UIC for target transfer_tests
+[4/4] Linking CXX executable transfer_tests.exe

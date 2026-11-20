@@ -1,0 +1,33 @@
+[1/38] Automatic MOC and UIC for target chat_history
+[2/38] Building CXX object CMakeFiles/chat_history.dir/chat_history_autogen/mocs_compilation.cpp.obj
+[3/38] Building CXX object CMakeFiles/chat_history.dir/Client/chathistory.cpp.obj
+[4/38] Linking CXX static library libchat_history.a
+[5/38] Automatic MOC and UIC for target chat_recall
+[6/37] Linking CXX executable history_probe.exe
+[7/37] Linking CXX executable transfer_tests.exe
+[8/37] Linking CXX executable connection_tests.exe
+[9/37] Automatic MOC and UIC for target history_tests
+[10/36] Building CXX object CMakeFiles/chat_recall.dir/Client/editmessagedialog.cpp.obj
+[11/36] Linking CXX executable auth_tests.exe
+[12/36] Building CXX object CMakeFiles/chat_recall.dir/Client/recallclient.cpp.obj
+[13/36] Linking CXX executable password_tests.exe
+[14/36] Linking CXX executable ui_tests.exe
+[15/36] Linking CXX executable search_tests.exe
+[16/36] Building CXX object CMakeFiles/chat_recall.dir/Client/receiptclient.cpp.obj
+[17/36] Linking CXX executable search_preview.exe
+[18/36] Linking CXX static library libchat_recall.a
+[19/36] Automatic MOC and UIC for target receipt_tests
+[20/35] Automatic MOC and UIC for target recall_tests
+[21/34] Automatic MOC and UIC for target edit_tests
+[22/33] Building CXX object CMakeFiles/history_tests.dir/tests/history_tests.cpp.obj
+[23/33] Building CXX object CMakeFiles/ChatClient.dir/Client/main_client.cpp.obj
+[24/33] Building CXX object CMakeFiles/recall_tests.dir/tests/recall_tests.cpp.obj
+[25/33] Linking CXX executable ChatClient.exe
+[26/33] Building CXX object CMakeFiles/edit_tests.dir/tests/edit_tests.cpp.obj
+[27/33] Linking CXX executable history_tests.exe
+[28/33] Linking CXX executable recall_tests.exe
+[29/33] Linking CXX executable edit_tests.exe
+[30/33] Building CXX object CMakeFiles/ui_preview.dir/tests/ui_preview.cpp.obj
+[31/33] Linking CXX executable ui_preview.exe
+[32/33] Building CXX object CMakeFiles/receipt_tests.dir/tests/receipt_tests.cpp.obj
+[33/33] Linking CXX executable receipt_tests.exe

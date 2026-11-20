@@ -1,0 +1,17 @@
+[1/21] Automatic MOC and UIC for target video_transfer
+[2/20] Building CXX object CMakeFiles/video_transfer.dir/Shared/jsonchannel.cpp.obj
+[3/20] Linking CXX static library libvideo_transfer.a
+[4/20] Automatic MOC and UIC for target account_server
+[5/19] Linking CXX executable offline_tests.exe
+[6/19] Linking CXX executable history_tests.exe
+[7/19] Linking CXX executable ChatClient.exe
+[8/19] Building CXX object CMakeFiles/account_server.dir/Server/chatserver.cpp.obj
+[9/19] Linking CXX static library libaccount_server.a
+[10/19] Linking CXX executable chattcp1.exe
+[11/19] Linking CXX executable transfer_tests.exe
+[12/19] Automatic MOC and UIC for target connection_tests
+[13/18] Automatic MOC and UIC for target auth_tests
+[14/17] Building CXX object CMakeFiles/connection_tests.dir/tests/connection_tests.cpp.obj
+[15/17] Linking CXX executable connection_tests.exe
+[16/17] Building CXX object CMakeFiles/auth_tests.dir/tests/auth_tests.cpp.obj
+[17/17] Linking CXX executable auth_tests.exe

@@ -1,0 +1,29 @@
+********* Start testing of TransferTests *********
+Config: Using QtTest library 6.12.0, Qt 6.12.0 (x86_64-little_endian-llp64 shared (dynamic) release build; by GCC 15.1.0), windows 11
+PASS   : TransferTests::initTestCase()
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() Server dang lang nghe cong: 64235
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() SERVER NHAN GOI: "join"
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() DANG XU LY DANG NHAP
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() "Eve" da dang nhap
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() SERVER NHAN GOI: "join"
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() DANG XU LY DANG NHAP
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() "Alice" da dang nhap
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() SERVER NHAN GOI: "join"
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() DANG XU LY DANG NHAP
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() "Bob" da dang nhap
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() SERVER NHAN GOI: "chat"
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() "Alice" : "saved public"
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() SERVER NHAN GOI: "private"
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() Tin rieng: "Alice" -> "Bob"
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() SERVER NHAN GOI: "reply"
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() "Alice" reply: "saved reply"
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() SERVER NHAN GOI: "forward"
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() "Alice" forward den "Bob"
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() SERVER NHAN GOI: "sticker"
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() "Alice" gui sticker cho "Bob"
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() SERVER NHAN GOI: "image"
+QDEBUG : TransferTests::sqliteOverTcpAndRestart() "Alice" gui anh den "Bob"
+PASS   : TransferTests::sqliteOverTcpAndRestart()
+PASS   : TransferTests::cleanupTestCase()
+Totals: 3 passed, 0 failed, 0 skipped, 0 blacklisted, 780ms
+********* Finished testing of TransferTests *********

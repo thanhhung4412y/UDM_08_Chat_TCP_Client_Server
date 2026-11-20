@@ -1,0 +1,48 @@
+Start testing: Oct 30 06:07 SE Asia Standard Time
+----------------------------------------------------------
+3/9 Testing: history_tests
+3/9 Test: history_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/search-build/history_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/search-build
+"history_tests" start time: Oct 30 06:07 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   4.28 sec
+----------------------------------------------------------
+Test Passed.
+"history_tests" end time: Oct 30 06:07 SE Asia Standard Time
+"history_tests" time elapsed: 00:00:04
+----------------------------------------------------------
+
+7/9 Testing: ui_tests
+7/9 Test: ui_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/search-build/ui_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/search-build
+"ui_tests" start time: Oct 30 06:07 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.31 sec
+----------------------------------------------------------
+Test Passed.
+"ui_tests" end time: Oct 30 06:07 SE Asia Standard Time
+"ui_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/9 Testing: search_tests
+9/9 Test: search_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/search-build/search_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/search-build
+"search_tests" start time: Oct 30 06:07 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.80 sec
+----------------------------------------------------------
+Test Passed.
+"search_tests" end time: Oct 30 06:07 SE Asia Standard Time
+"search_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 30 06:07 SE Asia Standard Time

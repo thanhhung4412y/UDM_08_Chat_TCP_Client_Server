@@ -1,0 +1,12 @@
+[1/14] Automatic MOC and UIC for target chat_connection
+[2/13] Building CXX object CMakeFiles/chat_connection.dir/Client/sessionconnection.cpp.obj
+[3/13] Linking CXX static library libchat_connection.a
+[4/13] Automatic MOC and UIC for target ui_preview
+[5/12] Linking CXX executable ChatClient.exe
+[6/12] Linking CXX executable connection_tests.exe
+[7/12] Linking CXX executable auth_tests.exe
+[8/12] Linking CXX executable ui_tests.exe
+[9/12] Linking CXX executable password_tests.exe
+[10/12] Linking CXX executable profile_tests.exe
+[11/12] Building CXX object CMakeFiles/ui_preview.dir/tests/ui_preview.cpp.obj
+[12/12] Linking CXX executable ui_preview.exe

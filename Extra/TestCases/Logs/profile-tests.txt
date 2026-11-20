@@ -1,0 +1,23 @@
+********* Start testing of ProfileTests *********
+Config: Using QtTest library 6.12.0, Qt 6.12.0 (x86_64-little_endian-llp64 shared (dynamic) release build; by GCC 15.1.0), windows 11
+PASS   : ProfileTests::initTestCase()
+PASS   : ProfileTests::recoveryRotationConsumptionAndPersistence()
+PASS   : ProfileTests::simultaneousResetsConsumeOnce()
+QWARN  : ProfileTests::passwordVisibilityAndResetForm() QFontDatabase: Cannot find font directory C:/Qt/6.12.0/mingw_64/lib/fonts.
+Note that Qt no longer ships fonts. Deploy some (from https://dejavu-fonts.github.io/ for example) or switch to fontconfig.
+PASS   : ProfileTests::passwordVisibilityAndResetForm()
+QWARN  : ProfileTests::avatarValidation() qt.gui.imageio.jpeg: Not a JPEG file: starts with 0x6e 0x6f
+QWARN  : ProfileTests::avatarValidation() qt.gui.imageio.jpeg: Not a JPEG file: starts with 0x6e 0x6f
+PASS   : ProfileTests::avatarValidation()
+QDEBUG : ProfileTests::tlsRecoveryRevokesOldSession() Server dang lang nghe cong: 61292
+QDEBUG : ProfileTests::tlsRecoveryRevokesOldSession() "Alice" da thoat
+PASS   : ProfileTests::tlsRecoveryRevokesOldSession()
+QDEBUG : ProfileTests::tlsAvatarBoundToSessionAndPersisted() Server dang lang nghe cong: 61302
+QWARN  : ProfileTests::tlsAvatarBoundToSessionAndPersisted() qt.gui.imageio.jpeg: Not a JPEG file: starts with 0x8a 0x7b
+QWARN  : ProfileTests::tlsAvatarBoundToSessionAndPersisted() qt.gui.imageio.jpeg: Not a JPEG file: starts with 0x8a 0x7b
+QDEBUG : ProfileTests::tlsAvatarBoundToSessionAndPersisted() "Alice" da thoat
+QDEBUG : ProfileTests::tlsAvatarBoundToSessionAndPersisted() "Alice" da thoat
+PASS   : ProfileTests::tlsAvatarBoundToSessionAndPersisted()
+PASS   : ProfileTests::cleanupTestCase()
+Totals: 8 passed, 0 failed, 0 skipped, 0 blacklisted, 61857ms
+********* Finished testing of ProfileTests *********

@@ -1,0 +1,29 @@
+Test project C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/receipts-build
+      Start  1: transfer_tests
+ 1/12 Test  #1: transfer_tests ...................   Passed   49.01 sec
+      Start  2: offline_tests
+ 2/12 Test  #2: offline_tests ....................   Passed    2.30 sec
+      Start  3: history_tests
+ 3/12 Test  #3: history_tests ....................   Passed    4.11 sec
+      Start  4: connection_tests
+ 4/12 Test  #4: connection_tests .................   Passed   13.58 sec
+      Start  5: auth_tests
+ 5/12 Test  #5: auth_tests .......................   Passed   24.55 sec
+      Start  6: password_tests
+ 6/12 Test  #6: password_tests ...................   Passed   39.42 sec
+      Start  7: ui_tests
+ 7/12 Test  #7: ui_tests .........................   Passed    0.31 sec
+      Start  8: profile_tests
+ 8/12 Test  #8: profile_tests ....................   Passed   30.35 sec
+      Start  9: search_tests
+ 9/12 Test  #9: search_tests .....................   Passed    0.89 sec
+      Start 10: recall_tests
+10/12 Test #10: recall_tests .....................   Passed    6.72 sec
+      Start 11: edit_tests
+11/12 Test #11: edit_tests .......................   Passed    7.11 sec
+      Start 12: receipt_tests
+12/12 Test #12: receipt_tests ....................   Passed   10.19 sec
+
+100% tests passed out of 12
+
+Total Test time (real) = 188.60 sec

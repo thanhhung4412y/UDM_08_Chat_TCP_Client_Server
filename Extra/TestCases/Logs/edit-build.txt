@@ -1,0 +1,110 @@
+[1/110] Automatic MOC and UIC for target video_transfer
+[2/110] Automatic MOC and UIC for target chat_ui
+[3/110] Automatic MOC and UIC for target chat_history
+[4/110] Building CXX object CMakeFiles/video_transfer.dir/Shared/jsonchannel.cpp.obj
+[5/110] Building CXX object CMakeFiles/video_transfer.dir/video_transfer_autogen/mocs_compilation.cpp.obj
+[6/110] Building CXX object CMakeFiles/video_transfer.dir/Shared/videoclient.cpp.obj
+[7/110] Building CXX object CMakeFiles/video_transfer.dir/Shared/videorelay.cpp.obj
+[8/110] Linking CXX static library libvideo_transfer.a
+[9/110] Building CXX object CMakeFiles/chat_history.dir/chat_history_autogen/mocs_compilation.cpp.obj
+[10/110] Automatic MOC and UIC for target chat_connection
+[11/110] Building CXX object CMakeFiles/chat_history.dir/Client/historystore.cpp.obj
+[12/110] Building CXX object CMakeFiles/chat_history.dir/Client/historyview.cpp.obj
+[13/110] Building CXX object CMakeFiles/chat_connection.dir/chat_connection_autogen/mocs_compilation.cpp.obj
+[14/110] Building CXX object CMakeFiles/chat_history.dir/Client/chathistory.cpp.obj
+[15/110] Building CXX object CMakeFiles/chat_connection.dir/Client/connectionprofile.cpp.obj
+[16/110] Building CXX object CMakeFiles/chat_history.dir/Client/historysearchdialog.cpp.obj
+[17/110] Building CXX object CMakeFiles/chat_connection.dir/Client/connectiondialog.cpp.obj
+[18/110] Linking CXX static library libchat_history.a
+[19/110] Building CXX object CMakeFiles/chat_connection.dir/Client/recoverydialog.cpp.obj
+[20/110] Building CXX object CMakeFiles/chat_connection.dir/Client/passworddialog.cpp.obj
+[21/110] Automatic MOC and UIC for target history_probe
+[22/110] Building CXX object CMakeFiles/chat_connection.dir/Client/sessionconnection.cpp.obj
+[23/110] Automatic MOC and UIC for target account_server
+[24/110] Linking CXX static library libchat_connection.a
+[25/110] Automatic MOC and UIC for target chat_recall
+[26/110] Building CXX object CMakeFiles/chat_ui.dir/chat_ui_autogen/mocs_compilation.cpp.obj
+[27/110] Building CXX object CMakeFiles/chat_ui.dir/Client/chattheme.cpp.obj
+[28/110] Building CXX object CMakeFiles/chat_recall.dir/chat_recall_autogen/mocs_compilation.cpp.obj
+[29/110] Building CXX object CMakeFiles/chat_ui.dir/Client/chatshell.cpp.obj
+[30/110] Building CXX object CMakeFiles/chat_recall.dir/Client/editmessagedialog.cpp.obj
+[31/110] Building CXX object CMakeFiles/chat_recall.dir/Client/recallclient.cpp.obj
+[32/110] Building CXX object CMakeFiles/account_server.dir/account_server_autogen/mocs_compilation.cpp.obj
+[33/110] Building CXX object CMakeFiles/account_server.dir/Server/recallstore.cpp.obj
+[34/110] Building CXX object CMakeFiles/account_server.dir/Server/accountstore.cpp.obj
+[35/110] Building CXX object CMakeFiles/history_probe.dir/history_probe_autogen/mocs_compilation.cpp.obj
+[36/110] Building CXX object CMakeFiles/account_server.dir/Server/authservice.cpp.obj
+[37/110] Linking CXX static library libchat_ui.a
+[38/110] Linking CXX static library libchat_recall.a
+[39/110] Automatic MOC and UIC for target ChatClient
+[40/110] Building CXX object CMakeFiles/history_probe.dir/tests/history_probe.cpp.obj
+[41/110] Linking CXX executable history_probe.exe
+[42/110] Building CXX object CMakeFiles/account_server.dir/Server/chatserver.cpp.obj
+[43/110] Automatic MOC and UIC for target ui_preview
+[44/110] Automatic MOC and UIC for target search_tests
+[45/110] Building CXX object CMakeFiles/account_server.dir/Server/tlsidentity.cpp.obj
+[46/110] Linking CXX static library libaccount_server.a
+[47/110] Automatic MOC and UIC for target history_tests
+[48/110] Automatic MOC and UIC for target offline_tests
+[49/110] Automatic MOC and UIC for target ui_tests
+[50/110] Automatic MOC and UIC for target chattcp1
+[51/110] Automatic MOC and UIC for target recall_tests
+[52/110] Automatic MOC and UIC for target transfer_tests
+[53/110] Automatic MOC and UIC for target connection_tests
+[54/110] Automatic MOC and UIC for target auth_tests
+[55/110] Automatic RCC for Client/stickers.qrc
+[56/110] Automatic MOC and UIC for target search_preview
+[57/110] Automatic RCC for Client/stickers.qrc
+[58/110] Automatic MOC and UIC for target password_tests
+[59/110] Automatic RCC for Client/stickers.qrc
+[60/110] Automatic RCC for Client/stickers.qrc
+[61/110] Automatic RCC for Client/stickers.qrc
+[62/110] Building CXX object CMakeFiles/ChatClient.dir/ChatClient_autogen/mocs_compilation.cpp.obj
+[63/110] Building CXX object CMakeFiles/history_tests.dir/history_tests_autogen/mocs_compilation.cpp.obj
+[64/110] Building CXX object CMakeFiles/ChatClient.dir/ChatClient_autogen/YWBVKQVKFL/qrc_stickers.cpp.obj
+[65/110] Building CXX object CMakeFiles/history_tests.dir/history_tests_autogen/YWBVKQVKFL/qrc_stickers.cpp.obj
+[66/110] Building CXX object CMakeFiles/search_tests.dir/search_tests_autogen/mocs_compilation.cpp.obj
+[67/110] Automatic MOC and UIC for target profile_tests
+[68/110] Building CXX object CMakeFiles/search_tests.dir/search_tests_autogen/YWBVKQVKFL/qrc_stickers.cpp.obj
+[69/110] Building CXX object CMakeFiles/recall_tests.dir/recall_tests_autogen/mocs_compilation.cpp.obj
+[70/110] Building CXX object CMakeFiles/ChatClient.dir/Client/main_client.cpp.obj
+[71/110] Building CXX object CMakeFiles/recall_tests.dir/recall_tests_autogen/YWBVKQVKFL/qrc_stickers.cpp.obj
+[72/110] Building CXX object CMakeFiles/ui_preview.dir/ui_preview_autogen/mocs_compilation.cpp.obj
+[73/110] Building CXX object CMakeFiles/history_tests.dir/tests/history_tests.cpp.obj
+[74/110] Building CXX object CMakeFiles/ui_preview.dir/ui_preview_autogen/YWBVKQVKFL/qrc_stickers.cpp.obj
+[75/110] Building CXX object CMakeFiles/search_tests.dir/tests/search_tests.cpp.obj
+[76/110] Building CXX object CMakeFiles/recall_tests.dir/tests/recall_tests.cpp.obj
+[77/110] Building CXX object CMakeFiles/ui_preview.dir/tests/ui_preview.cpp.obj
+[78/110] Building CXX object CMakeFiles/chattcp1.dir/chattcp1_autogen/mocs_compilation.cpp.obj
+[79/110] Building CXX object CMakeFiles/transfer_tests.dir/transfer_tests_autogen/mocs_compilation.cpp.obj
+[80/110] Building CXX object CMakeFiles/offline_tests.dir/offline_tests_autogen/mocs_compilation.cpp.obj
+[81/110] Building CXX object CMakeFiles/chattcp1.dir/Server/main.cpp.obj
+[82/110] Building CXX object CMakeFiles/connection_tests.dir/connection_tests_autogen/mocs_compilation.cpp.obj
+[83/110] Building CXX object CMakeFiles/chattcp1.dir/Server/mainwindow.cpp.obj
+[84/110] Building CXX object CMakeFiles/auth_tests.dir/auth_tests_autogen/mocs_compilation.cpp.obj
+[85/110] Building CXX object CMakeFiles/offline_tests.dir/tests/offline_tests.cpp.obj
+[86/110] Building CXX object CMakeFiles/password_tests.dir/password_tests_autogen/mocs_compilation.cpp.obj
+[87/110] Building CXX object CMakeFiles/connection_tests.dir/tests/connection_tests.cpp.obj
+[88/110] Building CXX object CMakeFiles/ui_tests.dir/ui_tests_autogen/mocs_compilation.cpp.obj
+[89/110] Building CXX object CMakeFiles/transfer_tests.dir/tests/transfer_tests.cpp.obj
+[90/110] Building CXX object CMakeFiles/profile_tests.dir/profile_tests_autogen/mocs_compilation.cpp.obj
+[91/110] Building CXX object CMakeFiles/auth_tests.dir/tests/auth_tests.cpp.obj
+[92/110] Building CXX object CMakeFiles/search_preview.dir/search_preview_autogen/mocs_compilation.cpp.obj
+[93/110] Building CXX object CMakeFiles/search_preview.dir/tests/search_preview.cpp.obj
+[94/110] Linking CXX executable chattcp1.exe
+[95/110] Linking CXX executable ChatClient.exe
+[96/110] Linking CXX executable transfer_tests.exe
+[97/110] Linking CXX executable offline_tests.exe
+[98/110] Building CXX object CMakeFiles/password_tests.dir/tests/password_tests.cpp.obj
+[99/110] Linking CXX executable history_tests.exe
+[100/110] Linking CXX executable connection_tests.exe
+[101/110] Linking CXX executable auth_tests.exe
+[102/110] Linking CXX executable password_tests.exe
+[103/110] Linking CXX executable search_tests.exe
+[104/110] Linking CXX executable recall_tests.exe
+[105/110] Building CXX object CMakeFiles/ui_tests.dir/tests/ui_tests.cpp.obj
+[106/110] Linking CXX executable search_preview.exe
+[107/110] Linking CXX executable ui_preview.exe
+[108/110] Linking CXX executable ui_tests.exe
+[109/110] Building CXX object CMakeFiles/profile_tests.dir/tests/profile_tests.cpp.obj
+[110/110] Linking CXX executable profile_tests.exe

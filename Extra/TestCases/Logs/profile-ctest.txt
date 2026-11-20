@@ -1,0 +1,21 @@
+Test project C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build
+    Start 1: transfer_tests
+1/8 Test #1: transfer_tests ...................   Passed   62.61 sec
+    Start 2: offline_tests
+2/8 Test #2: offline_tests ....................   Passed    2.50 sec
+    Start 3: history_tests
+3/8 Test #3: history_tests ....................   Passed    4.40 sec
+    Start 4: connection_tests
+4/8 Test #4: connection_tests .................   Passed   20.34 sec
+    Start 5: auth_tests
+5/8 Test #5: auth_tests .......................   Passed   47.51 sec
+    Start 6: password_tests
+6/8 Test #6: password_tests ...................   Passed   66.14 sec
+    Start 7: ui_tests
+7/8 Test #7: ui_tests .........................   Passed    0.36 sec
+    Start 8: profile_tests
+8/8 Test #8: profile_tests ....................   Passed   55.85 sec
+
+100% tests passed out of 8
+
+Total Test time (real) = 259.79 sec

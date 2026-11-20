@@ -1,0 +1,8 @@
+[1/10] Automatic MOC and UIC for target chat_ui
+[2/9] Building CXX object CMakeFiles/chat_ui.dir/Client/chatshell.cpp.obj
+[3/9] Linking CXX static library libchat_ui.a
+[4/9] Linking CXX executable ui_preview.exe
+[5/9] Linking CXX executable ChatClient.exe
+[6/9] Automatic MOC and UIC for target ui_tests
+[7/8] Building CXX object CMakeFiles/ui_tests.dir/tests/ui_tests.cpp.obj
+[8/8] Linking CXX executable ui_tests.exe

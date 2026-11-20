@@ -1,0 +1,123 @@
+Start testing: Oct 30 05:44 SE Asia Standard Time
+----------------------------------------------------------
+1/8 Testing: transfer_tests
+1/8 Test: transfer_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build/transfer_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build
+"transfer_tests" start time: Oct 30 05:44 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =  62.61 sec
+----------------------------------------------------------
+Test Passed.
+"transfer_tests" end time: Oct 30 05:45 SE Asia Standard Time
+"transfer_tests" time elapsed: 00:01:02
+----------------------------------------------------------
+
+2/8 Testing: offline_tests
+2/8 Test: offline_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build/offline_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build
+"offline_tests" start time: Oct 30 05:45 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   2.50 sec
+----------------------------------------------------------
+Test Passed.
+"offline_tests" end time: Oct 30 05:46 SE Asia Standard Time
+"offline_tests" time elapsed: 00:00:02
+----------------------------------------------------------
+
+3/8 Testing: history_tests
+3/8 Test: history_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build/history_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build
+"history_tests" start time: Oct 30 05:46 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   4.40 sec
+----------------------------------------------------------
+Test Passed.
+"history_tests" end time: Oct 30 05:46 SE Asia Standard Time
+"history_tests" time elapsed: 00:00:04
+----------------------------------------------------------
+
+4/8 Testing: connection_tests
+4/8 Test: connection_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build/connection_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build
+"connection_tests" start time: Oct 30 05:46 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =  20.34 sec
+----------------------------------------------------------
+Test Passed.
+"connection_tests" end time: Oct 30 05:46 SE Asia Standard Time
+"connection_tests" time elapsed: 00:00:20
+----------------------------------------------------------
+
+5/8 Testing: auth_tests
+5/8 Test: auth_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build/auth_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build
+"auth_tests" start time: Oct 30 05:46 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =  47.51 sec
+----------------------------------------------------------
+Test Passed.
+"auth_tests" end time: Oct 30 05:47 SE Asia Standard Time
+"auth_tests" time elapsed: 00:00:47
+----------------------------------------------------------
+
+6/8 Testing: password_tests
+6/8 Test: password_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build/password_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build
+"password_tests" start time: Oct 30 05:47 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =  66.14 sec
+----------------------------------------------------------
+Test Passed.
+"password_tests" end time: Oct 30 05:48 SE Asia Standard Time
+"password_tests" time elapsed: 00:01:06
+----------------------------------------------------------
+
+7/8 Testing: ui_tests
+7/8 Test: ui_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build/ui_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build
+"ui_tests" start time: Oct 30 05:48 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.36 sec
+----------------------------------------------------------
+Test Passed.
+"ui_tests" end time: Oct 30 05:48 SE Asia Standard Time
+"ui_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/8 Testing: profile_tests
+8/8 Test: profile_tests
+Command: "C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build/profile_tests.exe"
+Directory: C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/profile-build
+"profile_tests" start time: Oct 30 05:48 SE Asia Standard Time
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =  55.85 sec
+----------------------------------------------------------
+Test Passed.
+"profile_tests" end time: Oct 30 05:49 SE Asia Standard Time
+"profile_tests" time elapsed: 00:00:55
+----------------------------------------------------------
+
+End testing: Oct 30 05:49 SE Asia Standard Time

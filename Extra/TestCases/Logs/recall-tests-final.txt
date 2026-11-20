@@ -1,0 +1,24 @@
+********* Start testing of RecallTests *********
+Config: Using QtTest library 6.12.0, Qt 6.12.0 (x86_64-little_endian-llp64 shared (dynamic) release build; by GCC 15.1.0), windows 11
+PASS   : RecallTests::initTestCase()
+PASS   : RecallTests::authorityPersistentMetadataAndPagedPrivacy()
+QWARN  : RecallTests::clientTombstonesMediaReplayAndSearch() QFontDatabase: Cannot find font directory C:/Qt/6.12.0/mingw_64/lib/fonts.
+Note that Qt no longer ships fonts. Deploy some (from https://dejavu-fonts.github.io/ for example) or switch to fontconfig.
+PASS   : RecallTests::clientTombstonesMediaReplayAndSearch()
+PASS   : RecallTests::ownershipHitAndOpenSearchInvalidation()
+PASS   : RecallTests::hitTestingSurvivesDocumentTrimming()
+QDEBUG : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync() Server dang lang nghe cong: 57237
+QDEBUG : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync() Tin rieng: "Alice" -> "Bob"
+QDEBUG : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync() "Bob" da thoat
+QDEBUG : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync() "Alice" : "public-original"
+QDEBUG : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync() "Bob" da thoat
+QDEBUG : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync() "Carol" da thoat
+QDEBUG : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync() "Alice" da thoat
+PASS   : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync()
+QDEBUG : RecallTests::completedVideoCanRecallWithoutDeletingFile() Server dang lang nghe cong: 57416
+QDEBUG : RecallTests::completedVideoCanRecallWithoutDeletingFile() "Bob" da thoat
+QDEBUG : RecallTests::completedVideoCanRecallWithoutDeletingFile() "Alice" da thoat
+PASS   : RecallTests::completedVideoCanRecallWithoutDeletingFile()
+PASS   : RecallTests::cleanupTestCase()
+Totals: 8 passed, 0 failed, 0 skipped, 0 blacklisted, 7483ms
+********* Finished testing of RecallTests *********

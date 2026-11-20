@@ -1,0 +1,10 @@
+********* Start testing of TransferTests *********
+Config: Using QtTest library 6.12.0, Qt 6.12.0 (x86_64-little_endian-llp64 shared (dynamic) release build; by GCC 15.1.0), windows 11
+PASS   : TransferTests::initTestCase()
+QDEBUG : TransferTests::fullGiB() Server dang lang nghe cong: 63388
+QDEBUG : TransferTests::fullGiB() "Alice" da thoat
+QDEBUG : TransferTests::fullGiB() "Bob" da thoat
+PASS   : TransferTests::fullGiB()
+PASS   : TransferTests::cleanupTestCase()
+Totals: 3 passed, 0 failed, 0 skipped, 0 blacklisted, 78684ms
+********* Finished testing of TransferTests *********

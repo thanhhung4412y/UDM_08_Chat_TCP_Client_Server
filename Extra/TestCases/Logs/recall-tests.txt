@@ -1,0 +1,25 @@
+********* Start testing of RecallTests *********
+Config: Using QtTest library 6.12.0, Qt 6.12.0 (x86_64-little_endian-llp64 shared (dynamic) release build; by GCC 15.1.0), windows 11
+PASS   : RecallTests::initTestCase()
+PASS   : RecallTests::authorityPersistentMetadataAndPagedPrivacy()
+QWARN  : RecallTests::clientTombstonesMediaReplayAndSearch() QFontDatabase: Cannot find font directory C:/Qt/6.12.0/mingw_64/lib/fonts.
+Note that Qt no longer ships fonts. Deploy some (from https://dejavu-fonts.github.io/ for example) or switch to fontconfig.
+PASS   : RecallTests::clientTombstonesMediaReplayAndSearch()
+PASS   : RecallTests::ownershipHitAndOpenSearchInvalidation()
+QDEBUG : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync() Server dang lang nghe cong: 57050
+QDEBUG : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync() Tin rieng: "Alice" -> "Bob"
+QDEBUG : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync() "Bob" da thoat
+QDEBUG : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync() "Alice" : "public-original"
+QDEBUG : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync() "Alice" da thoat
+QDEBUG : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync() "Carol" da thoat
+QDEBUG : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync() "Bob" da thoat
+QWARN  : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync() QTemporaryDir: Unable to remove "C:\\Users\\nguye\\Documents\\Codex\\2026-10-29\\referenced-chatgpt-conversation-this-is-an\\server-test-KTMFAd" most likely due to the presence of read-only files.
+PASS   : RecallTests::tlsAuthorityPrivateIsolationAndOfflineResync()
+QDEBUG : RecallTests::completedVideoCanRecallWithoutDeletingFile() Server dang lang nghe cong: 57056
+QDEBUG : RecallTests::completedVideoCanRecallWithoutDeletingFile() "Bob" da thoat
+QDEBUG : RecallTests::completedVideoCanRecallWithoutDeletingFile() "Alice" da thoat
+QWARN  : RecallTests::completedVideoCanRecallWithoutDeletingFile() QTemporaryDir: Unable to remove "C:\\Users\\nguye\\Documents\\Codex\\2026-10-29\\referenced-chatgpt-conversation-this-is-an\\server-test-XePORn" most likely due to the presence of read-only files.
+PASS   : RecallTests::completedVideoCanRecallWithoutDeletingFile()
+PASS   : RecallTests::cleanupTestCase()
+Totals: 7 passed, 0 failed, 0 skipped, 0 blacklisted, 7840ms
+********* Finished testing of RecallTests *********

@@ -1,0 +1,31 @@
+Test project C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/email-build
+      Start  5: connection_tests
+      Start  2: transfer_tests
+      Start  7: password_tests
+ 1/13 Test  #5: connection_tests .................   Passed   25.34 sec
+      Start  9: profile_tests
+ 2/13 Test  #7: password_tests ...................   Passed   68.19 sec
+      Start  6: auth_tests
+ 3/13 Test  #9: profile_tests ....................   Passed   49.25 sec
+      Start  1: email_tests
+ 4/13 Test  #6: auth_tests .......................   Passed   41.36 sec
+      Start 13: receipt_tests
+ 5/13 Test  #2: transfer_tests ...................   Passed  117.49 sec
+      Start 12: edit_tests
+ 6/13 Test  #1: email_tests ......................   Passed   43.14 sec
+      Start 11: recall_tests
+ 7/13 Test #13: receipt_tests ....................   Passed   21.27 sec
+      Start  4: history_tests
+ 8/13 Test #12: edit_tests .......................   Passed   14.81 sec
+      Start  3: offline_tests
+ 9/13 Test  #3: offline_tests ....................   Passed    2.47 sec
+      Start 10: search_tests
+10/13 Test #11: recall_tests .....................   Passed   17.36 sec
+      Start  8: ui_tests
+11/13 Test  #4: history_tests ....................   Passed    4.26 sec
+12/13 Test  #8: ui_tests .........................   Passed    0.33 sec
+13/13 Test #10: search_tests .....................   Passed    0.86 sec
+
+100% tests passed out of 13
+
+Total Test time (real) = 135.67 sec

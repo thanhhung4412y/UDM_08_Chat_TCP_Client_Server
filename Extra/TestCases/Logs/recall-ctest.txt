@@ -1,0 +1,25 @@
+Test project C:/Users/nguye/Documents/Codex/2026-10-29/referenced-chatgpt-conversation-this-is-an/work/recall-build
+      Start  1: transfer_tests
+ 1/10 Test  #1: transfer_tests ...................   Passed   57.82 sec
+      Start  2: offline_tests
+ 2/10 Test  #2: offline_tests ....................   Passed    2.55 sec
+      Start  3: history_tests
+ 3/10 Test  #3: history_tests ....................   Passed    4.50 sec
+      Start  4: connection_tests
+ 4/10 Test  #4: connection_tests .................   Passed   16.96 sec
+      Start  5: auth_tests
+ 5/10 Test  #5: auth_tests .......................   Passed   35.35 sec
+      Start  6: password_tests
+ 6/10 Test  #6: password_tests ...................   Passed   57.74 sec
+      Start  7: ui_tests
+ 7/10 Test  #7: ui_tests .........................   Passed    0.40 sec
+      Start  8: profile_tests
+ 8/10 Test  #8: profile_tests ....................   Passed   44.50 sec
+      Start  9: search_tests
+ 9/10 Test  #9: search_tests .....................   Passed    1.03 sec
+      Start 10: recall_tests
+10/10 Test #10: recall_tests .....................   Passed    7.60 sec
+
+100% tests passed out of 10
+
+Total Test time (real) = 228.54 sec
