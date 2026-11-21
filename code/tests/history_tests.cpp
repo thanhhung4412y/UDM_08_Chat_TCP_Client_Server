@@ -42,6 +42,44 @@ class HistoryTests : public QObject {
     }
     static QString temporaryRoot(QTemporaryDir &dir) { return dir.path(); }
 private slots:
+    void conversationFilteringAndReopen() {
+        QTemporaryDir dir(QDir::currentPath() + "/conversation-test-XXXXXX"); QVERIFY(dir.isValid()); QString error;
+        const auto path = dir.filePath("split.sqlite");
+        {
+            HistoryStore store; QVERIFY(store.open(path, error));
+            for (int i = 0; i < 125; ++i) {
+                auto p = message("private"); p["text"] = QString("bob%1").arg(i);
+                HistoryRecord record; QCOMPARE(store.append(p, record, error), HistoryStore::SaveResult::Saved);
+            }
+            auto p = message(); HistoryRecord record; QCOMPARE(store.append(p,record,error),HistoryStore::SaveResult::Saved);
+            p = message("private"); p["sender"] = "Carol"; p["to"] = "Alice";
+            QCOMPARE(store.append(p,record,error),HistoryStore::SaveResult::Saved);
+            auto bob = store.page(50,0,error,"Bob",true); QVERIFY2(error.isEmpty(),qPrintable(error)); QCOMPARE(bob.records.size(),50); QVERIFY(bob.hasMore);
+            auto older = store.page(100,bob.records.first().sequence,error,"Bob",true); QCOMPARE(older.records.size(),75); QVERIFY(!older.hasMore);
+            QCOMPARE(store.page(100,0,error,"",true).records.size(),1);
+            QCOMPARE(store.page(100,0,error,"Carol",true).records.size(),1);
+            QVERIFY(store.peers("Alice",error).contains("Carol"));
+        }
+        QTextBrowser browser; ChatHistory history(&browser,"Alice","host",12345);
+        // Open a second store on the same file to verify persisted filtering.
+        HistoryStore reopened; QVERIFY(reopened.open(path,error));
+        QCOMPARE(reopened.page(100,0,error,"Bob",true).records.size(),100);
+        QCOMPARE(reopened.page(100,0,error,"Nobody",true).records.size(),0);
+    }
+
+    void liveConversationIsolation() {
+        QTemporaryDir dir(QDir::currentPath() + "/conversation-test-XXXXXX"); QVERIFY(dir.isValid()); QTextBrowser browser;
+        ChatHistory history(&browser,"Alice","localhost",12345); QVERIFY(history.initialize(dir.path()));
+        QSignalSpy events(&history, &ChatHistory::conversationMessage);
+        auto room = message(); room["text"] = "room-only"; QVERIFY(history.receive(room));
+        auto bob = message("private"); bob["text"] = "bob-only"; QVERIFY(history.receive(bob));
+        auto carol = message("private"); carol["sender"] = "Carol"; carol["to"] = "Alice"; carol["text"] = "carol-only"; QVERIFY(history.receive(carol));
+        QVERIFY(browser.toPlainText().contains("room-only")); QVERIFY(!browser.toPlainText().contains("bob-only"));
+        QCOMPARE(events.size(),3); QCOMPARE(events.last().at(0).toString(),"Carol"); QVERIFY(events.last().at(1).toBool());
+        history.selectConversation("Bob"); QVERIFY(browser.toPlainText().contains("bob-only")); QVERIFY(!browser.toPlainText().contains("room-only")); QVERIFY(!browser.toPlainText().contains("carol-only"));
+        history.selectConversation("Carol"); QVERIFY(browser.toPlainText().contains("carol-only")); QVERIFY(!browser.toPlainText().contains("bob-only"));
+        history.selectConversation(""); QVERIFY(browser.toPlainText().contains("room-only")); QVERIFY(!browser.toPlainText().contains("carol-only"));
+    }
     void persistence_data() {
         QTest::addColumn<QString>("type");
         for (const auto &t : {"chat", "private", "reply", "forward", "sticker", "image", "video"})
@@ -201,3 +239,4 @@ private slots:
 };
 QTEST_MAIN(HistoryTests)
 #include "history_tests.moc"
+
